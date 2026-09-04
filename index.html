@@ -1,10 +1,11 @@
-<<<<<<< HEAD
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BRAMY PARFUMS — Haute Parfumerie</title>
+    <!-- Tipografías de lujo desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -421,213 +422,19 @@
             margin: 0;
         }
         .qty-input[type=number] {
-         -moz-appearance: textfield;
+            -moz-appearance: textfield;
         }
 
-        /* Botón de Agregar al Carrito */
-        .btn-add-cart {
+        /* Botón de WhatsApp */
+        .btn-whatsapp {
             width: 100%;
             padding: 0.95rem;
-            background-color: transparent;
-            color: var(--accent-gold);
-            border: 1px solid var(--accent-gold);
-            border-radius: 4px;
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-add-cart:hover {
-            background-color: var(--accent-gold);
-            color: var(--bg-dark);
-            box-shadow: 0 0 15px rgba(201, 160, 99, 0.3);
-        }
-
-        /* Botón Flotante del Carrito */
-        .cart-trigger {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--accent-gold);
-            color: var(--bg-dark);
-            border: none;
-            border-radius: 50px;
-            padding: 1rem 1.5rem;
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            z-index: 1001;
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-
-        .cart-trigger:hover {
-            transform: scale(1.05);
-            background: var(--accent-gold-light);
-        }
-
-        .cart-count {
-            background: var(--bg-dark);
-            color: var(--accent-gold);
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-
-        /* Panel Modal / Lateral del Carrito */
-        .cart-modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(5px);
-            z-index: 2000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .cart-modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: -420px;
-            width: 100%;
-            max-width: 400px;
-            height: 100%;
-            background: var(--bg-card);
-            border-left: 1px solid var(--border-color);
-            z-index: 2001;
-            display: flex;
-            flex-direction: column;
-            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            padding: 2rem 1.5rem;
-        }
-
-        .cart-sidebar.active {
-            right: 0;
-        }
-
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cart-header h3 {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            color: var(--accent-gold);
-        }
-
-        .close-cart-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.8rem;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .close-cart-btn:hover {
-            color: var(--text-primary);
-        }
-
-        .cart-items {
-            flex: 1;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-            padding-right: 0.5rem;
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #181818;
-            padding: 1rem;
-            border-radius: 6px;
-            border: 1px solid #282828;
-        }
-
-        .cart-item-info h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 0.2rem;
-        }
-
-        .cart-item-info p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .remove-item-btn {
-            background: none;
-            border: none;
-            color: #ff5555;
-            cursor: pointer;
-            font-size: 1.2rem;
-            padding: 0.2rem 0.5rem;
-            transition: opacity 0.2s;
-        }
-
-        .remove-item-btn:hover {
-            opacity: 0.7;
-        }
-
-        .cart-footer {
-            border-top: 1px solid var(--border-color);
-            padding-top: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .cart-total-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .cart-total-price {
-            color: var(--accent-gold);
-        }
-
-        /* Botón de WhatsApp en el Carrito */
-        .btn-whatsapp-cart {
-            width: 100%;
-            padding: 1rem;
             background-color: var(--wa-color);
             color: #fff;
             border: none;
             border-radius: 4px;
             font-family: var(--font-sans);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 0.05em;
             cursor: pointer;
@@ -635,23 +442,16 @@
             align-items: center;
             justify-content: center;
             gap: 0.6rem;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .btn-whatsapp-cart:hover {
+        .btn-whatsapp:hover {
             background-color: var(--wa-hover);
         }
 
         .wa-icon {
             width: 18px;
             height: 18px;
-        }
-
-        .empty-cart-msg {
-            text-align: center;
-            color: var(--text-muted);
-            margin-top: 3rem;
-            font-size: 0.9rem;
         }
 
         /* Footer */
@@ -678,6 +478,7 @@
 </head>
 <body>
 
+    <!-- Navigation Header -->
     <header class="site-header">
         <div class="header-inner">
             <a href="#" class="brand-logo">BRAMY PARFUMS</a>
@@ -688,6 +489,7 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -698,6 +500,7 @@
         </div>
     </section>
 
+    <!-- Catalog Section -->
     <section class="catalog-container" id="catalogo">
         <header class="section-header">
             <span class="section-tagline">Selección Exclusiva</span>
@@ -705,6 +508,7 @@
             <div class="divider"></div>
         </header>
 
+        <!-- Search Bar -->
         <div class="search-container">
             <div class="search-input-wrapper">
                 <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -721,6 +525,7 @@
 
         <div class="product-grid" id="productGrid">
 
+            <!-- Card Producto 1 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -743,12 +548,14 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-add-cart" onclick="addToCart('Good Girl Blush', 'qty-1', 360000)">
-                        <span>Agregar al Carrito</span>
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('Good Girl Blush', 'qty-1', 360000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
                     </button>
                 </div>
             </article>
 
+            <!-- Card Producto 2 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -771,12 +578,14 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-add-cart" onclick="addToCart('CH 100ML DM', 'qty-2', 250000)">
-                        <span>Agregar al Carrito</span>
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('CH 100ML DM', 'qty-2', 250000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
                     </button>
                 </div>
             </article>
 
+            <!-- Card Producto 3 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -799,12 +608,14 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-add-cart" onclick="addToCart('GOOD GIRL', 'qty-3', 340000)">
-                        <span>Agregar al Carrito</span>
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('GOOD GIRL', 'qty-3', 340000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
                     </button>
                 </div>
             </article>
 
+            <!-- Card Producto 4 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -827,12 +638,14 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-add-cart" onclick="addToCart('212 NYC', 'qty-4', 250000)">
-                        <span>Agregar al Carrito</span>
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('212 NYC', 'qty-4', 250000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
                     </button>
                 </div>
             </article>
 
+            <!-- Card Producto 5 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -855,12 +668,14 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-add-cart" onclick="addToCart('212 VIP ROSE', 'qty-5', 260000)">
-                        <span>Agregar al Carrito</span>
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('212 VIP ROSE', 'qty-5', 260000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
                     </button>
                 </div>
             </article>
 
+            <!-- Card Producto 6 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -883,150 +698,699 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-add-cart" onclick="addToCart('212 NYC DE 200ML', 'qty-6', 340000)">
-                        <span>Agregar al Carrito</span>
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('212 NYC DE 200ML', 'qty-6', 340000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
                     </button>
                 </div>
             </article>
 
+            <!-- Card Producto 7 -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-7">3</span> Unidades Disponibles
+                    </span>
+                    <img src="images/CH-Carolina-Herrera-Perfumeria-Zafiro-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="CAROLINA HERRERA CH MEN" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">CAROLINA HERRERA</span>
+                    <h3 class="product-title">CH MEN</h3>
+                    <p class="product-specs">Eau de Toilette • 100 ml</p>
+                    <div class="price-tag">$250.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-7', -1)">−</button>
+                            <input type="number" id="qty-7" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-7', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('CAROLINA HERRERA CH MEN', 'qty-7', 250000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card Producto 8 -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-8">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/Heroes-600x600-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="CAROLINA HERRERA 212 HEROES 90ML EDP" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">CAROLINA HERRERA</span>
+                    <h3 class="product-title">212 HEROES</h3>
+                    <p class="product-specs">Eau de Parfum • 90 ml</p>
+                    <div class="price-tag">$300.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-8', -1)">−</button>
+                            <input type="number" id="qty-8" value="1" min="1" max="1" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-8', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('212 HEROES', 'qty-8', 300000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card Producto 9 -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-9">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/Eau-de-cartier-concentre-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="EAU DE CARTIER CONCENTRE 100ML" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">CARTIER</span>
+                    <h3 class="product-title">EAU DE CARTIER CONCENTRE</h3>
+                    <p class="product-specs">Eau de Parfum • 100 ml</p>
+                    <div class="price-tag">$280.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-9', -1)">−</button>
+                            <input type="number" id="qty-9" value="1" min="1" max="1" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-9', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('EAU DE CARTIER CONCENTRE 100ML', 'qty-9', 280000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+                        <!-- Card Producto 3 -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/montblanc-2443-0373651-1-zoom-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="Lattafa Emeer Eau de Parfum" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">MONTBLANC</span>
+                    <h3 class="product-title">STARWALKER</h3>
+                    <p class="product-specs">Eau de toilette • 75 ml</p>
+                    <div class="price-tag">$120.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('starwaker', 'qty-2', 120000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+               <!-- Card Producto 4-->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/s-l1200-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="Lattafa Emeer Eau de Parfum" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">PACO RABANNE</span>
+                    <h3 class="product-title">1 MILLON</h3>
+                    <p class="product-specs">Eau de toilette • 200 ml</p>
+                    <div class="price-tag">$340.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('1 MILLON DE 200ml', 'qty-2', 340000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+             <!-- Card Producto 5-->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/images-removebg-preview(1).png?auto=format&fit=crop&q=80&w=800" alt="Lattafa Emeer Eau de Parfum" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">VERSACE</span>
+                    <h3 class="product-title">VERSACE EROS EDP </h3>
+                    <p class="product-specs">eau de parfum • 200 ml</p>
+                    <div class="price-tag">$290.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('VERSACE EROS DE 200ml', 'qty-2', 290000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+             <!-- Card Producto 5-->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/3614226905666_1-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BURBERRY EDP 100ML" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">BURBERRY</span>
+                    <h3 class="product-title">BURBERRY </h3>
+                    <p class="product-specs">eau de parfum • 100 ml</p>
+                    <div class="price-tag">$140.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('BURBERRY EDP 100ML', 'qty-2', 140000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+            <!-- Card Producto 5-->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/157587-800-914-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="HUGO BOSS MAN 125ML" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">HUGO BOSS</span>
+                    <h3 class="product-title">HUGO BOSS MAN </h3>
+                    <p class="product-specs">eau de tolitte• 125 ml</p>
+                    <div class="price-tag">$150.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('HUGO BOSS MAN 125ML', 'qty-2', 150000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+             <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/Lacosteesencialnueva_grande-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="LACOSTE ESSENTIAL 125ML" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">LACOSTE</span>
+                    <h3 class="product-title">LACOSTE ESSENTIAL</h3>
+                    <p class="product-specs">eau de tolitte• 125 ml</p>
+                    <div class="price-tag">$150.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('LACOSTE ESSENTIAL 125ML', 'qty-2', 150000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+             <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/CHANELSUBLIMAGELETEINT-2026-04-18T092934.326-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="CHANEL ALLURE HOMME SPORT 150ML" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">CHANEL</span>
+                    <h3 class="product-title">ALLURE HOMME SPORT</h3>
+                    <p class="product-specs">eau de tolitte• 150 ml</p>
+                    <div class="price-tag">$550.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('ALALLURE HOMME SPORT', 'qty-2', 550000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+              <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/bleu-de-chanel-parfum-spray-5fl-oz--packshot-alternative-v1-107190-9564954591262-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BLEU CHANEL PARFUM 150ML" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">CHANEL</span>
+                    <h3 class="product-title">BLEU </h3>
+                    <p class="product-specs">parfum• 150 ml</p>
+                    <div class="price-tag">$650.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('BLEU', 'qty-2', 650000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+              <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/3145891074604_1_a48a4c85-ecab-4390-aabc-c0273340fcd1-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BLEU CHANEL 100ML EDP " class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">CHANEL</span>
+                    <h3 class="product-title">BLEU </h3>
+                    <p class="product-specs"> eau de toilette• 100 ml</p>
+                    <div class="price-tag">$390.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('BLEU CHANEL 100ML EDP', 'qty-2', 390000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+             <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/61FP1HETm1L._AC_UF1000_1000_QL80_-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="CHANEL #5 200ML EDP " class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">CHANEL</span>
+                    <h3 class="product-title">CHANEL #5 </h3>
+                    <p class="product-specs"> eau de parfum • 100 ml</p>
+                    <div class="price-tag">$550.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('CHANEL #5 ', 'qty-2', 550000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+             <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/114901-2-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="YVES SAINT LAURENT 100ML EDP " class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">YVES SAINT LAURENT</span>
+                    <h3 class="product-title">LIBRE </h3>
+                    <p class="product-specs"> eau deparfum• 100 ml</p>
+                    <div class="price-tag">$390.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('LIBRE', 'qty-2', 390000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+            <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/valentino-011305vl-1-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="VALENTINO UOMO " class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name"> VALENTINO</span>
+                    <h3 class="product-title">VALENTINO UOMO </h3>
+                    <p class="product-specs"> eau de toilette • 100 ml</p>
+                    <div class="price-tag">$290.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('VALENTINO UOMO', 'qty-2', 290000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+               <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/Perfume-Omnia-Crystalline-De-Bvlgari-Para-Mujer-eau-de-toilette-100-ml-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BVLGARI OMNIA CRYSTALLINE" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name"> BVLGARI</span>
+                    <h3 class="product-title">OMNIA CRYSTALLINE</h3>
+                    <p class="product-specs"> eau de toilette • 100 ml</p>
+                    <div class="price-tag">$330.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('OMNIA CRYSTALLINE', 'qty-2', 330000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+              <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/MOMNAN_2__92660-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BVLGARI OMNIA AMETHISTE 100ML" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name"> BVLGARI</span>
+                    <h3 class="product-title">OMNIA AMETHYSTE</h3>
+                    <p class="product-specs"> eau de toilette • 100 ml</p>
+                    <div class="price-tag">$330.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('OMNIA AMETHYSTE', 'qty-2', 330000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+              <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/perfume-para-dama-la-vie-est-belle-by-lancome-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="LA VIE EST BELLE" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name"> LAMCOME</span>
+                    <h3 class="product-title">LA VIE EST BELLE</h3>
+                    <p class="product-specs"> eau de parfum • 100 ml</p>
+                    <div class="price-tag">$330.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('LA VIE EST BELLE', 'qty-2', 330000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+              <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/perfume-dior-homme-intense-eau-de-parfum-100ml-hombre-6760790-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="DIOR HOMME INTENSE" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name"> DIOR</span>
+                    <h3 class="product-title">DIOR HOMME INTENSE</h3>
+                    <p class="product-specs"> eau de parfum • 100 ml</p>
+                    <div class="price-tag">$450.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('DIOR HOMME INTENSE', 'qty-2', 4500000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+             <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/sauvage_elixir_de_100ml-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="SAUVAGE ELIXIR" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name"> DIOR</span>
+                    <h3 class="product-title">SAUVAGE ELIXIR</h3>
+                    <p class="product-specs"> elixir • 60 ml</p>
+                    <div class="price-tag">$500.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('SAUVAGE ELIXIR', 'qty-2', 500000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+               <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/w_1500_h_1500_fit_cover-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="TESTER LA VIE EST BELLE" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name"> LANCOME</span>
+                    <h3 class="product-title">TESTER LA VIE EST BELLE</h3>
+                    <p class="product-specs"> eau de parfum  • 30 ml</p>
+                    <div class="price-tag">$95.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('TESTER LA VIE EST BELLE', 'qty-2', 950000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+             <!-- Card Producto -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/w_800_h_800_fit_pad-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="TESTER GOOD GIRL SUPREME 50ML" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name"> CAROLINA HERRERA</span>
+                    <h3 class="product-title">TESTER GOOD GIRL SUPREME</h3>
+                    <p class="product-specs"> eau de parfum  • 50 ml</p>
+                    <div class="price-tag">$95.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
+                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('TESTER GOOD GIRL SUPREME', 'qty-2', 950000)">
+                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                        <span>Pedir por WhatsApp</span>
+                    </button>
+                </div>
+            </article>
+
+
         </div>
     </section>
 
-    <button class="cart-trigger" onclick="toggleCart()">
-        <svg style="width:20px;height:20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-        <span>Carrito</span>
-        <span class="cart-count" id="cartCount">0</span>
-    </button>
-
-    <div class="cart-modal-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-    <aside class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3>Tu Carrito</h3>
-            <button class="close-cart-btn" onclick="toggleCart()">&times;</button>
-        </div>
-        <div class="cart-items" id="cartItemsContainer">
-            <p class="empty-cart-msg">Tu carrito está vacío</p>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total-row">
-                <span>Total:</span>
-                <span class="cart-total-price" id="cartTotal">$0 COP</span>
-            </div>
-            <button type="button" class="btn-whatsapp-cart" onclick="sendWhatsAppOrder()">
-                <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                <span>Pedir por WhatsApp</span>
-            </button>
-        </div>
-    </aside>
-
+    <!-- Footer -->
     <footer class="site-footer" id="contacto">
         <div class="footer-brand">BRAMY PARFUMS</div>
         <p class="footer-copy">&copy; 2026 BRAMY PARFUMS. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Lógica de JavaScript -->
     <script>
-        const PHONE_NUMBER = '573000000000'; // Reemplaza por tu número de WhatsApp
-        let cart = [];
+        const PHONE_NUMBER = "573000000000"; 
 
         function updateQty(inputId, change) {
             const input = document.getElementById(inputId);
-            let currentVal = parseInt(input.value) || 1;
-            const min = parseInt(input.min) || 1;
-            const max = parseInt(input.max) || 99;
-
-            currentVal += change;
-            if (currentVal >= min && currentVal <= max) {
-                input.value = currentVal;
-            }
-        }
-
-        function addToCart(productName, qtyInputId, unitPrice) {
-            const qty = parseInt(document.getElementById(qtyInputId).value) || 1;
-            const existingIndex = cart.findIndex(item => item.name === productName);
-
-            if (existingIndex > -1) {
-                cart[existingIndex].qty += qty;
-            } else {
-                cart.push({
-                    name: productName,
-                    price: unitPrice,
-                    qty: qty
-                });
-            }
-
-            updateCartUI();
-            toggleCart(true); // Abre el carrito automáticamente al agregar
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function toggleCart(forceOpen = false) {
-            const sidebar = document.getElementById('cartSidebar');
-            const overlay = document.getElementById('cartOverlay');
+            if (!input) return;
             
-            if (forceOpen) {
-                sidebar.classList.add('active');
-                overlay.classList.add('active');
-            } else {
-                sidebar.classList.toggle('active');
-                overlay.classList.toggle('active');
-            }
+            let val = parseInt(input.value) || 1;
+            let min = parseInt(input.min) || 1;
+            let max = parseInt(input.max) || 99;
+
+            val += change;
+            if (val < min) val = min;
+            if (val > max) val = max;
+
+            input.value = val;
         }
 
-        function updateCartUI() {
-            const container = document.getElementById('cartItemsContainer');
-            const countElem = document.getElementById('cartCount');
-            const totalElem = document.getElementById('cartTotal');
+        function checkoutWhatsApp(productName, qtyInputId, unitPrice) {
+            const input = document.getElementById(qtyInputId);
+            const qty = input ? parseInt(input.value) || 1 : 1;
+            const totalPrice = qty * unitPrice;
 
-            let totalItems = 0;
-            let totalPrice = 0;
+            const formattedTotal = new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                maximumFractionDigits: 0
+            }).format(totalPrice);
 
-            if (cart.length === 0) {
-                container.innerHTML = `<p class="empty-cart-msg">Tu carrito está vacío</p>`;
-            } else {
-                container.innerHTML = '';
-                cart.forEach((item, index) => {
-                    const itemTotal = item.price * item.qty;
-                    totalPrice += itemTotal;
-                    totalItems += item.qty;
-
-                    const itemElem = document.createElement('div');
-                    itemElem.className = 'cart-item';
-                    itemElem.innerHTML = `
-                        <div class="cart-item-info">
-                            <h4>${item.name}</h4>
-                            <p>Cantidad: ${item.qty} × $${item.price.toLocaleString('es-CO')} COP</p>
-                            <p><strong>Subtotal: $${itemTotal.toLocaleString('es-CO')} COP</strong></p>
-                        </div>
-                        <button class="remove-item-btn" onclick="removeFromCart(${index})">&times;</button>
-                    `;
-                    container.appendChild(itemElem);
-                });
-            }
-
-            countElem.textContent = totalItems;
-            totalElem.textContent = `$${totalPrice.toLocaleString('es-CO')} COP`;
-        }
-
-        function sendWhatsAppOrder() {
-            if (cart.length = 0) {
-                alert("Tu carrito está vacío. Agrega productos antes de realizar el pedido.");
-                return;
-            }
-
-            let message = `*NUEVO PEDIDO DE BRAMY PARFUMS*\n\n`;
-            let total = 0;
-
-            cart.forEach((item, i) => {
-                const subtotal = item.price * item.qty;
-                total += subtotal;
-                message += `${i + 1}. *${item.name}*\n   • Cantidad: ${item.qty}\n   • Valor: $${subtotal.toLocaleString('es-CO')} COP\n\n`;
-            });
-
-            message += `*TOTAL ESTIMADO:* $${total.toLocaleString('es-CO')} COP\n\nQuedo atento para confirmar disponibilidad y envío.`;
+            const message = `Hola BRAMY PARFUMS, deseo realizar un pedido:\n\n` +
+                            `• *Producto:* ${productName}\n` +
+                            `• *Cantidad:* ${qty}\n` +
+                            `• *Total estimado:* ${formattedTotal}\n\n` +
+                            `Quedo atento para confirmar disponibilidad y envío.`;
 
             const url = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
@@ -1058,2337 +1422,4 @@
         }
     </script>
 </body>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexus ERP - Sistema Contable y Financiero</title>
-  
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Chart.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <style>
-    :root {
-      --bg-dark: #0f172a;
-      --bg-card: #1e293b;
-      --bg-sidebar: #0f172a;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --accent-gold: #f59e0b;
-      --success: #10b981;
-      --danger: #ef4444;
-      --border-color: #334155;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* LANDING / LOGIN */
-    #landing-page {
-      display: flex;
-      min-height: 100vh;
-      width: 100%;
-    }
-
-    .login-hero {
-      flex: 1.2;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(30, 41, 59, 0.9)), 
-                  url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 60px;
-    }
-
-    .hero-content { margin-top: auto; margin-bottom: auto; max-width: 600px; }
-    .hero-tag {
-      display: inline-block; background: rgba(37, 99, 235, 0.2); color: #60a5fa;
-      border: 1px solid rgba(96, 165, 250, 0.3); padding: 6px 16px; border-radius: 20px;
-      font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; text-transform: uppercase;
-    }
-    .hero-title {
-      font-size: 2.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px;
-      background: linear-gradient(to right, #ffffff, #93c5fd);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .hero-description { font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 30px; }
-    .hero-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .feature-item { display: flex; align-items: center; gap: 12px; color: var(--text-main); font-size: 0.95rem; }
-    .feature-item i { color: var(--success); font-size: 1.1rem; }
-
-    .login-form-container {
-      flex: 0.8; background-color: var(--bg-card); display: flex;
-      flex-direction: column; justify-content: center; align-items: center;
-      padding: 40px; border-left: 1px solid var(--border-color);
-      overflow-y: auto;
-    }
-    .login-card { width: 100%; max-width: 380px; }
-    .login-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 30px; }
-    .login-brand i { font-size: 2rem; color: var(--primary); }
-    .login-brand h2 { font-size: 1.8rem; font-weight: 700; }
-    .login-header { margin-bottom: 25px; }
-    .login-header h3 { font-size: 1.4rem; margin-bottom: 8px; }
-    .login-header p { color: var(--text-muted); font-size: 0.88rem; }
-
-    .form-group { margin-bottom: 20px; display: flex; flex-direction: column; }
-    .form-group label { font-size: 0.85rem; margin-bottom: 8px; color: var(--text-muted); font-weight: 500; }
-    .form-group input, .form-group select, .form-group textarea {
-      padding: 12px 14px; background-color: var(--bg-dark); border: 1px solid var(--border-color);
-      border-radius: 8px; color: var(--text-main); outline: none; font-size: 0.95rem; transition: border-color 0.2s;
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); }
-
-    .pass-container { position: relative; display: flex; align-items: center; }
-    .pass-container input { width: 100%; padding-right: 45px; }
-    .pass-container button {
-      position: absolute; right: 12px; background: none; border: none; color: var(--text-muted); cursor: pointer;
-    }
-
-    .btn-primary {
-      background-color: var(--primary); color: #fff; padding: 12px 20px; border: none;
-      border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.95rem;
-      transition: background 0.2s; width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px;
-    }
-    .btn-primary:hover { background-color: var(--primary-hover); }
-
-    .btn-secondary {
-      background-color: transparent; border: 1px solid var(--border-color); color: var(--text-main);
-      padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 0.88rem; transition: background 0.2s;
-      width: 100%; text-align: center; display: inline-flex; justify-content: center; align-items: center; gap: 6px;
-    }
-    .btn-secondary:hover { background-color: var(--border-color); }
-
-    .btn-success {
-      background-color: var(--success); color: #fff; border: none; padding: 6px 12px;
-      border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
-      display: inline-flex; align-items: center; gap: 6px; transition: background 0.2s;
-    }
-    .btn-success:hover { background-color: #059669; }
-
-    .btn-warning {
-      background-color: var(--accent-gold); color: #000; border: none; padding: 6px 12px;
-      border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
-      display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.2s;
-    }
-    .btn-warning:hover { opacity: 0.9; }
-
-    .btn-danger {
-      background-color: var(--danger); color: #fff; border: none; padding: 6px 12px;
-      border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
-      display: inline-flex; align-items: center; gap: 6px; transition: background 0.2s;
-    }
-    .btn-danger:hover { background-color: #dc2626; }
-
-    .actions-cell { display: flex; gap: 6px; align-items: center; }
-
-    /* ERP APP LAYOUT */
-    #erp-app { display: none; flex: 1; height: 100vh; overflow: hidden; }
-    aside { width: 260px; background-color: var(--bg-sidebar); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; }
-    .sidebar-header { padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 12px; }
-    .sidebar-menu { flex: 1; padding: 15px; overflow-y: auto; }
-    .menu-label { font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); margin: 15px 0 6px 10px; letter-spacing: 1px; font-weight: 700; }
-    .nav-item {
-      display: flex; align-items: center; gap: 12px; padding: 10px 14px; color: var(--text-muted);
-      border-radius: 8px; cursor: pointer; margin-bottom: 4px; font-size: 0.9rem; transition: all 0.2s;
-    }
-    .nav-item:hover, .nav-item.active { background-color: var(--bg-card); color: var(--text-main); }
-    .nav-item.active { border-left: 3px solid var(--primary); }
-
-    main { flex: 1; display: flex; flex-direction: column; background-color: var(--bg-dark); overflow-y: auto; }
-    header { padding: 15px 30px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; background-color: var(--bg-sidebar); }
-
-    .search-box { position: relative; width: 320px; }
-    .search-box input { width: 100%; padding: 9px 12px 9px 38px; background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); font-size: 0.88rem; }
-    .search-box i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
-
-    .user-profile { display: flex; align-items: center; gap: 15px; }
-    .avatar { width: 38px; height: 38px; border-radius: 50%; background-color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem; }
-    .role-badge { font-size: 0.75rem; padding: 4px 10px; border-radius: 12px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
-    .role-superadmin { background-color: rgba(245, 158, 11, 0.2); color: var(--accent-gold); border: 1px solid rgba(245, 158, 11, 0.3); }
-    .role-client { background-color: rgba(37, 99, 235, 0.2); color: var(--primary); border: 1px solid rgba(37, 99, 235, 0.3); }
-
-    /* VIEWS */
-    .view-section { display: none; padding: 30px; }
-    .view-section.active-view { display: block; }
-    .view-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; flex-wrap: wrap; gap: 15px; }
-
-    /* KPI CARDS */
-    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 25px; }
-    .kpi-card { background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: 10px; }
-    .kpi-card h4 { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px; font-weight: 500; }
-    .kpi-card .value { font-size: 1.5rem; font-weight: 700; word-break: break-all; }
-    .kpi-highlight { border-color: rgba(16, 185, 129, 0.4); background: linear-gradient(180deg, rgba(16, 185, 129, 0.08), var(--bg-card)); }
-    
-    .kpi-clickable {
-      cursor: pointer;
-      transition: transform 0.2s, border-color 0.2s;
-    }
-    .kpi-clickable:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent-gold);
-    }
-
-    .kpi-subdetails {
-      display: flex; justify-content: space-between; margin-top: 12px; padding-top: 10px;
-      border-top: 1px dashed var(--border-color); font-size: 0.78rem; color: var(--text-muted); flex-wrap: wrap; gap: 5px;
-    }
-
-    /* CHARTS PROFESIONALES */
-    .charts-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 25px; }
-    .chart-card { background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: 10px; display: flex; flex-direction: column; }
-    .chart-header-flex { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
-    .chart-container-wrapper { position: relative; flex: 1; min-height: 250px; width: 100%; display: flex; justify-content: center; align-items: center; }
-
-    /* SECCIONES Y TABLAS */
-    .payments-section { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 20px; margin-bottom: 25px; }
-    .payments-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
-    .payments-header h3 { font-size: 1.1rem; display: flex; align-items: center; gap: 10px; color: var(--accent-gold); }
-
-    .table-container { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; overflow-x: auto; width: 100%; }
-    table { width: 100%; border-collapse: collapse; text-align: left; min-width: 600px; }
-    th, td { padding: 14px 18px; border-bottom: 1px solid var(--border-color); font-size: 0.9rem; }
-    th { background-color: rgba(0, 0, 0, 0.2); color: var(--text-muted); font-weight: 600; }
-
-    .badge-status { padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; display: inline-block; }
-    .status-activo { background: rgba(16, 185, 129, 0.2); color: var(--success); }
-    .status-suspendido { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
-    .badge-metodo { padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
-    .metodo-nequi { background: rgba(147, 51, 234, 0.2); color: #c084fc; border: 1px solid rgba(147, 51, 234, 0.3); }
-    .metodo-bancolombia { background: rgba(37, 99, 235, 0.2); color: #60a5fa; border: 1px solid rgba(37, 99, 235, 0.3); }
-    .metodo-efectivo { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-
-    /* BANCOS GRID */
-    .banks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 25px; }
-    .bank-card { background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; }
-    .bank-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-    .bank-card-header i { font-size: 1.5rem; color: var(--primary); }
-    .bank-balance { font-size: 1.5rem; font-weight: bold; color: var(--success); margin: 10px 0; }
-
-    /* CUADRE DIARIO CONTAINER */
-    .cuadre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .cuadre-box { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 20px; }
-    .cuadre-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px dashed var(--border-color); flex-wrap: wrap; gap: 5px; }
-    .cuadre-total { font-size: 1.2rem; font-weight: bold; color: var(--accent-gold); }
-
-    /* INPUT CON BOTÓN RÁPIDO */
-    .input-quick-container { display: flex; gap: 8px; }
-    .input-quick-container input { flex: 1; }
-    .btn-quick-fill {
-      background: var(--border-color); border: 1px solid var(--border-color);
-      color: var(--text-main); border-radius: 8px; padding: 0 14px;
-      cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: all 0.2s; white-space: nowrap;
-    }
-    .btn-quick-fill:hover { background: var(--primary); border-color: var(--primary); }
-
-    /* PLANES ESTILOS - PORTAL CLIENTE Y PORTADA */
-    .plan-actual-card {
-      background: linear-gradient(135deg, var(--bg-card), rgba(30, 41, 59, 0.7));
-      border: 1px solid var(--border-color); border-left: 5px solid var(--primary);
-      border-radius: 10px; padding: 25px; margin-bottom: 30px;
-    }
-    .plan-status-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; }
-    .planes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px; }
-    .plan-card {
-      background-color: var(--bg-card); border: 1px solid var(--border-color);
-      border-radius: 10px; padding: 25px; position: relative; display: flex;
-      flex-direction: column; justify-content: space-between; transition: transform 0.2s, border-color 0.2s;
-    }
-    .plan-card:hover { transform: translateY(-4px); border-color: var(--primary); }
-    .plan-card.featured { border: 2px solid var(--primary); box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15); }
-    .plan-card.current-plan { border: 2px solid var(--accent-gold); }
-    .plan-tag {
-      position: absolute; top: -12px; right: 20px; background-color: var(--primary);
-      color: #fff; font-size: 0.72rem; padding: 3px 10px; border-radius: 12px; font-weight: bold; text-transform: uppercase;
-    }
-    .plan-tag.gold { background-color: var(--accent-gold); color: #000; }
-    .plan-price { font-size: 1.8rem; font-weight: bold; color: var(--text-main); margin: 15px 0; }
-    .plan-price span { font-size: 0.9rem; color: var(--text-muted); font-weight: normal; }
-    .plan-features { list-style: none; margin-bottom: 20px; }
-    .plan-features li { margin-bottom: 10px; font-size: 0.88rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
-    .plan-features li i { color: var(--success); }
-
-    /* MODALS */
-    .modal-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.75); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 15px;
-    }
-    .modal-overlay.active { display: flex; }
-    .modal { background-color: var(--bg-card); border: 1px solid var(--border-color); width: 100%; max-width: 700px; border-radius: 10px; padding: 25px; max-height: 90vh; overflow-y: auto; }
-    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-    .modal-footer { display: flex; justify-content: flex-end; gap: 12px; margin-top: 25px; flex-wrap: wrap; }
-
-    /* TABLA DINÁMICA DE ARTÍCULOS */
-    .tabla-items-factura {
-      width: 100%; margin-top: 10px; margin-bottom: 10px; font-size: 0.85rem; min-width: 450px;
-    }
-    .tabla-items-factura th, .tabla-items-factura td {
-      padding: 8px; text-align: left; border-bottom: 1px solid var(--border-color);
-    }
-    .tabla-items-factura input, .tabla-items-factura select {
-      padding: 6px 8px; font-size: 0.85rem; width: 100%;
-    }
-
-    @media (max-width: 992px) {
-      #landing-page { flex-direction: column; }
-      .login-hero { display: none; }
-      .charts-grid, .cuadre-grid { grid-template-columns: 1fr; }
-      #erp-app { flex-direction: column; height: auto; overflow: visible; }
-      aside { width: 100%; height: auto; }
-      main { height: auto; overflow: visible; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- LANDING / LOGIN PAGE -->
-  <div id="landing-page">
-    <div class="login-hero">
-      <div class="hero-content">
-        <span class="hero-tag"><i class="fa-solid fa-shield-halved"></i> Plataforma SaaS Empresarial</span>
-        <h1 class="hero-title">Gestión Contable e Inventario en Tiempo Real</h1>
-        <p class="hero-description">
-          Optimiza la administración financiera de tu empresa. Control de facturación, compras, bancos y cuadre diario de caja.
-        </p>
-        <div class="hero-features">
-          <div class="feature-item"><i class="fa-solid fa-circle-check"></i><span>Facturación Electrónica</span></div>
-          <div class="feature-item"><i class="fa-solid fa-circle-check"></i><span>Gestión Bancaria</span></div>
-          <div class="feature-item"><i class="fa-solid fa-circle-check"></i><span>Cuadre Diario de Caja</span></div>
-          <div class="feature-item"><i class="fa-solid fa-circle-check"></i><span>Aislamiento Multitenant</span></div>
-        </div>
-
-        <!-- PLANES EN PORTADA -->
-        <div style="margin-top: 40px;">
-          <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--text-main);">Nuestros Planes y Beneficios</h3>
-          <div class="planes-grid" style="grid-template-columns: repeat(3, 1fr);">
-            <div class="plan-card" style="background: rgba(15, 23, 42, 0.6);">
-              <div>
-                <h4 style="font-size: 1rem; color: var(--text-main);">Plan Básico</h4>
-                <div class="plan-price" style="font-size: 1.4rem;">$ 40,000 <span>/ mes</span></div>
-                <ul class="plan-features" style="font-size: 0.8rem;">
-                  <li><i class="fa-solid fa-check"></i> Facturación Ilimitada</li>
-                  <li><i class="fa-solid fa-check"></i> Control Inventario Básico</li>
-                  <li><i class="fa-solid fa-check"></i> 2 Cuentas Bancarias</li>
-                </ul>
-              </div>
-              <button class="btn-secondary" onclick="solicitarCambioPlan('Plan Básico - $40,000/mes')"><i class="fa-brands fa-whatsapp"></i> Consultar</button>
-            </div>
-            <div class="plan-card" style="background: rgba(15, 23, 42, 0.6); border-color: var(--accent-gold);">
-              <span class="plan-tag gold" style="font-size: 0.65rem;">Popular</span>
-              <div>
-                <h4 style="font-size: 1rem; color: var(--text-main);">Plan Pro</h4>
-                <div class="plan-price" style="font-size: 1.4rem;">$ 85,000 <span>/ mes</span></div>
-                <ul class="plan-features" style="font-size: 0.8rem;">
-                  <li><i class="fa-solid fa-check"></i> Facturación Ilimitada</li>
-                  <li><i class="fa-solid fa-check"></i> Bodega y Stock Avanzado</li>
-                  <li><i class="fa-solid fa-check"></i> Cuadre Diario Caja</li>
-                </ul>
-              </div>
-              <button class="btn-secondary" onclick="solicitarCambioPlan('Plan Pro - $85,000/mes')"><i class="fa-brands fa-whatsapp"></i> Consultar</button>
-            </div>
-            <div class="plan-card" style="background: rgba(15, 23, 42, 0.6); border-color: var(--primary);">
-              <span class="plan-tag" style="font-size: 0.65rem;">VIP</span>
-              <div>
-                <h4 style="font-size: 1rem; color: var(--text-main);">Plan Enterprise</h4>
-                <div class="plan-price" style="font-size: 1.4rem;">$ 180,000 <span>/ mes</span></div>
-                <ul class="plan-features" style="font-size: 0.8rem;">
-                  <li><i class="fa-solid fa-check"></i> Todo lo del Plan Pro</li>
-                  <li><i class="fa-solid fa-check"></i> Multi-Sucursal</li>
-                  <li><i class="fa-solid fa-check"></i> Soporte VIP 24/7</li>
-                </ul>
-              </div>
-              <button class="btn-primary" style="padding: 8px 12px; font-size: 0.85rem;" onclick="solicitarCambioPlan('Plan Enterprise - $180,000/mes')"><i class="fa-brands fa-whatsapp"></i> Consultar</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="login-form-container">
-      <div class="login-card">
-        <div class="login-brand">
-          <i class="fa-solid fa-chart-line"></i>
-          <h2>Sistema Contable</h2>
-        </div>
-        
-        <div class="login-header">
-          <h3>Iniciar Sesión</h3>
-          <p>Ingrese sus credenciales de acceso para entrar a su organización.</p>
-        </div>
-
-        <form onsubmit="ejecutarLogin(event)">
-          <div class="form-group">
-            <label>Correo Electrónico o Usuario</label>
-            <input type="text" id="login-user" required placeholder="correo@empresa.com o usuario" value="admin@nexuserp.com">
-          </div>
-
-          <div class="form-group">
-            <label>Contraseña</label>
-            <div class="pass-container">
-              <input type="password" id="login-pass" required placeholder="••••••••" value="123456">
-              <button type="button" onclick="togglePassVisibility('login-pass', this)">
-                <i class="fa-solid fa-eye"></i>
-              </button>
-            </div>
-          </div>
-
-          <button type="submit" class="btn-primary" style="margin-top: 10px;">
-            <i class="fa-solid fa-right-to-bracket"></i> Ingresar al Sistema
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- ERP SYSTEM APPLICATION -->
-  <div id="erp-app">
-    <!-- SIDEBAR -->
-    <aside>
-      <div class="sidebar-header">
-        <i class="fa-solid fa-cubes-stacked fa-xl" style="color:var(--primary);"></i>
-        <div>
-          <h3 style="font-size: 1rem;">Sistema ERP</h3>
-          <p style="font-size: 0.75rem; color: var(--text-muted);" id="sidebar-company-name">Cargando...</p>
-        </div>
-      </div>
-
-      <div class="sidebar-menu">
-        <!-- SECCIÓN SUPERADMIN -->
-        <div class="menu-label id-admin-only" style="display:none;">Administración SaaS</div>
-        <div class="nav-item id-admin-only" data-view="saas-admin" style="display:none;">
-          <i class="fa-solid fa-crown"></i> Panel SuperAdmin
-        </div>
-
-        <!-- SECCIÓN CLIENTE -->
-        <div class="menu-label">Gestión Empresarial</div>
-        <div class="nav-item active" data-view="dashboard">
-          <i class="fa-solid fa-chart-pie"></i> Dashboard
-        </div>
-        <div class="nav-item id-client-only" data-view="portal-cliente">
-          <i class="fa-solid fa-user-gear"></i> Portal Cliente
-        </div>
-        <div class="nav-item" data-view="facturacion">
-          <i class="fa-solid fa-file-invoice-dollar"></i> Facturas Venta
-        </div>
-        <div class="nav-item" data-view="cartera-credito">
-          <i class="fa-solid fa-file-invoice"></i> Cartera de Crédito
-        </div>
-        <div class="nav-item" data-view="compras">
-          <i class="fa-solid fa-cart-shopping"></i> Compras / Gastos
-        </div>
-        <div class="nav-item" data-view="bancos">
-          <i class="fa-solid fa-building-columns"></i> Cuentas Bancarias
-        </div>
-        <div class="nav-item" data-view="cuadre-caja">
-          <i class="fa-solid fa-cash-register"></i> Cuadre Diario Caja
-        </div>
-        <div class="nav-item" data-view="bodega">
-          <i class="fa-solid fa-warehouse"></i> Inventario / Bodega
-        </div>
-        <div class="nav-item" data-view="terceros">
-          <i class="fa-solid fa-users"></i> Clientes y Proveedores
-        </div>
-      </div>
-
-      <div style="padding: 15px; border-top: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 8px;">
-        <button class="btn-success" style="width: 100%; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 0.8rem;" onclick="sincronizarManualmenteDatos()">
-          <i class="fa-solid fa-sync"></i> Sincronizar / Actualizar
-        </button>
-        <button class="btn-secondary" style="width: 100%; text-align: left; display: flex; align-items: center; gap: 8px;" onclick="cerrarSesion()">
-          <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
-        </button>
-      </div>
-    </aside>
-
-    <!-- MAIN BODY -->
-    <main>
-      <header>
-        <div class="search-box">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" id="globalSearch" placeholder="Buscar en el sistema..." onkeyup="filtrarTablas()">
-        </div>
-
-        <div class="user-profile">
-          <span class="role-badge role-client" id="user-role-badge">Cliente</span>
-          <div class="avatar" id="user-avatar">US</div>
-        </div>
-      </header>
-
-      <!-- VISTA: DASHBOARD SUPERADMIN SAAS -->
-      <section id="saas-admin" class="view-section">
-        <div class="view-header">
-          <h2><i class="fa-solid fa-crown" style="color:var(--accent-gold);"></i> Gestor SaaS - Métricas Globales</h2>
-          <button class="btn-primary" style="width:auto;" onclick="abrirModal('modalNuevoClienteSaaS')">
-            <i class="fa-solid fa-plus"></i> Registrar Nueva Empresa / Usuario
-          </button>
-        </div>
-
-        <div class="kpi-grid">
-          <div class="kpi-card">
-            <h4>Empresas Activas</h4>
-            <div class="value" id="kpi-saas-activos">0</div>
-          </div>
-          <div class="kpi-card">
-            <h4>Ingresos Recurrentes (MRR)</h4>
-            <div class="value" style="color:var(--success);" id="kpi-saas-mrr">$ 0</div>
-          </div>
-          <div class="kpi-card">
-            <h4>Empresas Suspendidas</h4>
-            <div class="value" style="color:var(--danger);" id="kpi-saas-suspendidos">0</div>
-          </div>
-        </div>
-
-        <h3 style="margin-bottom: 15px;">Empresas y Usuarios Registrados en la Plataforma</h3>
-        <div class="table-container">
-          <table id="tabla-saas-clientes">
-            <thead>
-              <tr>
-                <th>Empresa</th>
-                <th>Usuario Admin</th>
-                <th>Plan</th>
-                <th>Precio Mensual</th>
-                <th>Vencimiento</th>
-                <th>Estado</th>
-                <th>Acción (Eliminar / Gestionar)</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- VISTA: DASHBOARD CLIENTE -->
-      <section id="dashboard" class="view-section active-view">
-        <div class="view-header">
-          <h2>Resumen Financiero - <span id="dash-company-title">Empresa</span></h2>
-        </div>
-
-        <div class="kpi-grid">
-          <div class="kpi-card kpi-highlight kpi-clickable" onclick="irAFacturasDelDia()">
-            <h4><i class="fa-solid fa-calendar-day" style="color:var(--success);"></i> Ventas del Día (Hoy) <i class="fa-solid fa-arrow-right-long" style="margin-left: 5px;"></i></h4>
-            <div class="value" style="color: var(--success);" id="kpi-ventas-hoy">$ 0</div>
-            <div class="kpi-subdetails">
-              <span>Facturas Hoy: <strong id="kpi-cant-facturas-hoy" style="color:var(--text-main);">0</strong></span>
-              <span>Ticket Promed: <strong id="kpi-promedio-ventas-hoy" style="color:var(--text-main);">$ 0</strong></span>
-            </div>
-          </div>
-          <div class="kpi-card">
-            <h4>Ventas Históricas Totales</h4>
-            <div class="value" style="color: var(--success);" id="kpi-ingresos">$ 0</div>
-          </div>
-          <div class="kpi-card">
-            <h4>Compras / Gastos</h4>
-            <div class="value" style="color: var(--primary);" id="kpi-gastos">$ 0</div>
-          </div>
-          <div class="kpi-card kpi-clickable" onclick="irACuentasPorPagar()">
-            <h4>Cuentas por Pagar <i class="fa-solid fa-arrow-right-long" style="margin-left: 5px;"></i></h4>
-            <div class="value" style="color: var(--accent-gold);" id="kpi-deudas">$ 0</div>
-          </div>
-          <div class="kpi-card">
-            <h4>Balance Neto</h4>
-            <div class="value" id="kpi-balance">$ 0</div>
-          </div>
-        </div>
-
-        <div class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-          <div class="kpi-card">
-            <h4><i class="fa-solid fa-box-open" style="color:var(--primary);"></i> Rotación / Valor de Inventario</h4>
-            <div class="value" style="font-size: 1.2rem; margin-top: 5px;" id="kpi-valor-inventario">$ 0</div>
-            <div class="kpi-subdetails"><span>Productos en Bodega: <strong id="kpi-total-productos" style="color:var(--text-main);">0</strong></span></div>
-          </div>
-          <div class="kpi-card">
-            <h4><i class="fa-solid fa-percent" style="color:var(--accent-gold);"></i> Margen Bruto Estimado</h4>
-            <div class="value" style="font-size: 1.2rem; color: var(--accent-gold); margin-top: 5px;" id="kpi-margen-bruto">0%</div>
-            <div class="kpi-subdetails"><span>Rentabilidad sobre Costos</span></div>
-          </div>
-          <div class="kpi-card">
-            <h4><i class="fa-solid fa-wallet" style="color:#c084fc;"></i> Liquidez Inmediata (Bancos)</h4>
-            <div class="value" style="font-size: 1.2rem; color: #c084fc; margin-top: 5px;" id="kpi-liquidez-total">$ 0</div>
-            <div class="kpi-subdetails"><span>Nequi, Bancolombia, Ahorros</span></div>
-          </div>
-        </div>
-
-        <div class="payments-section">
-          <div class="payments-header">
-            <h3><i class="fa-solid fa-receipt"></i> Cuentas por Pagar / Pagos Pendientes</h3>
-            <span class="badge-status status-suspendido" id="count-pendientes">0 Pendientes</span>
-          </div>
-          <div class="table-container">
-            <table id="tabla-dashboard-pendientes">
-              <thead>
-                <tr>
-                  <th>N° Registro</th>
-                  <th>Proveedor</th>
-                  <th>Monto Total</th>
-                  <th>Estado</th>
-                  <th>Acción</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="charts-grid">
-          <div class="chart-card">
-            <div class="chart-header-flex">
-              <h4><i class="fa-solid fa-chart-line" style="color:var(--primary);"></i> Tendencia de Ventas y Gastos Mensuales</h4>
-              <span style="font-size:0.75rem; color:var(--text-muted);">Análisis de Crecimiento</span>
-            </div>
-            <div class="chart-container-wrapper">
-              <canvas id="chartFlujo"></canvas>
-            </div>
-          </div>
-          <div class="chart-card">
-            <div class="chart-header-flex">
-              <h4><i class="fa-solid fa-chart-pie" style="color:var(--success);"></i> Métodos de Pago</h4>
-            </div>
-            <div class="chart-container-wrapper">
-              <canvas id="chartBalance"></canvas>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- VISTA: PORTAL CLIENTE -->
-      <section id="portal-cliente" class="view-section">
-        <div class="view-header">
-          <h2>Portal Cliente - Estado de la Suscripción</h2>
-        </div>
-
-        <div class="plan-actual-card">
-          <div class="plan-status-header">
-            <span style="color:var(--text-muted); font-size:0.85rem; text-transform:uppercase; font-weight:bold;">Suscripción Actual</span>
-            <span class="badge-status status-activo"><i class="fa-solid fa-circle-check"></i> Activo</span>
-          </div>
-          <h3 style="font-size: 1.5rem; margin-bottom: 8px;" id="portal-plan-nombre">Plan Administrador</h3>
-          <div class="plan-price" id="portal-plan-precio">$ 0 <span>/ ilimitado (ADM)</span></div>
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">
-            Próximo vencimiento de licencia: <strong id="portal-plan-vencimiento" style="color:var(--accent-gold);">31/12/2030</strong>
-          </p>
-          <ul class="plan-features">
-            <li><i class="fa-solid fa-check"></i> Acceso Full a todos los Módulos y Funciones ADM</li>
-            <li><i class="fa-solid fa-check"></i> Facturación y Ventas Ilimitadas</li>
-            <li><i class="fa-solid fa-check"></i> Cuadre Diario de Caja Automático y Bancos</li>
-            <li><i class="fa-solid fa-check"></i> Soporte Prioritario y SuperAdmin Integrado</li>
-          </ul>
-        </div>
-
-        <h3 style="margin-bottom: 15px; font-size: 1.2rem; color: var(--text-main);">Planes y Opciones Disponibles</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Elige el plan que mejor se adapte al volumen y necesidades de tu negocio.</p>
-
-        <div class="planes-grid" id="portal-planes-disponibles"></div>
-      </section>
-
-      <!-- VISTA: FACTURACIÓN -->
-      <section id="facturacion" class="view-section">
-        <div class="view-header">
-          <h2>Facturas de Venta</h2>
-          <div>
-            <button class="btn-secondary" style="width:auto; display:inline-flex; margin-right: 8px;" onclick="renderizarTablas()">
-              <i class="fa-solid fa-filter-circle-xmark"></i> Ver Todas
-            </button>
-            <button class="btn-primary" style="width:auto; display:inline-flex;" onclick="abrirModalNuevaFactura()">
-              <i class="fa-solid fa-plus"></i> Nueva Factura
-            </button>
-          </div>
-        </div>
-
-        <div class="table-container">
-          <table id="tabla-facturas">
-            <thead>
-              <tr>
-                <th>N° Factura</th>
-                <th>Cliente</th>
-                <th>Artículos / Detalles</th>
-                <th>Método Pago</th>
-                <th>Fecha</th>
-                <th>Monto Total</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- VISTA: CARTERA DE CRÉDITO -->
-      <section id="cartera-credito" class="view-section">
-        <div class="view-header">
-          <h2>Módulo de Cartera de Crédito y Clientes</h2>
-          <button class="btn-primary" style="width:auto;" onclick="abrirModal('modalCarteraCliente')">
-            <i class="fa-solid fa-user-plus"></i> Registrar Cliente de Crédito
-          </button>
-        </div>
-
-        <div class="kpi-grid">
-          <div class="kpi-card">
-            <h4>Total Cartera por Cobrar</h4>
-            <div class="value" style="color: var(--accent-gold);" id="kpi-cartera-total">$ 0</div>
-          </div>
-          <div class="kpi-card">
-            <h4>Clientes con Crédito Activo</h4>
-            <div class="value" id="kpi-cartera-clientes">0</div>
-          </div>
-          <div class="kpi-card">
-            <h4>Facturas a Crédito Pendientes</h4>
-            <div class="value" style="color: var(--danger);" id="kpi-cartera-facturas">0</div>
-          </div>
-        </div>
-
-        <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: var(--text-main);">Directorio de Clientes de Cartera</h3>
-        <div class="table-container" style="margin-bottom: 30px;">
-          <table id="tabla-cartera-clientes">
-            <thead>
-              <tr>
-                <th>Documento / NIT</th>
-                <th>Cliente</th>
-                <th>Teléfono / Contacto</th>
-                <th>Límite de Crédito</th>
-                <th>Deuda Actual</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
-          <h3 style="font-size: 1.1rem; color: var(--text-main);">Facturas de Venta a Crédito</h3>
-          <button class="btn-success" style="width:auto; padding: 6px 12px;" onclick="abrirModal('modalCarteraFactura')">
-            <i class="fa-solid fa-file-circle-plus"></i> Registrar Factura de Crédito
-          </button>
-        </div>
-        <div class="table-container">
-          <table id="tabla-cartera-facturas">
-            <thead>
-              <tr>
-                <th>N° Factura</th>
-                <th>Cliente</th>
-                <th>Fecha Emisión</th>
-                <th>Vencimiento</th>
-                <th>Monto Total</th>
-                <th>Saldo Pendiente</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- VISTA: CUENTAS BANCARIAS -->
-      <section id="bancos" class="view-section">
-        <div class="view-header">
-          <h2>Gestión de Cuentas Bancarias</h2>
-          <button class="btn-primary" style="width:auto;" onclick="abrirModal('modalBanco')">
-            <i class="fa-solid fa-plus"></i> Agregar Cuenta Bancaria
-          </button>
-        </div>
-
-        <div class="banks-grid" id="banks-container"></div>
-      </section>
-
-      <!-- VISTA: CUADRE DIARIO DE CAJA -->
-      <section id="cuadre-caja" class="view-section">
-        <div class="view-header">
-          <h2>Modelo de Cuadre Diario de Caja</h2>
-          <button class="btn-success" style="width:auto;" onclick="guardarCuadreCaja()">
-            <i class="fa-solid fa-floppy-disk"></i> Guardar Cierre de Caja
-          </button>
-        </div>
-
-        <div class="cuadre-grid">
-          <div class="cuadre-box">
-            <h3 style="margin-bottom: 15px; color: var(--primary);"><i class="fa-solid fa-calculator"></i> Flujo Teórico de Caja</h3>
-            
-            <div class="form-group">
-              <label>Base / Saldo Inicial en Caja ($)</label>
-              <input type="number" id="cuadre-base" value="0" oninput="calcularCuadreCaja()">
-            </div>
-
-            <div class="form-group">
-              <label>(+) Ventas en Efectivo ($)</label>
-              <input type="number" id="cuadre-ventas-efectivo" value="0" oninput="calcularCuadreCaja()">
-            </div>
-
-            <div class="form-group">
-              <label>(+) Ventas por Transferencia / Banco ($)</label>
-              <input type="number" id="cuadre-ventas-banco" value="0" oninput="calcularCuadreCaja()">
-            </div>
-
-            <div class="form-group">
-              <label>(-) Gastos / Salidas de Efectivo ($)</label>
-              <input type="number" id="cuadre-gastos-efectivo" value="0" oninput="calcularCuadreCaja()">
-            </div>
-
-            <div class="cuadre-row">
-              <span>Total Esperado en Efectivo:</span>
-              <span class="cuadre-total" id="cuadre-esperado-efectivo">$ 0</span>
-            </div>
-          </div>
-
-          <div class="cuadre-box">
-            <h3 style="margin-bottom: 15px; color: var(--success);"><i class="fa-solid fa-money-bill-wave"></i> Arqueo Físico y Resultado</h3>
-
-            <div class="form-group">
-              <label>Efectivo Físico Contado en Caja ($)</label>
-              <input type="number" id="cuadre-efectivo-fisico" value="0" placeholder="Ingrese el conteo manual" oninput="calcularCuadreCaja()">
-            </div>
-
-            <div class="form-group">
-              <label>Observaciones del Cierre</label>
-              <textarea id="cuadre-observaciones" rows="3" placeholder="Comentarios adicionales del cierre de caja..."></textarea>
-            </div>
-
-            <div class="cuadre-row">
-              <span>Diferencia de Caja:</span>
-              <span class="cuadre-total" id="cuadre-diferencia" style="color:var(--success);">$ 0</span>
-            </div>
-
-            <div style="margin-top: 15px; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 8px;" id="cuadre-estado-badge">
-              <i class="fa-solid fa-circle-check" style="color:var(--success);"></i> Caja Cuadrada
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- VISTA: COMPRAS -->
-      <section id="compras" class="view-section">
-        <div class="view-header">
-          <h2>Compras, Gastos y Facturas de Compra</h2>
-          <div>
-            <button class="btn-secondary" style="width:auto; display:inline-flex; margin-right: 8px;" onclick="renderizarTablas()">
-              <i class="fa-solid fa-filter-circle-xmark"></i> Mostrar Todos
-            </button>
-            <button class="btn-primary" style="width:auto; display:inline-flex;" onclick="abrirModalNuevaCompra()">
-              <i class="fa-solid fa-plus"></i> Registrar Compra / Gasto
-            </button>
-          </div>
-        </div>
-
-        <div class="table-container">
-          <table id="tabla-compras">
-            <thead>
-              <tr>
-                <th>N° Registro</th>
-                <th>Proveedor</th>
-                <th>Artículos / Detalles</th>
-                <th>Monto Total</th>
-                <th>Estado de Pago</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- VISTA: BODEGA -->
-      <section id="bodega" class="view-section">
-        <div class="view-header">
-          <h2>Inventario / Bodega</h2>
-          <button class="btn-primary" style="width:auto;" onclick="abrirModalNuevoProducto()">
-            <i class="fa-solid fa-plus"></i> Nuevo Producto
-          </button>
-        </div>
-
-        <div class="table-container">
-          <table id="tabla-bodega">
-            <thead>
-              <tr>
-                <th>Código</th>
-                <th>Producto / Servicio</th>
-                <th>Stock Disponible</th>
-                <th>Precio Unitario de Venta</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- VISTA: TERCEROS -->
-      <section id="terceros" class="view-section">
-        <div class="view-header">
-          <h2>Clientes y Proveedores</h2>
-          <button class="btn-primary" style="width:auto;" onclick="abrirModal('modalTercero')">
-            <i class="fa-solid fa-plus"></i> Registrar Tercero
-          </button>
-        </div>
-
-        <div class="table-container">
-          <table id="tabla-terceros">
-            <thead>
-              <tr>
-                <th>NIT / Documento</th>
-                <th>Nombre / Razón Social</th>
-                <th>Tipo</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </section>
-
-    </main>
-  </div>
-
-  <!-- MODAL EDITAR / CREAR FACTURA DE VENTA -->
-  <div class="modal-overlay" id="modalFactura">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 id="modalFacturaTitulo">Registrar Factura de Venta</h3>
-        <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="cerrarModales()"></i>
-      </div>
-      <form onsubmit="guardarFactura(event)">
-        <input type="hidden" id="fac-id-edit">
-        
-        <div class="form-group">
-          <label>Cliente</label>
-          <div class="input-quick-container">
-            <input type="text" id="fac-cliente" required placeholder="Nombre del cliente">
-            <button type="button" class="btn-quick-fill" onclick="establecerClienteVarios()">
-              <i class="fa-solid fa-user-tag"></i> Varios
-            </button>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label style="display:flex; justify-content:space-between; align-items:center;">
-            <span>Artículos de la Factura</span>
-            <button type="button" class="btn-success" onclick="agregarFilaArticuloFactura()" style="padding: 3px 8px; font-size:0.78rem;">
-              <i class="fa-solid fa-plus"></i> Agregar Artículo
-            </button>
-          </label>
-
-          <div style="overflow-x: auto;">
-            <table class="tabla-items-factura">
-              <thead>
-                <tr>
-                  <th style="width:40%;">Producto (Bodega)</th>
-                  <th style="width:15%;">Cant.</th>
-                  <th style="width:25%;">Precio Unit.</th>
-                  <th style="width:20%;">Acción</th>
-                </tr>
-              </thead>
-              <tbody id="lista-items-factura"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Descripción General / Notas adicionales</label>
-          <textarea id="fac-articulos" rows="2" placeholder="Detalles o notas sobre los productos facturados..."></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>Método de Pago</label>
-          <select id="fac-metodo" required>
-            <option value="EFECTIVO">Efectivo</option>
-            <option value="NEQUI">Nequi (Sincronización Automática)</option>
-            <option value="BANCOLOMBIA">Bancolombia (Sincronización Automática)</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Monto Total (COP) - editable manualmente</label>
-          <input type="number" id="fac-monto" required placeholder="0">
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn-secondary" onclick="cerrarModales()">Cancelar</button>
-          <button type="submit" class="btn-primary" style="width:auto;">Guardar Venta</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL REGISTRAR / EDITAR COMPRA O GASTO -->
-  <div class="modal-overlay" id="modalCompra">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 id="modalCompraTitulo">Registrar Compra / Gasto</h3>
-        <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="cerrarModales()"></i>
-      </div>
-      <form onsubmit="guardarCompra(event)">
-        <input type="hidden" id="com-id-edit">
-
-        <div class="form-group">
-          <label>Proveedor</label>
-          <input type="text" id="com-proveedor" required placeholder="Nombre del proveedor">
-        </div>
-
-        <div class="form-group">
-          <label style="display:flex; justify-content:space-between; align-items:center;">
-            <span>Artículos de la Factura de Compra</span>
-            <button type="button" class="btn-success" onclick="agregarFilaArticuloCompra()" style="padding: 3px 8px; font-size:0.78rem;">
-              <i class="fa-solid fa-plus"></i> Agregar Artículo
-            </button>
-          </label>
-
-          <div style="overflow-x: auto;">
-            <table class="tabla-items-factura">
-              <thead>
-                <tr>
-                  <th style="width:40%;">Producto (Bodega) / Descripción</th>
-                  <th style="width:15%;">Cant.</th>
-                  <th style="width:25%;">Costo Unit.</th>
-                  <th style="width:20%;">Acción</th>
-                </tr>
-              </thead>
-              <tbody id="lista-items-compra"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Monto Total de la Compra (COP) - <strong>Editable Manualmente</strong></label>
-          <input type="number" id="com-monto" required placeholder="0">
-        </div>
-
-        <div class="form-group">
-          <label>Estado de Pago</label>
-          <select id="com-estado">
-            <option value="Pagado">Pagado</option>
-            <option value="Pendiente">Pendiente (Por Pagar)</option>
-          </select>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn-secondary" onclick="cerrarModales()">Cancelar</button>
-          <button type="submit" class="btn-primary" style="width:auto;">Guardar Compra</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL EDITAR / CREAR PRODUCTO EN BODEGA -->
-  <div class="modal-overlay" id="modalProducto">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 id="modalProductoTitulo">Agregar Producto a Bodega</h3>
-        <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="cerrarModales()"></i>
-      </div>
-      <form onsubmit="guardarProducto(event)">
-        <input type="hidden" id="prod-codigo-edit">
-        <div class="form-group">
-          <label>Código Producto</label>
-          <input type="text" id="prod-codigo" required placeholder="PRD-001">
-        </div>
-        <div class="form-group">
-          <label>Nombre del Producto</label>
-          <input type="text" id="prod-nombre" required placeholder="Ej: Producto Ejemplo">
-        </div>
-        <div class="form-group">
-          <label>Stock / Cantidad Disponible</label>
-          <input type="number" id="prod-stock" required value="0">
-        </div>
-        <div class="form-group">
-          <label>Precio Unitario de Venta (COP)</label>
-          <input type="number" id="prod-precio" required placeholder="0">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn-secondary" onclick="cerrarModales()">Cancelar</button>
-          <button type="submit" class="btn-primary" style="width:auto;">Guardar Producto</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL REGISTRAR CUENTA BANCARIA -->
-  <div class="modal-overlay" id="modalBanco">
-    <div class="modal">
-      <div class="modal-header">
-        <h3>Agregar Cuenta Bancaria</h3>
-        <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="cerrarModales()"></i>
-      </div>
-      <form onsubmit="guardarBanco(event)">
-        <div class="form-group">
-          <label>Entidad Bancaria / Plataforma</label>
-          <input type="text" id="bank-nombre" required placeholder="Ej: Bancolombia, Nequi, Daviplata">
-        </div>
-        <div class="form-group">
-          <label>Tipo de Cuenta</label>
-          <select id="bank-tipo">
-            <option value="Ahorros">Cuenta de Ahorros</option>
-            <option value="Corriente">Cuenta Corriente</option>
-            <option value="Billetera Digital">Billetera Digital (Nequi/Daviplata)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Número de Cuenta / Teléfono</label>
-          <input type="text" id="bank-numero" required placeholder="Ej: ***-123456-78">
-        </div>
-        <div class="form-group">
-          <label>Saldo Inicial (COP)</label>
-          <input type="number" id="bank-saldo" required placeholder="0">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn-secondary" onclick="cerrarModales()">Cancelar</button>
-          <button type="submit" class="btn-primary" style="width:auto;">Guardar Cuenta</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL REGISTRAR CLIENTE DE CARTERA -->
-  <div class="modal-overlay" id="modalCarteraCliente">
-    <div class="modal">
-      <div class="modal-header">
-        <h3>Registrar Cliente de Crédito</h3>
-        <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="cerrarModales()"></i>
-      </div>
-      <form onsubmit="guardarCarteraCliente(event)">
-        <div class="form-group">
-          <label>Documento / NIT</label>
-          <input type="text" id="cc-doc" required placeholder="Ej: 123456789">
-        </div>
-        <div class="form-group">
-          <label>Nombre del Cliente</label>
-          <input type="text" id="cc-nombre" required placeholder="Nombre completo o Razón Social">
-        </div>
-        <div class="form-group">
-          <label>Teléfono / Contacto</label>
-          <input type="text" id="cc-telefono" required placeholder="Ej: 3001234567">
-        </div>
-        <div class="form-group">
-          <label>Límite de Crédito (COP)</label>
-          <input type="number" id="cc-limite" required placeholder="1000000" value="1000000">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn-secondary" onclick="cerrarModales()">Cancelar</button>
-          <button type="submit" class="btn-primary" style="width:auto;">Guardar Cliente</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL REGISTRAR FACTURA DE VENTA A CRÉDITO -->
-  <div class="modal-overlay" id="modalCarteraFactura">
-    <div class="modal">
-      <div class="modal-header">
-        <h3>Registrar Factura de Venta a Crédito</h3>
-        <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="cerrarModales()"></i>
-      </div>
-      <form onsubmit="guardarCarteraFactura(event)">
-        <div class="form-group">
-          <label>Seleccionar Cliente de Crédito</label>
-          <select id="cf-cliente" required></select>
-        </div>
-        <div class="form-group">
-          <label>Fecha de Emisión</label>
-          <input type="date" id="cf-fecha" required>
-        </div>
-        <div class="form-group">
-          <label>Fecha de Vencimiento</label>
-          <input type="date" id="cf-vencimiento" required>
-        </div>
-        <div class="form-group">
-          <label>Monto Total (COP)</label>
-          <input type="number" id="cf-monto" required placeholder="0">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn-secondary" onclick="cerrarModales()">Cancelar</button>
-          <button type="submit" class="btn-primary" style="width:auto;">Generar Factura Crédito</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL EDITAR PLAN / LICENCIA (SUPERADMIN) -->
-  <div class="modal-overlay" id="modalEditarSaaS">
-    <div class="modal">
-      <div class="modal-header">
-        <h3>Modificar Plan y Suscripción de Empresa</h3>
-        <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="cerrarModales()"></i>
-      </div>
-      <form onsubmit="guardarCambiosSaaSAdmin(event)">
-        <input type="hidden" id="saas-edit-id">
-        <div class="form-group">
-          <label>Empresa</label>
-          <input type="text" id="saas-edit-empresa" readonly style="background:var(--border-color); color:var(--text-muted);">
-        </div>
-        <div class="form-group">
-          <label>Plan de Suscripción</label>
-          <select id="saas-edit-plan" onchange="actualizarPrecioPlanAdmin(this)">
-            <option value="Plan Básico - $40,000/mes">Plan Básico - $40,000/mes</option>
-            <option value="Plan Pro - $85,000/mes">Plan Pro - $85,000/mes</option>
-            <option value="Plan Enterprise - $180,000/mes">Plan Enterprise - $180,000/mes</option>
-            <option value="Plan Administrador">Plan Administrador (Exclusivo ADM)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Precio Mensual (COP)</label>
-          <input type="number" id="saas-edit-precio" required>
-        </div>
-        <div class="form-group">
-          <label>Fecha de Vencimiento de Licencia</label>
-          <input type="date" id="saas-edit-vencimiento" required>
-        </div>
-        <div class="form-group">
-          <label>Estado de la Licencia</label>
-          <select id="saas-edit-estado">
-            <option value="Activo">Activo</option>
-            <option value="Suspendido">Suspendido</option>
-          </select>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn-secondary" onclick="cerrarModales()">Cancelar</button>
-          <button type="submit" class="btn-primary" style="width:auto;"><i class="fa-solid fa-floppy-disk"></i> Guardar Cambios</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL TERCERO -->
-  <div class="modal-overlay" id="modalTercero">
-    <div class="modal">
-      <div class="modal-header">
-        <h3>Registrar Tercero</h3>
-        <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="cerrarModales()"></i>
-      </div>
-      <form onsubmit="guardarTercero(event)">
-        <div class="form-group"><label>Documento / NIT</label><input type="text" id="ter-nit" required placeholder="Ej: 900123456-1"></div>
-        <div class="form-group"><label>Nombre / Razón Social</label><input type="text" id="ter-nombre" required placeholder="Nombre completo"></div>
-        <div class="form-group"><label>Tipo</label><select id="ter-tipo"><option value="Cliente">Cliente</option><option value="Proveedor">Proveedor</option></select></div>
-        <div class="modal-footer">
-          <button type="button" class="btn-secondary" onclick="cerrarModales()">Cancelar</button>
-          <button type="submit" class="btn-primary" style="width:auto;">Guardar Tercero</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modalNuevoClienteSaaS">
-    <div class="modal">
-      <div class="modal-header">
-        <h3>Registrar Nueva Empresa / SaaS</h3>
-        <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="cerrarModales()"></i>
-      </div>
-      <form onsubmit="guardarNuevoClienteSaaS(event)">
-        <div class="form-group"><label>Empresa</label><input type="text" id="saas-empresa" required placeholder="Empresa S.A.S."></div>
-        <div class="form-group"><label>Correo Admin</label><input type="email" id="saas-usuario" required placeholder="admin@empresa.com"></div>
-        <div class="form-group"><label>Contraseña</label><input type="password" id="saas-pass" required placeholder="******"></div>
-        <div class="form-group">
-          <label>Plan</label>
-          <select id="saas-plan" onchange="actualizarPrecioNuevoCliente(this)">
-            <option value="Plan Básico - $40,000/mes" data-precio="40000">Plan Básico - $40,000/mes</option>
-            <option value="Plan Pro - $85,000/mes" data-precio="85000" selected>Plan Pro - $85,000/mes</option>
-            <option value="Plan Enterprise - $180,000/mes" data-precio="180000">Plan Enterprise - $180,000/mes</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Precio Mensual (COP)</label><input type="number" id="saas-precio-nuevo" value="85000" required></div>
-        <div class="form-group"><label>Fecha de Vencimiento</label><input type="date" id="saas-vencimiento" required></div>
-        <div class="modal-footer">
-          <button type="button" class="btn-secondary" onclick="cerrarModales()">Cancelar</button>
-          <button type="submit" class="btn-primary" style="width:auto;">Registrar Cliente</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    let usuarioActual = null;
-    let empresaActualId = null;
-    let chartFlujoInstance = null;
-    let chartBalanceInstance = null;
-
-    const hoyFechaStr = new Date().toISOString().split('T')[0];
-
-    const inicialClientesSaaS = [
-      { id: 1, empresa: "EMPRESA PRINCIPAL S.A.S.", usuario: "admin@nexuserp.com", pass: "123456", plan: "Plan Administrador", precio: 0, vencimiento: "2030-12-31", estado: "Activo", esAdmin: true }
-    ];
-
-    const inicialDbEmpresas = {
-      1: { 
-        facturas: [], 
-        compras: [], 
-        bancos: [], 
-        bodega: [], 
-        terceros: [], 
-        carteraClientes: [], 
-        carteraFacturas: [] 
-      }
-    };
-
-    let clientesSaaS = JSON.parse(localStorage.getItem("nexus_clientesSaaS")) || inicialClientesSaaS;
-    let dbEmpresas = JSON.parse(localStorage.getItem("nexus_dbEmpresas")) || inicialDbEmpresas;
-
-    let adminEnSaaS = clientesSaaS.find(c => c.usuario.toLowerCase() === "admin@nexuserp.com");
-    if (adminEnSaaS) {
-      adminEnSaaS.pass = "123456";
-      adminEnSaaS.esAdmin = true;
-      adminEnSaaS.estado = "Activo";
-    } else {
-      clientesSaaS.unshift({ id: 1, empresa: "EMPRESA PRINCIPAL S.A.S.", usuario: "admin@nexuserp.com", pass: "123456", plan: "Plan Administrador", precio: 0, vencimiento: "2030-12-31", estado: "Activo", esAdmin: true });
-    }
-    localStorage.setItem("nexus_clientesSaaS", JSON.stringify(clientesSaaS));
-
-    function guardarEstadoEnLocalStorage() {
-      localStorage.setItem("nexus_clientesSaaS", JSON.stringify(clientesSaaS));
-      localStorage.setItem("nexus_dbEmpresas", JSON.stringify(dbEmpresas));
-    }
-
-    // Guardado automático cada 5 minutos (300,000 ms) para asegurar actualización en la URL/página
-    setInterval(() => {
-      guardarEstadoEnLocalStorage();
-    }, 300000);
-
-    window.addEventListener("storage", (event) => {
-      if (event.key === "nexus_clientesSaaS" || event.key === "nexus_dbEmpresas") {
-        clientesSaaS = JSON.parse(localStorage.getItem("nexus_clientesSaaS")) || clientesSaaS;
-        dbEmpresas = JSON.parse(localStorage.getItem("nexus_dbEmpresas")) || dbEmpresas;
-        
-        if (usuarioActual) {
-          const usuarioActualizado = clientesSaaS.find(c => c.id === usuarioActual.id);
-          if (usuarioActualizado) {
-            usuarioActual = usuarioActualizado;
-            configurarInterfazUsuario();
-            actualizarVistasEmpresa();
-          }
-        }
-      }
-    });
-
-    function sincronizarManualmenteDatos() {
-      clientesSaaS = JSON.parse(localStorage.getItem("nexus_clientesSaaS")) || clientesSaaS;
-      dbEmpresas = JSON.parse(localStorage.getItem("nexus_dbEmpresas")) || dbEmpresas;
-      if (usuarioActual) {
-        const usuarioActualizado = clientesSaaS.find(c => c.id === usuarioActual.id);
-        if (usuarioActualizado) usuarioActual = usuarioActualizado;
-        configurarInterfazUsuario();
-        actualizarVistasEmpresa();
-      }
-      alert("¡Datos sincronizados correctamente con la última información guardada!");
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".nav-item[data-view]").forEach(item => {
-        item.addEventListener("click", function () { cambiarVista(this.getAttribute("data-view")); });
-      });
-    });
-
-    function togglePassVisibility(id, btn) {
-      const input = document.getElementById(id);
-      input.type = input.type === "password" ? "text" : "password";
-    }
-
-    function ejecutarLogin(e) {
-      e.preventDefault();
-      const user = document.getElementById("login-user").value.trim().toLowerCase();
-      const pass = document.getElementById("login-pass").value.trim();
-
-      clientesSaaS = JSON.parse(localStorage.getItem("nexus_clientesSaaS")) || clientesSaaS;
-      dbEmpresas = JSON.parse(localStorage.getItem("nexus_dbEmpresas")) || dbEmpresas;
-
-      let cliente = clientesSaaS.find(c => c.usuario.toLowerCase() === user && c.pass === pass);
-
-      if (!cliente) return alert("Credenciales incorrectas. Verifique usuario y contraseña.");
-
-      if (cliente.estado === "Suspendido" && !cliente.esAdmin) {
-        return alert("Su empresa se encuentra suspendida temporalmente por falta de pago o vencimiento de licencia. Contacte al administrador.");
-      }
-
-      usuarioActual = cliente;
-      empresaActualId = cliente.id;
-
-      if (cliente.esAdmin) {
-        cliente.plan = "Plan Administrador";
-        cliente.precio = 0;
-      }
-
-      document.getElementById("landing-page").style.display = "none";
-      document.getElementById("erp-app").style.display = "flex";
-
-      configurarInterfazUsuario();
-      actualizarVistasEmpresa();
-      cambiarVista("dashboard");
-    }
-
-    function cerrarSesion() {
-      usuarioActual = null; empresaActualId = null;
-      document.getElementById("erp-app").style.display = "none";
-      document.getElementById("landing-page").style.display = "flex";
-      document.getElementById("login-user").value = "";
-      document.getElementById("login-pass").value = "";
-    }
-
-    function cambiarVista(vistaId) {
-      if (vistaId === "saas-admin" && (!usuarioActual || !usuarioActual.esAdmin)) {
-        vistaId = "dashboard";
-      }
-
-      document.querySelectorAll(".view-section").forEach(sec => sec.classList.remove("active-view"));
-      document.querySelectorAll(".nav-item").forEach(item => item.classList.remove("active"));
-
-      const targetSection = document.getElementById(vistaId);
-      const targetNav = document.querySelector(`.nav-item[data-view="${vistaId}"]`);
-
-      if (targetSection) targetSection.classList.add("active-view");
-      if (targetNav) targetNav.classList.add("active");
-
-      if (vistaId === "saas-admin") {
-        renderizarPanelSuperAdmin();
-      } else if (vistaId === "cartera-credito") {
-        renderizarCarteraCredito();
-      } else if (vistaId === "portal-cliente") {
-        renderizarPlanesPortalCliente();
-      }
-    }
-
-    function renderizarPanelSuperAdmin() {
-      clientesSaaS = JSON.parse(localStorage.getItem("nexus_clientesSaaS")) || clientesSaaS;
-      const tbody = document.querySelector("#tabla-saas-clientes tbody");
-      if (!tbody) return;
-
-      let totalActivos = 0;
-      let totalSuspendidos = 0;
-      let mrrTotal = 0;
-
-      tbody.innerHTML = clientesSaaS.map(c => {
-        if (c.estado === "Activo") {
-          totalActivos++;
-          mrrTotal += Number(c.precio) || 0;
-        } else {
-          totalSuspendidos++;
-        }
-
-        return `
-          <tr>
-            <td><strong>${c.empresa}</strong></td>
-            <td>${c.usuario}</td>
-            <td>${c.plan}</td>
-            <td>$ ${Number(c.precio || 0).toLocaleString()}</td>
-            <td>${c.vencimiento}</td>
-            <td><span class="badge-status ${c.estado === 'Activo' ? 'status-activo' : 'status-suspendido'}">${c.estado}</span></td>
-            <td>
-              <div class="actions-cell">
-                <button class="btn-success" onclick="abrirModalEditarSaaS(${c.id})" title="Gestionar Plan y Licencia">
-                  <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-                <button class="btn-warning" onclick="toggleEstadoClienteSaaS(${c.id})" title="Cambiar Estado">
-                  <i class="fa-solid fa-power-off"></i>
-                </button>
-                <button class="btn-danger" onclick="eliminarClienteSaaS(${c.id})" title="Eliminar Empresa y Usuario">
-                  <i class="fa-solid fa-trash"></i> Eliminar
-                </button>
-              </div>
-            </td>
-          </tr>
-        `;
-      }).join("");
-
-      document.getElementById("kpi-saas-activos").textContent = totalActivos;
-      document.getElementById("kpi-saas-suspendidos").textContent = totalSuspendidos;
-      document.getElementById("kpi-saas-mrr").textContent = "$ " + mrrTotal.toLocaleString();
-    }
-
-    function abrirModalEditarSaaS(id) {
-      const cliente = clientesSaaS.find(c => c.id === id);
-      if (!cliente) return;
-
-      document.getElementById("saas-edit-id").value = cliente.id;
-      document.getElementById("saas-edit-empresa").value = cliente.empresa;
-      document.getElementById("saas-edit-plan").value = cliente.plan || "Plan Pro - $85,000/mes";
-      document.getElementById("saas-edit-precio").value = cliente.precio || 85000;
-      document.getElementById("saas-edit-vencimiento").value = cliente.vencimiento || hoyFechaStr;
-      document.getElementById("saas-edit-estado").value = cliente.estado || "Activo";
-
-      abrirModal('modalEditarSaaS');
-    }
-
-    function actualizarPrecioPlanAdmin(selectElem) {
-      const valor = selectElem.value;
-      const inputPrecio = document.getElementById("saas-edit-precio");
-      if (valor.includes("40,000")) inputPrecio.value = 40000;
-      else if (valor.includes("85,000")) inputPrecio.value = 85000;
-      else if (valor.includes("180,000")) inputPrecio.value = 180000;
-      else if (valor.includes("Administrador")) inputPrecio.value = 0;
-    }
-
-    function actualizarPrecioNuevoCliente(selectElem) {
-      const option = selectElem.options[selectElem.selectedIndex];
-      const precio = option.getAttribute("data-precio") || 85000;
-      document.getElementById("saas-precio-nuevo").value = precio;
-    }
-
-    function guardarCambiosSaaSAdmin(e) {
-      e.preventDefault();
-      const id = Number(document.getElementById("saas-edit-id").value);
-      const cliente = clientesSaaS.find(c => c.id === id);
-
-      if (cliente) {
-        cliente.plan = document.getElementById("saas-edit-plan").value;
-        cliente.precio = Number(document.getElementById("saas-edit-precio").value);
-        cliente.vencimiento = document.getElementById("saas-edit-vencimiento").value;
-        cliente.estado = document.getElementById("saas-edit-estado").value;
-
-        guardarEstadoEnLocalStorage();
-        renderizarPanelSuperAdmin();
-        cerrarModales();
-        alert(`Suscripción de ${cliente.empresa} actualizada exitosamente.`);
-      }
-    }
-
-    function guardarNuevoClienteSaaS(e) {
-      e.preventDefault();
-      const empresa = document.getElementById("saas-empresa").value;
-      const usuario = document.getElementById("saas-usuario").value;
-      const pass = document.getElementById("saas-pass").value;
-      const plan = document.getElementById("saas-plan").value;
-      const precio = Number(document.getElementById("saas-precio-nuevo").value);
-      const vencimiento = document.getElementById("saas-vencimiento").value;
-
-      const nuevoId = Date.now();
-      clientesSaaS.push({
-        id: nuevoId,
-        empresa,
-        usuario,
-        pass,
-        plan,
-        precio,
-        vencimiento,
-        estado: "Activo",
-        esAdmin: false
-      });
-
-      dbEmpresas[nuevoId] = { facturas: [], compras: [], bancos: [], bodega: [], terceros: [], carteraClientes: [], carteraFacturas: [] };
-
-      guardarEstadoEnLocalStorage();
-      renderizarPanelSuperAdmin();
-      cerrarModales();
-      e.target.reset();
-      alert(`Empresa y usuario ${empresa} (${usuario}) registrados exitosamente en el sistema SaaS.`);
-    }
-
-    function toggleEstadoClienteSaaS(id) {
-      const cliente = clientesSaaS.find(c => c.id === id);
-      if (cliente) {
-        if (cliente.esAdmin) {
-          alert("No puedes suspender la empresa principal de administración.");
-          return;
-        }
-        cliente.estado = cliente.estado === "Activo" ? "Suspendido" : "Activo";
-        guardarEstadoEnLocalStorage();
-        renderizarPanelSuperAdmin();
-      }
-    }
-
-    function eliminarClienteSaaS(id) {
-      const cliente = clientesSaaS.find(c => c.id === id);
-      if (cliente && cliente.esAdmin) {
-        alert("No puedes eliminar la empresa principal de administración.");
-        return;
-      }
-      if (!confirm("¿Estás seguro de eliminar este usuario y empresa junto con todos sus datos asociados?")) return;
-
-      clientesSaaS = clientesSaaS.filter(c => c.id !== id);
-      delete dbEmpresas[id];
-      guardarEstadoEnLocalStorage();
-      renderizarPanelSuperAdmin();
-    }
-
-    function configurarInterfazUsuario() {
-      const roleBadge = document.getElementById("user-role-badge");
-      document.getElementById("user-avatar").textContent = usuarioActual.empresa.substring(0, 2).toUpperCase();
-
-      const adminElements = document.querySelectorAll(".id-admin-only");
-
-      if (usuarioActual.esAdmin) {
-        roleBadge.className = "role-badge role-superadmin";
-        roleBadge.innerHTML = `<i class="fa-solid fa-crown"></i> SuperAdmin (ADM)`;
-        adminElements.forEach(el => el.style.display = "flex");
-      } else {
-        roleBadge.className = "role-badge role-client";
-        roleBadge.innerHTML = `<i class="fa-solid fa-building"></i> Portal Cliente`;
-        adminElements.forEach(el => el.style.display = "none");
-      }
-    }
-
-    function actualizarVistasEmpresa() {
-      dbEmpresas = JSON.parse(localStorage.getItem("nexus_dbEmpresas")) || dbEmpresas;
-      const empData = clientesSaaS.find(c => c.id === empresaActualId);
-      if (!empData) return;
-
-      document.getElementById("sidebar-company-name").textContent = empData.empresa;
-      document.getElementById("dash-company-title").textContent = empData.empresa;
-
-      if (usuarioActual && usuarioActual.esAdmin) {
-        empData.plan = "Plan Administrador";
-        empData.precio = 0;
-      }
-
-      document.getElementById("portal-plan-nombre").textContent = empData.plan || "Plan Pro";
-      document.getElementById("portal-plan-precio").innerHTML = usuarioActual && usuarioActual.esAdmin ? 
-        `$ 0 <span>/ ilimitado (ADM)</span>` : 
-        `$ ${Number(empData.precio || 85000).toLocaleString()} <span>/ mes</span>`;
-      document.getElementById("portal-plan-vencimiento").textContent = empData.vencimiento || "31/12/2030";
-
-      if (!dbEmpresas[empresaActualId]) {
-        dbEmpresas[empresaActualId] = { facturas: [], compras: [], bancos: [], bodega: [], terceros: [], carteraClientes: [], carteraFacturas: [] };
-        guardarEstadoEnLocalStorage();
-      }
-
-      renderizarDashboard();
-      renderizarTablas();
-      renderizarBancos();
-      renderizarCarteraCredito();
-      renderizarPlanesPortalCliente();
-      calcularCuadreCaja();
-    }
-
-    function renderizarPlanesPortalCliente() {
-      const contenedor = document.getElementById("portal-planes-disponibles");
-      if (!contenedor || !usuarioActual) return;
-
-      const planActual = (usuarioActual.plan || "").toLowerCase();
-      const esAdminUser = usuarioActual.esAdmin;
-
-      let planes = [
-        { nombre: "Plan Básico", precio: "$ 40,000", costo: 40000, desc: "Ideal para pequeños emprendimientos", features: ["Facturación Ilimitada", "Control de Inventario Básico", "2 Cuentas Bancarias", "Soporte por Correo"] },
-        { nombre: "Plan Pro", precio: "$ 85,000", costo: 85000, desc: "Para negocios en pleno crecimiento", features: ["Facturación Ilimitada", "Bodega y Stock Avanzado", "Múltiples Cuentas Bancarias", "Cuadre Diario de Caja"] },
-        { nombre: "Plan Enterprise", precio: "$ 180,000", costo: 180000, desc: "Máxima potencia y multi-sucursal", features: ["Todo lo del Plan Pro", "Multi-Bodega / Multi-Sucursal", "Asesoría Contable Especializada", "Soporte VIP 24/7"], featured: true }
-      ];
-
-      if (esAdminUser) {
-        planes.push({
-          nombre: "Plan Administrador",
-          precio: "$ 0",
-          costo: 0,
-          desc: "Plan exclusivo y activo para el usuario ADM de la Empresa Principal",
-          features: ["Acceso Full Administrador", "Todos los Módulos Habilitados", "Sin restricciones ni vencimiento", "Soporte Directo SaaS"],
-          isAdminPlan: true
-        });
-      }
-
-      contenedor.innerHTML = planes.map(p => {
-        const esActivo = planActual.includes(p.nombre.toLowerCase()) || (p.isAdminPlan && esAdminUser);
-        const cardClass = esActivo ? "plan-card current-plan" : (p.featured ? "plan-card featured" : "plan-card");
-        const tagHtml = esActivo ? `<span class="plan-tag gold">Plan Activo</span>` : (p.featured ? `<span class="plan-tag">Recomendado</span>` : (p.isAdminPlan ? `<span class="plan-tag gold">Exclusivo ADM</span>` : ""));
-        const botonHtml = esActivo ? 
-          `<button class="btn-success" disabled style="opacity:0.8;"><i class="fa-solid fa-circle-check"></i> Plan Activo en Uso</button>` :
-          `<button class="btn-secondary" onclick="solicitarCambioPlan('${p.nombre} - ${p.precio}/mes')"><i class="fa-brands fa-whatsapp"></i> Cambiar a este Plan</button>`;
-
-        return `
-          <div class="${cardClass}">
-            ${tagHtml}
-            <div>
-              <h4 style="font-size: 1.1rem; color: var(--text-main);">${p.nombre}</h4>
-              <p style="color: var(--text-muted); font-size: 0.8rem;">${p.desc}</p>
-              <div class="plan-price">${p.precio} <span>/ mes</span></div>
-              <ul class="plan-features">
-                ${p.features.map(f => `<li><i class="fa-solid fa-check"></i> ${f}</li>`).join("")}
-              </ul>
-            </div>
-            ${botonHtml}
-          </div>
-        `;
-      }).join("");
-    }
-
-    function solicitarCambioPlan(nombrePlan) {
-      const numeroWhatsApp = "573217088014";
-      const empresaNombre = usuarioActual ? usuarioActual.empresa : "Mi Empresa";
-      const mensaje = `Hola, me interesa cambiar mi plan actual al *${nombrePlan}* para la empresa *${empresaNombre}*. Quedo atento a las instrucciones.`;
-      window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensaje)}`, '_blank');
-    }
-
-    function renderizarDashboard() {
-      dbEmpresas = JSON.parse(localStorage.getItem("nexus_dbEmpresas")) || dbEmpresas;
-      const data = dbEmpresas[empresaActualId];
-      if (!data) return;
-
-      const hoyStr = new Date().toISOString().split('T')[0];
-      const facturasHoy = data.facturas.filter(f => f.fecha === hoyStr);
-      const totalVentasHoy = facturasHoy.reduce((acc, f) => acc + Number(f.monto), 0);
-      const cantidadFacturasHoy = facturasHoy.length;
-      const promedioVentasHoy = cantidadFacturasHoy > 0 ? (totalVentasHoy / cantidadFacturasHoy) : 0;
-
-      const totalIngresos = data.facturas.reduce((acc, f) => acc + Number(f.monto), 0);
-      const totalGastos = data.compras.reduce((acc, c) => acc + Number(c.monto), 0);
-      const totalDeudas = data.compras.filter(c => c.estado === "Pendiente").reduce((acc, c) => acc + Number(c.monto), 0);
-
-      const valorInventario = data.bodega.reduce((acc, b) => acc + (Number(b.stock) * Number(b.precio)), 0);
-      const totalProductosStock = data.bodega.reduce((acc, b) => acc + Number(b.stock), 0);
-      const liquidezBancos = (data.bancos || []).reduce((acc, b) => acc + Number(b.saldo), 0);
-      const margenBruto = totalIngresos > 0 ? Math.round(((totalIngresos - totalGastos) / totalIngresos) * 100) : 0;
-
-      document.getElementById("kpi-ventas-hoy").textContent = "$ " + totalVentasHoy.toLocaleString();
-      document.getElementById("kpi-cant-facturas-hoy").textContent = cantidadFacturasHoy;
-      document.getElementById("kpi-promedio-ventas-hoy").textContent = "$ " + Math.round(promedioVentasHoy).toLocaleString();
-
-      document.getElementById("kpi-ingresos").textContent = "$ " + totalIngresos.toLocaleString();
-      document.getElementById("kpi-gastos").textContent = "$ " + totalGastos.toLocaleString();
-      document.getElementById("kpi-deudas").textContent = "$ " + totalDeudas.toLocaleString();
-      document.getElementById("kpi-balance").textContent = "$ " + (totalIngresos - totalGastos).toLocaleString();
-
-      document.getElementById("kpi-valor-inventario").textContent = "$ " + valorInventario.toLocaleString();
-      document.getElementById("kpi-total-productos").textContent = totalProductosStock;
-      document.getElementById("kpi-margen-bruto").textContent = margenBruto + "%";
-      document.getElementById("kpi-liquidez-total").textContent = "$ " + liquidezBancos.toLocaleString();
-
-      renderizarPagosPendientesDashboard();
-      inicializarGraficosProfesionales(totalIngresos, totalGastos, data.facturas);
-    }
-
-    function renderizarPagosPendientesDashboard() {
-      const data = dbEmpresas[empresaActualId];
-      if (!data) return;
-      const pendientes = data.compras.filter(c => c.estado === "Pendiente");
-      const tbody = document.querySelector("#tabla-dashboard-pendientes tbody");
-
-      document.getElementById("count-pendientes").textContent = `${pendientes.length} Pendiente${pendientes.length !== 1 ? 's' : ''}`;
-      if (!tbody) return;
-
-      if (pendientes.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-muted);">Sin cuentas pendientes 🎉</td></tr>`;
-        return;
-      }
-
-      tbody.innerHTML = pendientes.map(p => `
-        <tr>
-          <td><strong>${p.id}</strong></td>
-          <td>${p.proveedor}</td>
-          <td>$ ${Number(p.monto).toLocaleString()}</td>
-          <td><span class="badge-status status-suspendido">${p.estado}</span></td>
-          <td><button class="btn-success" onclick="hacerPago('${p.id}')"><i class="fa-solid fa-credit-card"></i> Pagar</button></td>
-        </tr>
-      `).join("");
-    }
-
-    function hacerPago(compraId) {
-      const compra = dbEmpresas[empresaActualId].compras.find(c => c.id === compraId);
-      if (compra) {
-        compra.estado = "Pagado";
-        guardarEstadoEnLocalStorage();
-        actualizarVistasEmpresa();
-      }
-    }
-
-    function renderizarTablas() {
-      dbEmpresas = JSON.parse(localStorage.getItem("nexus_dbEmpresas")) || dbEmpresas;
-      const data = dbEmpresas[empresaActualId];
-      if (!data) return;
-
-      const tbFac = document.querySelector("#tabla-facturas tbody");
-      if (tbFac) {
-        if (data.facturas.length === 0) {
-          tbFac.innerHTML = `<tr><td colspan="8" style="text-align: center; color: var(--text-muted);">No hay facturas de venta registradas 📋</td></tr>`;
-        } else {
-          tbFac.innerHTML = data.facturas.map(f => {
-            let metodoBadge = `<span class="badge-metodo metodo-efectivo"><i class="fa-solid fa-money-bill-1"></i> Efectivo</span>`;
-            if (f.metodo === "NEQUI") metodoBadge = `<span class="badge-metodo metodo-nequi"><i class="fa-solid fa-mobile-screen"></i> Nequi</span>`;
-            else if (f.metodo === "BANCOLOMBIA") metodoBadge = `<span class="badge-metodo metodo-bancolombia"><i class="fa-solid fa-building-columns"></i> Bancolombia</span>`;
-
-            return `
-              <tr>
-                <td><strong>${f.id}</strong></td>
-                <td>${f.cliente}</td>
-                <td>${f.articulos || '<em>Sin detalles</em>'}</td>
-                <td>${metodoBadge}</td>
-                <td>${f.fecha}</td>
-                <td>$ ${Number(f.monto).toLocaleString()}</td>
-                <td><span class="badge-status status-activo">${f.estado}</span></td>
-                <td>
-                  <div class="actions-cell">
-                    <button class="btn-warning" onclick="editarFactura('${f.id}')"><i class="fa-solid fa-pen"></i></button>
-                    <button class="btn-danger" onclick="eliminarFactura('${f.id}')"><i class="fa-solid fa-trash"></i></button>
-                  </div>
-                </td>
-              </tr>
-            `;
-          }).join("");
-        }
-      }
-
-      const tbCom = document.querySelector("#tabla-compras tbody");
-      if (tbCom) {
-        if (data.compras.length === 0) {
-          tbCom.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-muted);">No hay compras o gastos registrados 🛒</td></tr>`;
-        } else {
-          tbCom.innerHTML = data.compras.map(c => `
-            <tr>
-              <td><strong>${c.id}</strong></td>
-              <td>${c.proveedor}</td>
-              <td>${c.articulos || '<em>Sin detalles</em>'}</td>
-              <td>$ ${Number(c.monto).toLocaleString()}</td>
-              <td><span class="badge-status ${c.estado === 'Pagado' ? 'status-activo' : 'status-suspendido'}">${c.estado}</span></td>
-              <td>
-                <div class="actions-cell">
-                  ${c.estado === 'Pendiente' ? `<button class="btn-success" onclick="hacerPago('${c.id}')"><i class="fa-solid fa-credit-card"></i></button>` : ''}
-                  <button class="btn-warning" onclick="editarCompra('${c.id}')"><i class="fa-solid fa-pen"></i></button>
-                  <button class="btn-danger" onclick="eliminarCompra('${c.id}')"><i class="fa-solid fa-trash"></i></button>
-                </div>
-              </td>
-            </tr>
-          `).join("");
-        }
-      }
-
-      const tbBod = document.querySelector("#tabla-bodega tbody");
-      if (tbBod) {
-        if (data.bodega.length === 0) {
-          tbBod.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-muted);">Inventario vacío 📦</td></tr>`;
-        } else {
-          tbBod.innerHTML = data.bodega.map(p => `
-            <tr>
-              <td><strong>${p.codigo}</strong></td>
-              <td>${p.nombre}</td>
-              <td>${p.stock}</td>
-              <td>$ ${Number(p.precio).toLocaleString()}</td>
-              <td>
-                <div class="actions-cell">
-                  <button class="btn-danger" onclick="eliminarProducto('${p.codigo}')"><i class="fa-solid fa-trash"></i></button>
-                </div>
-              </td>
-            </tr>
-          `).join("");
-        }
-      }
-
-      const tbTer = document.querySelector("#tabla-terceros tbody");
-      if (tbTer) {
-        if (data.terceros.length === 0) {
-          tbTer.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">Sin terceros registrados 👥</td></tr>`;
-        } else {
-          tbTer.innerHTML = data.terceros.map(t => `
-            <tr>
-              <td><strong>${t.nit}</strong></td>
-              <td>${t.nombre}</td>
-              <td><span class="badge-status ${t.tipo === 'Cliente' ? 'status-activo' : 'status-suspendido'}">${t.tipo}</span></td>
-              <td>
-                <div class="actions-cell">
-                  <button class="btn-danger" onclick="eliminarTercero('${t.nit}')" title="Eliminar Tercero"><i class="fa-solid fa-trash"></i> Eliminar</button>
-                </div>
-              </td>
-            </tr>
-          `).join("");
-        }
-      }
-    }
-
-    function renderizarBancos() {
-      const container = document.getElementById("banks-container");
-      if (!container) return;
-      const data = dbEmpresas[empresaActualId];
-      if (!data || !data.bancos || data.bancos.length === 0) {
-        container.innerHTML = `<p style="color: var(--text-muted);">No hay cuentas bancarias registradas.</p>`;
-        return;
-      }
-      container.innerHTML = data.bancos.map(b => `
-        <div class="bank-card">
-          <div>
-            <div class="bank-card-header">
-              <h4 style="font-size: 1.1rem; color: var(--text-main);">${b.nombre}</h4>
-              <i class="fa-solid fa-building-columns"></i>
-            </div>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Tipo: ${b.tipo}</p>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">N°: ${b.numero}</p>
-            <div class="bank-balance">$ ${Number(b.saldo).toLocaleString()}</div>
-          </div>
-          <button class="btn-danger" style="margin-top: 15px;" onclick="eliminarBanco(${b.id})"><i class="fa-solid fa-trash"></i> Eliminar Cuenta</button>
-        </div>
-      `).join("");
-    }
-
-    function eliminarBanco(id) {
-      if (!confirm("¿Eliminar esta cuenta bancaria?")) return;
-      const data = dbEmpresas[empresaActualId];
-      data.bancos = data.bancos.filter(b => b.id !== id);
-      guardarEstadoEnLocalStorage();
-      renderizarBancos();
-      actualizarVistasEmpresa();
-    }
-
-    function renderizarCarteraCredito() {
-      const data = dbEmpresas[empresaActualId];
-      if (!data) return;
-
-      const tbClientes = document.querySelector("#tabla-cartera-clientes tbody");
-      const selectCfCliente = document.getElementById("cf-cliente");
-
-      if (tbClientes) {
-        if (data.carteraClientes.length === 0) {
-          tbClientes.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-muted);">No hay clientes de crédito registrados.</td></tr>`;
-        } else {
-          tbClientes.innerHTML = data.carteraClientes.map(c => `
-            <tr>
-              <td><strong>${c.doc}</strong></td>
-              <td>${c.nombre}</td>
-              <td>${c.telefono}</td>
-              <td>$ ${Number(c.limite).toLocaleString()}</td>
-              <td style="color: var(--accent-gold); font-weight: bold;">$ ${Number(c.deuda || 0).toLocaleString()}</td>
-              <td><button class="btn-danger" onclick="eliminarCarteraCliente('${c.doc}')"><i class="fa-solid fa-trash"></i></button></td>
-            </tr>
-          `).join("");
-        }
-      }
-
-      if (selectCfCliente) {
-        selectCfCliente.innerHTML = data.carteraClientes.map(c => `<option value="${c.nombre}">${c.nombre} (Deuda actual: $${Number(c.deuda||0).toLocaleString()})</option>`).join("");
-      }
-
-      const tbFac = document.querySelector("#tabla-cartera-facturas tbody");
-      if (tbFac) {
-        if (data.carteraFacturas.length === 0) {
-          tbFac.innerHTML = `<tr><td colspan="8" style="text-align: center; color: var(--text-muted);">No hay facturas a crédito pendientes.</td></tr>`;
-        } else {
-          tbFac.innerHTML = data.carteraFacturas.map(cf => `
-            <tr>
-              <td><strong>${cf.id}</strong></td>
-              <td>${cf.cliente}</td>
-              <td>${cf.fecha}</td>
-              <td>${cf.vencimiento}</td>
-              <td>$ ${Number(cf.monto).toLocaleString()}</td>
-              <td style="color:var(--danger); font-weight:bold;">$ ${Number(cf.saldo).toLocaleString()}</td>
-              <td><span class="badge-status ${cf.saldo === 0 ? 'status-activo' : 'status-suspendido'}">${cf.saldo === 0 ? 'Pagada' : 'Pendiente'}</span></td>
-              <td>
-                ${cf.saldo > 0 ? `<button class="btn-success" onclick="abonarCarteraFactura('${cf.id}')"><i class="fa-solid fa-money-bill-wave"></i> Abonar Total</button>` : `<span style="color:var(--success); font-size:0.8rem;"><i class="fa-solid fa-check"></i> Cancelada</span>`}
-              </td>
-            </tr>
-          `).join("");
-        }
-      }
-
-      const totalCartera = data.carteraFacturas.filter(f => f.saldo > 0).reduce((acc, f) => acc + Number(f.saldo), 0);
-      document.getElementById("kpi-cartera-total").textContent = "$ " + totalCartera.toLocaleString();
-      document.getElementById("kpi-cartera-clientes").textContent = data.carteraClientes.length;
-      document.getElementById("kpi-cartera-facturas").textContent = data.carteraFacturas.filter(f => f.saldo > 0).length;
-    }
-
-    function guardarCarteraCliente(e) {
-      e.preventDefault();
-      const doc = document.getElementById("cc-doc").value.trim();
-      const nombre = document.getElementById("cc-nombre").value.trim();
-      const telefono = document.getElementById("cc-telefono").value.trim();
-      const limite = Number(document.getElementById("cc-limite").value);
-
-      const data = dbEmpresas[empresaActualId];
-      if (data.carteraClientes.some(c => c.doc === doc)) return alert("Ya existe un cliente con este documento.");
-
-      data.carteraClientes.push({ doc, nombre, telefono, limite, deuda: 0 });
-      guardarEstadoEnLocalStorage();
-      renderizarCarteraCredito();
-      cerrarModales();
-      e.target.reset();
-    }
-
-    function eliminarCarteraCliente(doc) {
-      if (!confirm("¿Eliminar este cliente de crédito?")) return;
-      const data = dbEmpresas[empresaActualId];
-      data.carteraClientes = data.carteraClientes.filter(c => c.doc !== doc);
-      guardarEstadoEnLocalStorage();
-      renderizarCarteraCredito();
-    }
-
-    function guardarCarteraFactura(e) {
-      e.preventDefault();
-      const cliente = document.getElementById("cf-cliente").value;
-      const fecha = document.getElementById("cf-fecha").value;
-      const vencimiento = document.getElementById("cf-vencimiento").value;
-      const monto = Number(document.getElementById("cf-monto").value);
-
-      const data = dbEmpresas[empresaActualId];
-      const id = "CRE-" + Math.floor(1000 + Math.random() * 9000);
-
-      data.carteraFacturas.push({ id, cliente, fecha, vencimiento, monto, saldo: monto });
-
-      let clienteObj = data.carteraClientes.find(c => c.nombre === cliente);
-      if (clienteObj) clienteObj.deuda = (Number(clienteObj.deuda) || 0) + monto;
-
-      guardarEstadoEnLocalStorage();
-      renderizarCarteraCredito();
-      cerrarModales();
-      e.target.reset();
-    }
-
-    function abonarCarteraFactura(id) {
-      const data = dbEmpresas[empresaActualId];
-      const fac = data.carteraFacturas.find(f => f.id === id);
-      if (!fac || fac.saldo <= 0) return;
-
-      let abono = fac.saldo;
-      fac.saldo = 0;
-
-      let clienteObj = data.carteraClientes.find(c => c.nombre === fac.cliente);
-      if (clienteObj) clienteObj.deuda = Math.max(0, (Number(clienteObj.deuda) || 0) - abono);
-
-      guardarEstadoEnLocalStorage();
-      renderizarCarteraCredito();
-      alert(`¡Factura ${id} pagada y abonada con éxito!`);
-    }
-
-    function calcularCuadreCaja() {
-      const base = Number(document.getElementById("cuadre-base").value) || 0;
-      const ventasEfectivo = Number(document.getElementById("cuadre-ventas-efectivo").value) || 0;
-      const ventasBanco = Number(document.getElementById("cuadre-ventas-banco").value) || 0;
-      const gastosEfectivo = Number(document.getElementById("cuadre-gastos-efectivo").value) || 0;
-      const fisico = Number(document.getElementById("cuadre-efectivo-fisico").value) || 0;
-
-      const esperadoEfectivo = base + ventasEfectivo - gastosEfectivo;
-      const diferencia = fisico - esperadoEfectivo;
-
-      document.getElementById("cuadre-esperado-efectivo").textContent = "$ " + esperadoEfectivo.toLocaleString();
-      const difElem = document.getElementById("cuadre-diferencia");
-      difElem.textContent = "$ " + diferencia.toLocaleString();
-
-      const badge = document.getElementById("cuadre-estado-badge");
-      if (diferencia === 0) {
-        difElem.style.color = "var(--success)";
-        badge.innerHTML = `<i class="fa-solid fa-circle-check" style="color:var(--success);"></i> Caja Cuadrada Perfectamente`;
-      } else if (diferencia > 0) {
-        difElem.style.color = "var(--success)";
-        badge.innerHTML = `<i class="fa-solid fa-triangle-exclamation" style="color:var(--success);"></i> Sobrante en Caja por $ ${diferencia.toLocaleString()}`;
-      } else {
-        difElem.style.color = "var(--danger)";
-        badge.innerHTML = `<i class="fa-solid fa-triangle-exclamation" style="color:var(--danger);"></i> Faltante en Caja por $ ${Math.abs(diferencia).toLocaleString()}`;
-      }
-    }
-
-    function guardarCuadreCaja() {
-      alert("¡Cierre y cuadre diario de caja registrado y respaldado correctamente!");
-    }
-
-    function inicializarGraficosProfesionales(ingresos, gastos, facturas) {
-      const ctxFlujo = document.getElementById('chartFlujo');
-      if (ctxFlujo) {
-        if (chartFlujoInstance) chartFlujoInstance.destroy();
-        chartFlujoInstance = new Chart(ctxFlujo, {
-          type: 'line',
-          data: {
-            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-            datasets: [
-              { label: 'Ventas / Ingresos', data: [0, 0, 0, 0, 0, 0, 0, ingresos, 0, 0, 0, 0], borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', tension: 0.3, fill: true },
-              { label: 'Gastos / Compras', data: [0, 0, 0, 0, 0, 0, 0, gastos, 0, 0, 0, 0], borderColor: '#2563eb', backgroundColor: 'rgba(37, 99, 235, 0.1)', tension: 0.3, fill: true }
-            ]
-          },
-          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#f8fafc' } } }, scales: { x: { ticks: { color: '#94a3b8' } }, y: { ticks: { color: '#94a3b8' } } } }
-        });
-      }
-
-      const ctxBalance = document.getElementById('chartBalance');
-      if (ctxBalance) {
-        const efectivoCount = facturas.filter(f => f.metodo === 'EFECTIVO').length;
-        const nequiCount = facturas.filter(f => f.metodo === 'NEQUI').length;
-        const bancolombiaCount = facturas.filter(f => f.metodo === 'BANCOLOMBIA').length;
-
-        if (chartBalanceInstance) chartBalanceInstance.destroy();
-        chartBalanceInstance = new Chart(ctxBalance, {
-          type: 'doughnut',
-          data: {
-            labels: ['Efectivo', 'Nequi', 'Bancolombia'],
-            datasets: [{ data: [efectivoCount || 1, nequiCount || 0, bancolombiaCount || 0], backgroundColor: ['#10b981', '#9333ea', '#2563eb'] }]
-          },
-          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#f8fafc' } } } }
-        });
-      }
-    }
-
-    function abrirModal(modalId) { document.getElementById(modalId).classList.add('active'); }
-    function cerrarModales() { document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active')); }
-
-    function abrirModalNuevaFactura() {
-      document.getElementById("fac-id-edit").value = "";
-      document.getElementById("fac-cliente").value = "";
-      document.getElementById("fac-articulos").value = "";
-      document.getElementById("fac-monto").value = "";
-      document.getElementById("lista-items-factura").innerHTML = "";
-      agregarFilaArticuloFactura();
-      abrirModal('modalFactura');
-    }
-
-    function establecerClienteVarios() {
-      document.getElementById("fac-cliente").value = "Cliente Varios";
-    }
-
-    function agregarFilaArticuloFactura() {
-      const tbody = document.getElementById("lista-items-factura");
-      const data = dbEmpresas[empresaActualId];
-      const optionsBodega = data.bodega.map(p => `<option value="${p.codigo}" data-precio="${p.precio}">${p.nombre} (Stock: ${p.stock})</option>`).join("");
-
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td><select class="item-prod" onchange="actualizarPrecioFilaFactura(this)"><option value="">Seleccione producto</option>${optionsBodega}</select></td>
-        <td><input type="number" class="item-cant" value="1" min="1" oninput="recalcularTotalFactura()"></td>
-        <td><input type="number" class="item-precio" value="0" oninput="recalcularTotalFactura()"></td>
-        <td><button type="button" class="btn-danger" onclick="this.closest('tr').remove(); recalcularTotalFactura();" style="padding:4px 8px;"><i class="fa-solid fa-trash"></i></button></td>
-      `;
-      tbody.appendChild(tr);
-    }
-
-    function actualizarPrecioFilaFactura(selectElem) {
-      const option = selectElem.options[selectElem.selectedIndex];
-      const precio = option.getAttribute("data-precio") || 0;
-      const tr = selectElem.closest("tr");
-      tr.querySelector(".item-precio").value = precio;
-      recalcularTotalFactura();
-    }
-
-    function recalcularTotalFactura() {
-      let total = 0;
-      let descripciones = [];
-      document.querySelectorAll("#lista-items-factura tr").forEach(tr => {
-        const cant = Number(tr.querySelector(".item-cant").value) || 0;
-        const precio = Number(tr.querySelector(".item-precio").value) || 0;
-        const selectProd = tr.querySelector(".item-prod");
-        const prodName = selectProd.selectedIndex > 0 ? selectProd.options[selectProd.selectedIndex].text.split(' (Stock')[0] : 'Artículo';
-        
-        total += (cant * precio);
-        if (cant > 0) descripciones.push(`${cant}x ${prodName}`);
-      });
-
-      document.getElementById("fac-monto").value = total;
-      document.getElementById("fac-articulos").value = descripciones.join(", ");
-    }
-
-    function guardarFactura(e) {
-      e.preventDefault();
-      const idEdit = document.getElementById("fac-id-edit").value;
-      const cliente = document.getElementById("fac-cliente").value;
-      const articulos = document.getElementById("fac-articulos").value;
-      const metodo = document.getElementById("fac-metodo").value;
-      const monto = Number(document.getElementById("fac-monto").value);
-
-      const data = dbEmpresas[empresaActualId];
-
-      if (idEdit) {
-        let fac = data.facturas.find(f => f.id === idEdit);
-        if (fac) {
-          fac.cliente = cliente;
-          fac.articulos = articulos;
-          fac.metodo = metodo;
-          fac.monto = monto;
-        }
-      } else {
-        const id = "FAC-" + Math.floor(1000 + Math.random() * 9000);
-        data.facturas.push({ id, cliente, articulos, metodo, fecha: hoyFechaStr, monto, estado: "Pagada" });
-      }
-
-      guardarEstadoEnLocalStorage();
-      actualizarVistasEmpresa();
-      cerrarModales();
-    }
-
-    function editarFactura(id) {
-      const data = dbEmpresas[empresaActualId];
-      const fac = data.facturas.find(f => f.id === id);
-      if (!fac) return;
-
-      document.getElementById("fac-id-edit").value = fac.id;
-      document.getElementById("fac-cliente").value = fac.cliente;
-      document.getElementById("fac-articulos").value = fac.articulos;
-      document.getElementById("fac-metodo").value = fac.metodo;
-      document.getElementById("fac-monto").value = fac.monto;
-      document.getElementById("modalFacturaTitulo").textContent = `Editar Factura ${fac.id}`;
-      abrirModal('modalFactura');
-    }
-
-    function eliminarFactura(id) {
-      if (!confirm("¿Eliminar esta factura de venta?")) return;
-      const data = dbEmpresas[empresaActualId];
-      data.facturas = data.facturas.filter(f => f.id !== id);
-      guardarEstadoEnLocalStorage();
-      actualizarVistasEmpresa();
-    }
-
-    function abrirModalNuevaCompra() {
-      document.getElementById("com-id-edit").value = "";
-      document.getElementById("com-proveedor").value = "";
-      document.getElementById("com-monto").value = "";
-      document.getElementById("lista-items-compra").innerHTML = "";
-      agregarFilaArticuloCompra();
-      abrirModal('modalCompra');
-    }
-
-    function agregarFilaArticuloCompra() {
-      const tbody = document.getElementById("lista-items-compra");
-      const data = dbEmpresas[empresaActualId];
-      const optionsBodega = data.bodega.map(p => `<option value="${p.codigo}">${p.nombre}</option>`).join("");
-
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td><select class="compra-item-prod"><option value="">Producto libre / Bodega</option>${optionsBodega}</select></td>
-        <td><input type="number" class="compra-item-cant" value="1" min="1" oninput="recalcularTotalCompra()"></td>
-        <td><input type="number" class="compra-item-costo" value="0" oninput="recalcularTotalCompra()"></td>
-        <td><button type="button" class="btn-danger" onclick="this.closest('tr').remove(); recalcularTotalCompra();" style="padding:4px 8px;"><i class="fa-solid fa-trash"></i></button></td>
-      `;
-      tbody.appendChild(tr);
-    }
-
-    function recalcularTotalCompra() {
-      let total = 0;
-      let descripciones = [];
-      document.querySelectorAll("#lista-items-compra tr").forEach(tr => {
-        const cant = Number(tr.querySelector(".compra-item-cant").value) || 0;
-        const costo = Number(tr.querySelector(".compra-item-costo").value) || 0;
-        total += (cant * costo);
-        if (cant > 0) descripciones.push(`${cant}x Insumo/Gasto`);
-      });
-      document.getElementById("com-monto").value = total;
-    }
-
-    function guardarCompra(e) {
-      e.preventDefault();
-      const idEdit = document.getElementById("com-id-edit").value;
-      const proveedor = document.getElementById("com-proveedor").value;
-      const monto = Number(document.getElementById("com-monto").value);
-      const estado = document.getElementById("com-estado").value;
-
-      const data = dbEmpresas[empresaActualId];
-
-      if (idEdit) {
-        let com = data.compras.find(c => c.id === idEdit);
-        if (com) {
-          com.proveedor = proveedor;
-          com.monto = monto;
-          com.estado = estado;
-        }
-      } else {
-        const id = "COM-" + Math.floor(1000 + Math.random() * 9000);
-        data.compras.push({ id, proveedor, articulos: "Compra general / Gasto", monto, estado });
-      }
-
-      guardarEstadoEnLocalStorage();
-      actualizarVistasEmpresa();
-      cerrarModales();
-    }
-
-    function editarCompra(id) {
-      const data = dbEmpresas[empresaActualId];
-      const com = data.compras.find(c => c.id === id);
-      if (!com) return;
-
-      document.getElementById("com-id-edit").value = com.id;
-      document.getElementById("com-proveedor").value = com.proveedor;
-      document.getElementById("com-monto").value = com.monto;
-      document.getElementById("com-estado").value = com.estado;
-      abrirModal('modalCompra');
-    }
-
-    function eliminarCompra(id) {
-      if (!confirm("¿Eliminar este registro de compra?")) return;
-      const data = dbEmpresas[empresaActualId];
-      data.compras = data.compras.filter(c => c.id !== id);
-      guardarEstadoEnLocalStorage();
-      actualizarVistasEmpresa();
-    }
-
-    function abrirModalNuevoProducto() {
-      document.getElementById("prod-codigo-edit").value = "";
-      document.getElementById("prod-codigo").value = "PRD-" + Math.floor(100 + Math.random() * 900);
-      document.getElementById("prod-nombre").value = "";
-      document.getElementById("prod-stock").value = "10";
-      document.getElementById("prod-precio").value = "";
-      abrirModal('modalProducto');
-    }
-
-    function guardarProducto(e) {
-      e.preventDefault();
-      const codigo = document.getElementById("prod-codigo").value.trim();
-      const nombre = document.getElementById("prod-nombre").value.trim();
-      const stock = Number(document.getElementById("prod-stock").value);
-      const precio = Number(document.getElementById("prod-precio").value);
-
-      const data = dbEmpresas[empresaActualId];
-      let prod = data.bodega.find(p => p.codigo === codigo);
-
-      if (prod) {
-        prod.nombre = nombre;
-        prod.stock = stock;
-        prod.precio = precio;
-      } else {
-        data.bodega.push({ codigo, nombre, stock, precio });
-      }
-
-      guardarEstadoEnLocalStorage();
-      actualizarVistasEmpresa();
-      cerrarModales();
-    }
-
-    function eliminarProducto(codigo) {
-      if (!confirm("¿Eliminar este producto del inventario?")) return;
-      const data = dbEmpresas[empresaActualId];
-      data.bodega = data.bodega.filter(p => p.codigo !== codigo);
-      guardarEstadoEnLocalStorage();
-      actualizarVistasEmpresa();
-    }
-
-    function guardarBanco(e) {
-      e.preventDefault();
-      const nombre = document.getElementById("bank-nombre").value;
-      const tipo = document.getElementById("bank-tipo").value;
-      const numero = document.getElementById("bank-numero").value;
-      const saldo = Number(document.getElementById("bank-saldo").value);
-
-      const data = dbEmpresas[empresaActualId];
-      if (!data.bancos) data.bancos = [];
-
-      data.bancos.push({ id: Date.now(), nombre, tipo, numero, saldo });
-      guardarEstadoEnLocalStorage();
-      renderizarBancos();
-      actualizarVistasEmpresa();
-      cerrarModales();
-      e.target.reset();
-    }
-
-    function guardarTercero(e) {
-      e.preventDefault();
-      const nit = document.getElementById("ter-nit").value.trim();
-      const nombre = document.getElementById("ter-nombre").value.trim();
-      const tipo = document.getElementById("ter-tipo").value;
-
-      const data = dbEmpresas[empresaActualId];
-      if (data.terceros.some(t => t.nit === nit)) return alert("Ya existe un tercero registrado con este NIT o documento.");
-
-      data.terceros.push({ nit, nombre, tipo });
-      guardarEstadoEnLocalStorage();
-      renderizarTablas();
-      cerrarModales();
-      e.target.reset();
-    }
-
-    function eliminarTercero(nit) {
-      if (!confirm("¿Eliminar este tercero?")) return;
-      const data = dbEmpresas[empresaActualId];
-      data.terceros = data.terceros.filter(t => t.nit !== nit);
-      guardarEstadoEnLocalStorage();
-      renderizarTablas();
-    }
-
-    function filtrarTablas() {
-      const query = document.getElementById("globalSearch").value.toLowerCase();
-      document.querySelectorAll("table tbody tr").forEach(tr => {
-        const text = tr.textContent.toLowerCase();
-        tr.style.display = text.includes(query) ? "" : "none";
-      });
-    }
-
-    function irAFacturasDelDia() { cambiarVista("facturacion"); }
-    function irACuentasPorPagar() { cambiarVista("compras"); }
-  </script>
-</body>
->>>>>>> ad2b487bc109756a3a2e1528bc8332804167b40c
 </html>
