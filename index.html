@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -80,10 +79,15 @@
             opacity: 0.9;
         }
 
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
         .main-nav a {
             color: var(--text-primary);
             text-decoration: none;
-            margin-left: 2.5rem;
             font-size: 0.8rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -92,6 +96,27 @@
 
         .main-nav a:hover {
             color: var(--accent-gold);
+        }
+
+        .cart-btn-nav {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--accent-gold);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cart-btn-nav:hover {
+            background-color: var(--accent-gold);
+            color: var(--bg-dark);
         }
 
         /* Hero Section */
@@ -145,6 +170,8 @@
             max-width: 580px;
             margin-left: auto;
             margin-right: auto;
+            min-height: 3.5rem; /* Espacio reservado para evitar saltos */
+            transition: opacity 0.5s ease;
         }
 
         .btn-hero {
@@ -425,8 +452,141 @@
             -moz-appearance: textfield;
         }
 
-        /* Botón de WhatsApp */
-        .btn-whatsapp {
+        /* Botón de Añadir al Carrito */
+        .btn-cart {
+            width: 100%;
+            padding: 0.95rem;
+            background-color: var(--accent-gold);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-cart:hover {
+            background-color: var(--accent-gold-light);
+            box-shadow: 0 0 15px rgba(201, 160, 99, 0.3);
+        }
+
+        .cart-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Modal / Carrito Panel */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background-color: var(--bg-card);
+            border-left: 1px solid var(--border-color);
+            z-index: 2000;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+            transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-modal.open {
+            right: 0;
+        }
+
+        .cart-modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-modal-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .cart-close-btn {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .cart-close-btn:hover {
+            color: var(--accent-gold);
+        }
+
+        .cart-modal-body {
+            padding: 1.5rem 2rem;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.85rem;
+        }
+
+        .cart-item-info h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .cart-item-info p {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: #ff5252;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .cart-modal-footer {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid var(--border-color);
+            background: #0e0e0e;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .btn-whatsapp-checkout {
             width: 100%;
             padding: 0.95rem;
             background-color: var(--wa-color);
@@ -442,16 +602,27 @@
             align-items: center;
             justify-content: center;
             gap: 0.6rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease;
         }
 
-        .btn-whatsapp:hover {
+        .btn-whatsapp-checkout:hover {
             background-color: var(--wa-hover);
         }
 
-        .wa-icon {
-            width: 18px;
-            height: 18px;
+        .cart-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1500;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .cart-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
         }
 
         /* Footer */
@@ -485,6 +656,10 @@
             <nav class="main-nav">
                 <a href="#catalogo">Colección</a>
                 <a href="#contacto">Contacto</a>
+                <button type="button" class="cart-btn-nav" onclick="toggleCart()">
+                    <svg style="width:16px;height:16px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    Carrito (<span id="cartCount">0</span>)
+                </button>
             </nav>
         </div>
     </header>
@@ -495,7 +670,7 @@
         <div class="hero-content">
             <span class="hero-subtitle">ALTA PERFUMERÍA</span>
             <h1 class="hero-title">El Arte de la Perfumería</h1>
-            <p class="hero-description">Fragancias exclusivas seleccionadas meticulosamente para dejar una huella imborrable.</p>
+            <p class="hero-description" id="dynamicHeroDescription">Fragancias exclusivas seleccionadas meticulosamente para dejar una huella imborrable.</p>
             <a href="#catalogo" class="btn-hero">Explorar Colección</a>
         </div>
     </section>
@@ -525,35 +700,7 @@
 
         <div class="product-grid" id="productGrid">
 
-            <!-- Card Producto 1 -->
-            <article class="product-card">
-                <div class="product-media">
-                    <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-1">1</span> Unidades Disponibles
-                    </span>
-                    <img src="images/FOTOSPAGINAWEB-2025-06-17T100955.214-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="GOOD GIRL BLUSH" class="product-img">
-                </div>
-                <div class="product-body">
-                    <span class="brand-name">CAROLINA HERRERA</span>
-                    <h3 class="product-title">GOOD GIRL BLUSH</h3>
-                    <p class="product-specs">Eau de Parfum • 80 ml</p>
-                    <div class="price-tag">$360.000 COP</div>
-
-                    <div class="control-row">
-                        <label class="qty-label">Cantidad</label>
-                        <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-1', -1)">−</button>
-                            <input type="number" id="qty-1" value="1" min="1" max="5" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-1', 1)">+</button>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('Good Girl Blush', 'qty-1', 360000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
-                    </button>
-                </div>
-            </article>
+          
 
             <!-- Card Producto 2 -->
             <article class="product-card">
@@ -578,9 +725,9 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('CH 100ML DM', 'qty-2', 250000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('CH 100ML DM', 'qty-2', 250000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
@@ -608,9 +755,9 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('GOOD GIRL', 'qty-3', 340000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('GOOD GIRL', 'qty-3', 340000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
@@ -638,9 +785,9 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('212 NYC', 'qty-4', 250000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('212 NYC', 'qty-4', 250000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
@@ -668,9 +815,9 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('212 VIP ROSE', 'qty-5', 260000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('212 VIP ROSE', 'qty-5', 260000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
@@ -698,9 +845,9 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('212 NYC DE 200ML', 'qty-6', 340000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('212 NYC DE 200ML', 'qty-6', 340000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
@@ -728,9 +875,9 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('CAROLINA HERRERA CH MEN', 'qty-7', 250000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('CAROLINA HERRERA CH MEN', 'qty-7', 250000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
@@ -758,9 +905,9 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('212 HEROES', 'qty-8', 300000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('212 HEROES', 'qty-8', 300000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
@@ -788,17 +935,17 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('EAU DE CARTIER CONCENTRE 100ML', 'qty-9', 280000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('EAU DE CARTIER CONCENTRE 100ML', 'qty-9', 280000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-                        <!-- Card Producto 3 -->
+                        <!-- Card Producto 10 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-10">1</span> Unidad Disponible
                     </span>
                     <img src="images/montblanc-2443-0373651-1-zoom-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="Lattafa Emeer Eau de Parfum" class="product-img">
                 </div>
@@ -811,23 +958,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-10', -1)">−</button>
+                            <input type="number" id="qty-10" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-10', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('starwaker', 'qty-2', 120000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('starwaker', 'qty-10', 120000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-               <!-- Card Producto 4-->
+               <!-- Card Producto 11-->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-11">1</span> Unidad Disponible
                     </span>
                     <img src="images/s-l1200-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="Lattafa Emeer Eau de Parfum" class="product-img">
                 </div>
@@ -840,23 +987,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-11', -1)">−</button>
+                            <input type="number" id="qty-11" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-11', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('1 MILLON DE 200ml', 'qty-2', 340000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('1 MILLON DE 200ml', 'qty-11', 340000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-             <!-- Card Producto 5-->
+             <!-- Card Producto 12-->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-12">1</span> Unidad Disponible
                     </span>
                     <img src="images/images-removebg-preview(1).png?auto=format&fit=crop&q=80&w=800" alt="Lattafa Emeer Eau de Parfum" class="product-img">
                 </div>
@@ -869,52 +1016,24 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-12', -1)">−</button>
+                            <input type="number" id="qty-12" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-12', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('VERSACE EROS DE 200ml', 'qty-2', 290000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('VERSACE EROS DE 200ml', 'qty-12', 290000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-             <!-- Card Producto 5-->
+             
+            <!-- Card Producto 13-->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
-                    </span>
-                    <img src="images/3614226905666_1-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BURBERRY EDP 100ML" class="product-img">
-                </div>
-                <div class="product-body">
-                    <span class="brand-name">BURBERRY</span>
-                    <h3 class="product-title">BURBERRY </h3>
-                    <p class="product-specs">eau de parfum • 100 ml</p>
-                    <div class="price-tag">$140.000 COP</div>
-
-                    <div class="control-row">
-                        <label class="qty-label">Cantidad</label>
-                        <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('BURBERRY EDP 100ML', 'qty-2', 140000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
-                    </button>
-                </div>
-            </article>
-            <!-- Card Producto 5-->
-            <article class="product-card">
-                <div class="product-media">
-                    <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-13">1</span> Unidad Disponible
                     </span>
                     <img src="images/157587-800-914-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="HUGO BOSS MAN 125ML" class="product-img">
                 </div>
@@ -927,23 +1046,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-13', -1)">−</button>
+                            <input type="number" id="qty-13" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-13', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('HUGO BOSS MAN 125ML', 'qty-2', 150000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('HUGO BOSS MAN 125ML', 'qty-13', 150000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-             <!-- Card Producto -->
+             <!-- Card Producto 14 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-14">1</span> Unidad Disponible
                     </span>
                     <img src="images/Lacosteesencialnueva_grande-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="LACOSTE ESSENTIAL 125ML" class="product-img">
                 </div>
@@ -956,23 +1075,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-14', -1)">−</button>
+                            <input type="number" id="qty-14" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-14', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('LACOSTE ESSENTIAL 125ML', 'qty-2', 150000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('LACOSTE ESSENTIAL 125ML', 'qty-14', 150000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-             <!-- Card Producto -->
+             <!-- Card Producto 15 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-15">1</span> Unidad Disponible
                     </span>
                     <img src="images/CHANELSUBLIMAGELETEINT-2026-04-18T092934.326-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="CHANEL ALLURE HOMME SPORT 150ML" class="product-img">
                 </div>
@@ -985,23 +1104,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-15', -1)">−</button>
+                            <input type="number" id="qty-15" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-15', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('ALALLURE HOMME SPORT', 'qty-2', 550000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('ALLURE HOMME SPORT', 'qty-15', 550000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-              <!-- Card Producto -->
+              <!-- Card Producto 16 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-16">1</span> Unidad Disponible
                     </span>
                     <img src="images/bleu-de-chanel-parfum-spray-5fl-oz--packshot-alternative-v1-107190-9564954591262-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BLEU CHANEL PARFUM 150ML" class="product-img">
                 </div>
@@ -1014,23 +1133,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-16', -1)">−</button>
+                            <input type="number" id="qty-16" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-16', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('BLEU', 'qty-2', 650000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('BLEU', 'qty-16', 650000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-              <!-- Card Producto -->
+              <!-- Card Producto 17 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-17">1</span> Unidad Disponible
                     </span>
                     <img src="images/3145891074604_1_a48a4c85-ecab-4390-aabc-c0273340fcd1-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BLEU CHANEL 100ML EDP " class="product-img">
                 </div>
@@ -1043,23 +1162,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-17', -1)">−</button>
+                            <input type="number" id="qty-17" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-17', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('BLEU CHANEL 100ML EDP', 'qty-2', 390000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('BLEU CHANEL 100ML EDP', 'qty-17', 390000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-             <!-- Card Producto -->
+             <!-- Card Producto 18 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-18">1</span> Unidad Disponible
                     </span>
                     <img src="images/61FP1HETm1L._AC_UF1000_1000_QL80_-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="CHANEL #5 200ML EDP " class="product-img">
                 </div>
@@ -1072,23 +1191,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-18', -1)">−</button>
+                            <input type="number" id="qty-18" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-18', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('CHANEL #5 ', 'qty-2', 550000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('CHANEL #5', 'qty-18', 550000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-             <!-- Card Producto -->
+             <!-- Card Producto 19 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-19">1</span> Unidad Disponible
                     </span>
                     <img src="images/114901-2-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="YVES SAINT LAURENT 100ML EDP " class="product-img">
                 </div>
@@ -1101,23 +1220,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-19', -1)">−</button>
+                            <input type="number" id="qty-19" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-19', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('LIBRE', 'qty-2', 390000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('LIBRE', 'qty-19', 390000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-            <!-- Card Producto -->
+            <!-- Card Producto 20 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-20">1</span> Unidad Disponible
                     </span>
                     <img src="images/valentino-011305vl-1-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="VALENTINO UOMO " class="product-img">
                 </div>
@@ -1130,23 +1249,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-20', -1)">−</button>
+                            <input type="number" id="qty-20" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-20', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('VALENTINO UOMO', 'qty-2', 290000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('VALENTINO UOMO', 'qty-20', 290000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-               <!-- Card Producto -->
+               <!-- Card Producto 21 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-21">1</span> Unidad Disponible
                     </span>
                     <img src="images/Perfume-Omnia-Crystalline-De-Bvlgari-Para-Mujer-eau-de-toilette-100-ml-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BVLGARI OMNIA CRYSTALLINE" class="product-img">
                 </div>
@@ -1159,23 +1278,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-21', -1)">−</button>
+                            <input type="number" id="qty-21" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-21', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('OMNIA CRYSTALLINE', 'qty-2', 330000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('OMNIA CRYSTALLINE', 'qty-21', 330000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-              <!-- Card Producto -->
+              <!-- Card Producto 22 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-22">1</span> Unidad Disponible
                     </span>
                     <img src="images/MOMNAN_2__92660-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BVLGARI OMNIA AMETHISTE 100ML" class="product-img">
                 </div>
@@ -1188,23 +1307,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-22', -1)">−</button>
+                            <input type="number" id="qty-22" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-22', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('OMNIA AMETHYSTE', 'qty-2', 330000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('OMNIA AMETHYSTE', 'qty-22', 330000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-              <!-- Card Producto -->
+              <!-- Card Producto 23 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-23">1</span> Unidad Disponible
                     </span>
                     <img src="images/perfume-para-dama-la-vie-est-belle-by-lancome-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="LA VIE EST BELLE" class="product-img">
                 </div>
@@ -1217,23 +1336,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-23', -1)">−</button>
+                            <input type="number" id="qty-23" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-23', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('LA VIE EST BELLE', 'qty-2', 330000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('LA VIE EST BELLE', 'qty-23', 330000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-              <!-- Card Producto -->
+              <!-- Card Producto 24 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-24">1</span> Unidad Disponible
                     </span>
                     <img src="images/perfume-dior-homme-intense-eau-de-parfum-100ml-hombre-6760790-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="DIOR HOMME INTENSE" class="product-img">
                 </div>
@@ -1246,23 +1365,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-24', -1)">−</button>
+                            <input type="number" id="qty-24" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-24', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('DIOR HOMME INTENSE', 'qty-2', 4500000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('DIOR HOMME INTENSE', 'qty-24', 450000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-             <!-- Card Producto -->
+             <!-- Card Producto 25 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-25">1</span> Unidad Disponible
                     </span>
                     <img src="images/sauvage_elixir_de_100ml-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="SAUVAGE ELIXIR" class="product-img">
                 </div>
@@ -1275,23 +1394,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-25', -1)">−</button>
+                            <input type="number" id="qty-25" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-25', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('SAUVAGE ELIXIR', 'qty-2', 500000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('SAUVAGE ELIXIR', 'qty-25', 500000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-               <!-- Card Producto -->
+               <!-- Card Producto 26 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-26">1</span> Unidad Disponible
                     </span>
                     <img src="images/w_1500_h_1500_fit_cover-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="TESTER LA VIE EST BELLE" class="product-img">
                 </div>
@@ -1304,23 +1423,23 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-26', -1)">−</button>
+                            <input type="number" id="qty-26" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-26', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('TESTER LA VIE EST BELLE', 'qty-2', 950000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('TESTER LA VIE EST BELLE', 'qty-26', 95000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-             <!-- Card Producto -->
+             <!-- Card Producto 27 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-27">1</span> Unidad Disponible
                     </span>
                     <img src="images/w_800_h_800_fit_pad-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="TESTER GOOD GIRL SUPREME 50ML" class="product-img">
                 </div>
@@ -1333,15 +1452,15 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-27', -1)">−</button>
+                            <input type="number" id="qty-27" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-27', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-whatsapp" onclick="checkoutWhatsApp('TESTER GOOD GIRL SUPREME', 'qty-2', 950000)">
-                        <svg class="wa-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                        <span>Pedir por WhatsApp</span>
+                    <button type="button" class="btn-cart" onclick="addToCart('TESTER GOOD GIRL SUPREME', 'qty-27', 95000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
@@ -1349,6 +1468,28 @@
 
         </div>
     </section>
+
+    <!-- Carrito Panel Lateral / Modal -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-header">
+            <h3 class="cart-modal-title">Tu Carrito de Compras</h3>
+            <button type="button" class="cart-close-btn" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-modal-body" id="cartItemsContainer">
+            <p style="color: var(--text-muted); text-align: center; margin-top: 2rem;">Tu carrito está vacío.</p>
+        </div>
+        <div class="cart-modal-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotalPrice">$0 COP</span>
+            </div>
+            <button type="button" class="btn-whatsapp-checkout" onclick="checkoutCartWhatsApp()">
+                <svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
+                <span>Pedir todo por WhatsApp</span>
+            </button>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer" id="contacto">
@@ -1359,6 +1500,26 @@
     <!-- Lógica de JavaScript -->
     <script>
         const PHONE_NUMBER = "573000000000"; 
+        let cart = [];
+
+        // Mensajes dinámicos aleatorios sofisticados y datos curiosos al refrescar la página
+        const heroMessages = [
+            "Fragancias exclusivas seleccionadas meticulosamente para dejar una huella imborrable.",
+            "¿Sabías que el sentido del olfato es el único conectado directamente con el sistema límbico, la zona del cerebro que procesa las emociones y la memoria?",
+            "El aceite esencial de jazmín es uno de los ingredientes más preciados en perfumería; se necesitan más de ocho millones de flores recolectadas a mano para extraer tan solo un kilogramo.",
+            "La palabra perfume proviene del latín 'per fumum', que significa 'a través del humo', evocando el uso ancestral de quemar maderas y resinas aromáticas.",
+            "Un perfume evoluciona en tu piel a través de tres fases distintas: notas de salida, notas de corazón y notas de fondo, revelando matices únicos con el paso de las horas.",
+            "En la antigua realeza egipcia, los ungüentos aromáticos y las fragancias se consideraban un puente directo hacia la divinidad y un símbolo supremo de distinción.",
+            "El punto de aplicación ideal para prolongar la estela de tu fragancia son las zonas de pulso, donde el calor corporal ayuda a difundir magistralmente los aceites esenciales."
+        ];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const randomIndex = Math.floor(Math.random() * heroMessages.length);
+            const descElement = document.getElementById('dynamicHeroDescription');
+            if (descElement) {
+                descElement.textContent = heroMessages[randomIndex];
+            }
+        });
 
         function updateQty(inputId, change) {
             const input = document.getElementById(inputId);
@@ -1375,10 +1536,94 @@
             input.value = val;
         }
 
-        function checkoutWhatsApp(productName, qtyInputId, unitPrice) {
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            const overlay = document.getElementById('cartOverlay');
+            modal.classList.toggle('open');
+            overlay.classList.toggle('open');
+        }
+
+        function addToCart(productName, qtyInputId, unitPrice) {
             const input = document.getElementById(qtyInputId);
             const qty = input ? parseInt(input.value) || 1 : 1;
-            const totalPrice = qty * unitPrice;
+
+            const existingIndex = cart.findIndex(item => item.name === productName);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += qty;
+            } else {
+                cart.push({ name: productName, qty: qty, price: unitPrice });
+            }
+
+            updateCartUI();
+            toggleCart();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const countBadge = document.getElementById('cartCount');
+            const totalElement = document.getElementById('cartTotalPrice');
+
+            let totalCount = 0;
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin-top: 2rem;">Tu carrito está vacío.</p>';
+                countBadge.textContent = '0';
+                totalElement.textContent = '$0 COP';
+                return;
+            }
+
+            container.innerHTML = '';
+            cart.forEach((item, index) => {
+                totalCount += item.qty;
+                totalPrice += item.qty * item.price;
+
+                const formattedItemTotal = new Intl.NumberFormat('es-CO', {
+                    style: 'currency',
+                    currency: 'COP',
+                    maximumFractionDigits: 0
+                }).format(item.qty * item.price);
+
+                container.innerHTML += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <p>Cant: ${item.qty} x $${item.price.toLocaleString('es-CO')} = ${formattedItemTotal}</p>
+                        </div>
+                        <div class="cart-item-actions">
+                            <button type="button" class="cart-item-remove" onclick="removeFromCart(${index})">Eliminar</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            countBadge.textContent = totalCount;
+            totalElement.textContent = new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                maximumFractionDigits: 0
+            }).format(totalPrice);
+        }
+
+        function checkoutCartWhatsApp() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío.');
+                return;
+            }
+
+            let totalPrice = 0;
+            let message = `Hola BRAMY PARFUMS, deseo realizar el siguiente pedido:\n\n`;
+
+            cart.forEach((item, index) => {
+                const subtotal = item.qty * item.price;
+                totalPrice += subtotal;
+                message += `${index + 1}. *${item.name}* (Cant: ${item.qty}) - $${subtotal.toLocaleString('es-CO')} COP\n`;
+            });
 
             const formattedTotal = new Intl.NumberFormat('es-CO', {
                 style: 'currency',
@@ -1386,11 +1631,7 @@
                 maximumFractionDigits: 0
             }).format(totalPrice);
 
-            const message = `Hola BRAMY PARFUMS, deseo realizar un pedido:\n\n` +
-                            `• *Producto:* ${productName}\n` +
-                            `• *Cantidad:* ${qty}\n` +
-                            `• *Total estimado:* ${formattedTotal}\n\n` +
-                            `Quedo atento para confirmar disponibilidad y envío.`;
+            message += `\n• *Total General:* ${formattedTotal}\n\nQuedo atento para confirmar disponibilidad y envío.`;
 
             const url = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
