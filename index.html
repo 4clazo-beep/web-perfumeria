@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRAMY PARFUMS — Haute Parfumerie</title>
+    <title>BRAMY PARFUMS — Amor y Amistad</title>
     <!-- Tipografías de lujo desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +41,48 @@
             font-family: var(--font-sans);
             -webkit-font-smoothing: antialiased;
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* --- EFECTO DE CORAZONES FLOTANTES ELEGANTE --- */
+        .floating-hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2; /* Por encima del fondo pero sin bloquear clics */
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -10vh;
+            color: rgba(230, 57, 70, 0.75); /* Rojo elegante más visible */
+            font-size: var(--size, 22px);
+            animation: floatUp var(--duration, 10s) linear infinite;
+            opacity: 0;
+            user-select: none;
+            filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.5));
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) scale(0.5) rotate(0deg);
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.9;
+            }
+            85% {
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(-110vh) translateX(var(--drift, 50px)) scale(1.3) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         /* Header / Navbar */
@@ -128,18 +170,19 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: url('images/360_F_100651066_MImV2tvEKlUQqm9qZU15aibvoHKR50KH.jpg?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
+            background: url('images/VOE24XDODZHOTOLOBQE32JNBH4.avif?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
+            z-index: 3;
         }
 
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.95) 100%);
+            background: radial-gradient(circle, rgba(6, 6, 6, 0.45) 0%, rgba(10,10,10,0.95) 100%);
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 4;
             max-width: 750px;
             padding: 0 1.5rem;
         }
@@ -170,7 +213,7 @@
             max-width: 580px;
             margin-left: auto;
             margin-right: auto;
-            min-height: 3.5rem; /* Espacio reservado para evitar saltos */
+            min-height: 3.5rem;
             transition: opacity 0.5s ease;
         }
 
@@ -190,7 +233,7 @@
         .btn-hero:hover {
             background-color: var(--accent-gold);
             color: var(--bg-dark);
-            box-shadow: 0 0 25px rgba(201, 160, 99, 0.3);
+            box-shadow: 0 0 25px rgb(243, 239, 239);
         }
 
         /* Catalog Section */
@@ -198,6 +241,8 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 7rem 2rem 5rem;
+            position: relative;
+            z-index: 3;
         }
 
         .section-header {
@@ -631,6 +676,8 @@
             padding: 3.5rem 1.5rem;
             text-align: center;
             margin-top: 2rem;
+            position: relative;
+            z-index: 3;
         }
 
         .footer-brand {
@@ -649,13 +696,15 @@
 </head>
 <body>
 
+    <!-- Contenedor para corazones flotantes animados -->
+    <div class="floating-hearts-container" id="heartsContainer"></div>
+
     <!-- Navigation Header -->
     <header class="site-header">
         <div class="header-inner">
             <a href="#" class="brand-logo">BRAMY PARFUMS</a>
             <nav class="main-nav">
-                <a href="#catalogo">Colección</a>
-                <a href="#contacto">Contacto</a>
+                <a href="#catalogo">Especial Amor y Amistad</a>
                 <button type="button" class="cart-btn-nav" onclick="toggleCart()">
                     <svg style="width:16px;height:16px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                     Carrito (<span id="cartCount">0</span>)
@@ -668,18 +717,18 @@
     <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="hero-subtitle">ALTA PERFUMERÍA</span>
-            <h1 class="hero-title">El Arte de la Perfumería</h1>
-            <p class="hero-description" id="dynamicHeroDescription">Fragancias exclusivas seleccionadas meticulosamente para dejar una huella imborrable.</p>
-            <a href="#catalogo" class="btn-hero">Explorar Colección</a>
+            <span class="hero-subtitle">ESPECIAL DE AMOR Y AMISTAD</span>
+            <h1 class="hero-title">El Regalo Perfecto para Esa Persona Especial</h1>
+            <p class="hero-description" id="dynamicHeroDescription">Sorprende a quien amas con una fragancia inolvidable que hable por tu corazón en este mes de Amor y Amistad.</p>
+            <a href="#catalogo" class="btn-hero">Explorar Colección de Amor</a>
         </div>
     </section>
 
     <!-- Catalog Section -->
     <section class="catalog-container" id="catalogo">
         <header class="section-header">
-            <span class="section-tagline">Selección Exclusiva</span>
-            <h2 class="section-title">CATÁLOGO DISPONIBLE</h2>
+            <span class="section-tagline">Colección Exclusiva</span>
+            <h2 class="section-title">CATÁLOGO DE AMOR Y AMISTAD</h2>
             <div class="divider"></div>
         </header>
 
@@ -700,13 +749,11 @@
 
         <div class="product-grid" id="productGrid">
 
-          
-
-            <!-- Card Producto 1 -->
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-2">3</span> Unidades Disponibles
+                        <span class="pulse-dot"></span> <span id="stock-val-2">2</span> Unidades Disponibles
                     </span>
                     <img src="images/CH-Dm-500x500-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="CAROLINA HERRERA CH 100ML" class="product-img">
                 </div>
@@ -732,7 +779,7 @@
                 </div>
             </article>
 
-            <!-- Card Producto 2 -->
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -762,7 +809,7 @@
                 </div>
             </article>
 
-            <!-- Card Producto 3 -->
+            <!-- Card Producto -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -792,7 +839,7 @@
                 </div>
             </article>
 
-            <!-- Card Producto 4 -->
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -852,11 +899,11 @@
                 </div>
             </article>
 
-            <!-- Card Producto 6 -->
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-7">3</span> Unidades Disponibles
+                        <span class="pulse-dot"></span> <span id="stock-val-7">2</span> Unidades Disponibles
                     </span>
                     <img src="images/CH-Carolina-Herrera-Perfumeria-Zafiro-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="CAROLINA HERRERA CH MEN" class="product-img">
                 </div>
@@ -881,12 +928,14 @@
                     </button>
                 </div>
             </article>
- <article class="product-card">
+
+            <!-- Card Producto  -->
+            <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-8">2</span> Unidad Disponible
                     </span>
-                    <img src="images/CH MEN PRIVE.png?auto=format&fit=crop&q=80&w=800" alt="CAROLINA HERRERA CH MEN PRIVÉVIP 100ML EDP" class="product-img">
+                    <img src="images/CH MEN PRIVE.png?auto=format&fit=crop&q=80&w=800" alt="CAROLINA HERRERA CH MEN PRIVÉ" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">CAROLINA HERRERA (HOMBRE)</span>
@@ -909,13 +958,14 @@
                     </button>
                 </div>
             </article>
-            <!-- Card Producto 8 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-8">1</span> Unidad Disponible
                     </span>
-                    <img src="images/Heroes-600x600-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="CAROLINA HERRERA 212 HEROES 90ML EDP" class="product-img">
+                    <img src="images/Heroes-600x600-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="CAROLINA HERRERA 212 HEROES" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">CAROLINA HERRERA (MUJER)</span>
@@ -938,41 +988,14 @@
                     </button>
                 </div>
             </article>
-  <!-- Card Producto 9 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-8">1</span> Unidad Disponible
                     </span>
-                    <img src="images/212 hombre 100ml.png?auto=format&fit=crop&q=80&w=800" alt="CAROLINA HERRERA 212 MEN 100ML EDP" class="product-img">
-                </div>
-                <div class="product-body">
-                    <span class="brand-name">CAROLINA HERRERA (HOMBRE)</span>
-                    <h3 class="product-title">212 MEN</h3>
-                    <p class="product-specs">Eau de toilette • 100 ml</p>
-                    <div class="price-tag">$260.000 COP</div>
-
-                    <div class="control-row">
-                        <label class="qty-label">Cantidad</label>
-                        <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-8', -1)">−</button>
-                            <input type="number" id="qty-8" value="1" min="1" max="1" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-8', 1)">+</button>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn-cart" onclick="addToCart('212 MEN', 'qty-8', 260000)">
-                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                        <span>Añadir al carrito</span>
-                    </button>
-                </div>
-            </article>
-            <article class="product-card">
-                <div class="product-media">
-                    <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-8">1</span> Unidad Disponible
-                    </span>
-                    <img src="images/212 vip 100ml.png?auto=format&fit=crop&q=80&w=800" alt="CAROLINA HERRERA 212 VIP MEN 100ML EDP" class="product-img">
+                    <img src="images/212 vip 100ml.png?auto=format&fit=crop&q=80&w=800" alt="CAROLINA HERRERA 212 VIP MEN" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">CAROLINA HERRERA (HOMBRE)</span>
@@ -995,12 +1018,14 @@
                     </button>
                 </div>
             </article>
-             <article class="product-card">
+
+            <!-- Card Producto  -->
+            <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-8">1</span> Unidad Disponible
                     </span>
-                    <img src="images/212 VIP BLACK 100ML.png?auto=format&fit=crop&q=80&w=800" alt="CAROLINA HERRERA 212 VIP BLACK MEN 100ML EDP" class="product-img">
+                    <img src="images/212 VIP BLACK 100ML.png?auto=format&fit=crop&q=80&w=800" alt="CAROLINA HERRERA 212 VIP BLACK MEN" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">CAROLINA HERRERA (HOMBRE)</span>
@@ -1023,13 +1048,14 @@
                     </button>
                 </div>
             </article>
-            <!-- Card Producto 12 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-9">1</span> Unidad Disponible
                     </span>
-                    <img src="images/Eau-de-cartier-concentre-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="EAU DE CARTIER CONCENTRE 100ML" class="product-img">
+                    <img src="images/Eau-de-cartier-concentre-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="EAU DE CARTIER CONCENTRE" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">CARTIER (UNISEX)</span>
@@ -1052,7 +1078,8 @@
                     </button>
                 </div>
             </article>
-             <!-- Card Producto 13 -->
+
+            <!-- Card Producto 13 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1081,42 +1108,14 @@
                     </button>
                 </div>
             </article>
-                        <!-- Card Producto 14 -->
-            <article class="product-card">
-                <div class="product-media">
-                    <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-10">3</span> Unidades Disponibles
-                    </span>
-                    <img src="images/montblanc-2443-0373651-1-zoom-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="Lattafa Emeer Eau de Parfum" class="product-img">
-                </div>
-                <div class="product-body">
-                    <span class="brand-name">MONTBLANC (HOMBRE)</span>
-                    <h3 class="product-title">STARWALKER</h3>
-                    <p class="product-specs">Eau de toilette • 75 ml</p>
-                    <div class="price-tag">$110.000 COP</div>
 
-                    <div class="control-row">
-                        <label class="qty-label">Cantidad</label>
-                        <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-10', -1)">−</button>
-                            <input type="number" id="qty-10" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-10', 1)">+</button>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn-cart" onclick="addToCart('starwaker', 'qty-10', 110000)">
-                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                        <span>Añadir al carrito</span>
-                    </button>
-                </div>
-            </article>
-               <!-- Card Producto 15-->
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-11">1</span> Unidad Disponible
                     </span>
-                    <img src="images/1 MILLON 200ML.png?auto=format&fit=crop&q=80&w=800" alt="1 MILLON 200ML EDT" class="product-img">
+                    <img src="images/1 MILLON 200ML.png?auto=format&fit=crop&q=80&w=800" alt="1 MILLON 200ML" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">PACO RABANNE (HOMBRE)</span>
@@ -1139,13 +1138,14 @@
                     </button>
                 </div>
             </article>
-            <!-- Card Producto 16-->
+
+            <!-- Card Producto -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-11">3</span> Unidades Disponibles
+                        <span class="pulse-dot"></span> <span id="stock-val-11">2</span> Unidades Disponibles
                     </span>
-                    <img src="images/1 MILLON 100ML HM.png?auto=format&fit=crop&q=80&w=800" alt="1 MILLON 100ML EDT" class="product-img">
+                    <img src="images/1 MILLON 100ML HM.png?auto=format&fit=crop&q=80&w=800" alt="1 MILLON 100ML" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">PACO RABANNE (HOMBRE)</span>
@@ -1168,42 +1168,14 @@
                     </button>
                 </div>
             </article>
-             <!-- Card Producto 17-->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-11">1</span> Unidad Disponible
                     </span>
-                    <img src="images/1 MILLON PARFUM 100ML.png?auto=format&fit=crop&q=80&w=800" alt="1 MILLON PARFUM 100ML EDT" class="product-img">
-                </div>
-                <div class="product-body">
-                    <span class="brand-name">PACO RABANNE (HOMBRE)</span>
-                    <h3 class="product-title">1 MILLON PARFUM</h3>
-                    <p class="product-specs">parfum • 100 ml</p>
-                    <div class="price-tag">$290.000 COP</div>
-
-                    <div class="control-row">
-                        <label class="qty-label">Cantidad</label>
-                        <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-11', -1)">−</button>
-                            <input type="number" id="qty-11" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-11', 1)">+</button>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn-cart" onclick="addToCart('1 MILLON PARFUM 100ML', 'qty-11', 290000)">
-                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                        <span>Añadir al carrito</span>
-                    </button>
-                </div>
-            </article>
-              <!-- Card Producto 18-->
-            <article class="product-card">
-                <div class="product-media">
-                    <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-11">1</span> Unidad Disponible
-                    </span>
-                    <img src="images/invictus 100ml.png?auto=format&fit=crop&q=80&w=800" alt="INVICTUS 100ML EDT" class="product-img">
+                    <img src="images/invictus 100ml.png?auto=format&fit=crop&q=80&w=800" alt="INVICTUS 100ML" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">PACO RABANNE (HOMBRE)</span>
@@ -1226,42 +1198,14 @@
                     </button>
                 </div>
             </article>
-               <!-- Card Producto 19-->
+
+            <!-- Card Producto -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-11">1</span> Unidad Disponible
                     </span>
-                    <img src="images/INVICTUS  VICTORY 100ML HM.png?auto=format&fit=crop&q=80&w=800" alt="INVICTUS VICTORY EXTREME 100ML EDP" class="product-img">
-                </div>
-                <div class="product-body">
-                    <span class="brand-name">PACO RABANNE (HOMBRE)</span>
-                    <h3 class="product-title">INVICTUS VICTORY EXTREME</h3>
-                    <p class="product-specs">eau de parfum extreme • 100 ml</p>
-                    <div class="price-tag">$330.000 COP</div>
-
-                    <div class="control-row">
-                        <label class="qty-label">Cantidad</label>
-                        <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-11', -1)">−</button>
-                            <input type="number" id="qty-11" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-11', 1)">+</button>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn-cart" onclick="addToCart('INVICTUS VICTORY EXTREME', 'qty-11', 330000)">
-                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                        <span>Añadir al carrito</span>
-                    </button>
-                </div>
-            </article>
-              <!-- Card Producto 20-->
-            <article class="product-card">
-                <div class="product-media">
-                    <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-11">1</span> Unidad Disponible
-                    </span>
-                    <img src="images/INVICTUS VICTORY ELIXIR.png?auto=format&fit=crop&q=80&w=800" alt="INVICTUS VICTORY ELIXIR 100ML EDP" class="product-img">
+                    <img src="images/INVICTUS VICTORY ELIXIR.png?auto=format&fit=crop&q=80&w=800" alt="INVICTUS VICTORY ELIXIR" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">PACO RABANNE (HOMBRE)</span>
@@ -1284,13 +1228,14 @@
                     </button>
                 </div>
             </article>
-             <!-- Card Producto 20-->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-11">1</span> Unidad Disponible
                     </span>
-                    <img src="images/OLYMPEA EDP DM.png?auto=format&fit=crop&q=80&w=800" alt="OLYMPEA EDP" class="product-img">
+                    <img src="images/olympea.png?auto=format&fit=crop&q=80&w=800" alt="OLYMPEA" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">PACO RABANNE (MUJER)</span>
@@ -1313,7 +1258,8 @@
                     </button>
                 </div>
             </article>
-             <!-- Card Producto 21-->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1323,7 +1269,7 @@
                 </div>
                 <div class="product-body">
                     <span class="brand-name">VERSACE (HOMBRE)</span>
-                    <h3 class="product-title">VERSACE EROS EDP </h3>
+                    <h3 class="product-title">VERSACE EROS EDP</h3>
                     <p class="product-specs">eau de parfum • 200 ml</p>
                     <div class="price-tag">$290.000 COP</div>
 
@@ -1342,17 +1288,18 @@
                     </button>
                 </div>
             </article>
-              <!-- Card Producto 22-->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-12">3</span> Unidades Disponibles
+                        <span class="pulse-dot"></span> <span id="stock-val-12">1</span> Unidades Disponibles
                     </span>
                     <img src="images/VERSACE EROS EDT 100ML.png?auto=format&fit=crop&q=80&w=800" alt="VERSACE EROS EDT" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">VERSACE (HOMBRE)</span>
-                    <h3 class="product-title">VERSACE EROS EDT </h3>
+                    <h3 class="product-title">VERSACE EROS EDT</h3>
                     <p class="product-specs">eau de toilette • 100 ml</p>
                     <div class="price-tag">$200.000 COP</div>
 
@@ -1371,7 +1318,66 @@
                     </button>
                 </div>
             </article>
-              <!-- Card Producto 23 -->
+             <!-- Card Producto  -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-12">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/versace crystal 90ml.png?auto=format&fit=crop&q=80&w=800" alt="VERSACE BRIGHT CRYSTAL" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">VERSACE (MUJER)</span>
+                    <h3 class="product-title">VERSACE BRIGHT CRYSTAL</h3>
+                    <p class="product-specs">eau de toilette • 90 ml</p>
+                    <div class="price-tag">$200.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-12', -1)">−</button>
+                            <input type="number" id="qty-12" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-12', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-cart" onclick="addToCart('VERSACE BRIGHT CRYSTAL 900ml', 'qty-12', 200000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
+                    </button>
+                </div>
+            </article>
+              <!-- Card Producto  -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-12">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/Versace-Yellow-Diamond-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt=">VERSACE YELLOW DIAMOND" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">VERSACE (MUJER)</span>
+                    <h3 class="product-title">VERSACE YELLOW DIAMOND</h3>
+                    <p class="product-specs">eau de toilette • 90 ml</p>
+                    <div class="price-tag">$200.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-12', -1)">−</button>
+                            <input type="number" id="qty-12" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-12', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-cart" onclick="addToCart('VERSACE YELLOW DIAMOND 90ml', 'qty-12', 200000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1381,8 +1387,8 @@
                 </div>
                 <div class="product-body">
                     <span class="brand-name">CHANEL (HOMBRE)</span>
-                    <h3 class="product-title">BLEU </h3>
-                    <p class="product-specs">parfum• 150 ml</p>
+                    <h3 class="product-title">BLEU</h3>
+                    <p class="product-specs">parfum • 150 ml</p>
                     <div class="price-tag">$650.000 COP</div>
 
                     <div class="control-row">
@@ -1400,7 +1406,8 @@
                     </button>
                 </div>
             </article>
-                <!-- Card Producto 24 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1410,8 +1417,8 @@
                 </div>
                 <div class="product-body">
                     <span class="brand-name">CHANEL (HOMBRE)</span>
-                    <h3 class="product-title">BLEU </h3>
-                    <p class="product-specs">parfum• 100 ml</p>
+                    <h3 class="product-title">BLEU</h3>
+                    <p class="product-specs">parfum • 100 ml</p>
                     <div class="price-tag">$500.000 COP</div>
 
                     <div class="control-row">
@@ -1429,7 +1436,8 @@
                     </button>
                 </div>
             </article>
-            <!-- Card Producto 25 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1439,8 +1447,8 @@
                 </div>
                 <div class="product-body">
                     <span class="brand-name">CHANEL (HOMBRE)</span>
-                    <h3 class="product-title">BLEU </h3>
-                    <p class="product-specs">eau de parfum• 100 ml</p>
+                    <h3 class="product-title">BLEU</h3>
+                    <p class="product-specs">eau de parfum • 100 ml</p>
                     <div class="price-tag">$450.000 COP</div>
 
                     <div class="control-row">
@@ -1458,18 +1466,19 @@
                     </button>
                 </div>
             </article>
-              <!-- Card Producto 26 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-17">1</span> Unidad Disponible
                     </span>
-                    <img src="images/3145891074604_1_a48a4c85-ecab-4390-aabc-c0273340fcd1-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BLEU CHANEL 100ML EDP " class="product-img">
+                    <img src="images/3145891074604_1_a48a4c85-ecab-4390-aabc-c0273340fcd1-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BLEU CHANEL 100ML EDP" class="product-img">
                 </div>
                 <div class="product-body">
-                    <span class="brand-name">CHANEL</span>
-                    <h3 class="product-title">BLEU </h3>
-                    <p class="product-specs"> eau de toilette• 100 ml</p>
+                    <span class="brand-name">CHANEL (HOMBRE)</span>
+                    <h3 class="product-title">BLEU</h3>
+                    <p class="product-specs">eau de toilette • 100 ml</p>
                     <div class="price-tag">$390.000 COP</div>
 
                     <div class="control-row">
@@ -1487,18 +1496,19 @@
                     </button>
                 </div>
             </article>
-             <!-- Card Producto 27 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-18">1</span> Unidad Disponible
                     </span>
-                    <img src="images/61FP1HETm1L._AC_UF1000_1000_QL80_-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="CHANEL #5 200ML EDP " class="product-img">
+                    <img src="images/61FP1HETm1L._AC_UF1000_1000_QL80_-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="CHANEL #5" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">CHANEL (MUJER)</span>
-                    <h3 class="product-title">CHANEL #5 </h3>
-                    <p class="product-specs"> eau de parfum • 100 ml</p>
+                    <h3 class="product-title">CHANEL #5</h3>
+                    <p class="product-specs">eau de parfum • 200 ml</p>
                     <div class="price-tag">$550.000 COP</div>
 
                     <div class="control-row">
@@ -1516,47 +1526,48 @@
                     </button>
                 </div>
             </article>
-              <!-- Card Producto 28 -->
+             <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-19">2</span> Unidades Disponibles
+                        <span class="pulse-dot"></span> <span id="stock-val-18">2</span> Unidades Disponibles
                     </span>
-                    <img src="images/DOLCE&GABANNA LIGTH BLUE EDT DM.png?auto=format&fit=crop&q=80&w=800" alt="DOLCE & GABBANA LIGHT BLUE " class="product-img">
+                    <img src="images/chanel tendre 150ml.png?auto=format&fit=crop&q=80&w=800" alt="CHANEL CHANCE  EAU TENDRE" class="product-img">
                 </div>
                 <div class="product-body">
-                    <span class="brand-name">DOLCE & GABBANA (MUJER)</span>
-                    <h3 class="product-title">LIGHT BLUE </h3>
-                    <p class="product-specs">eau de toilette• 100 ml</p>
-                    <div class="price-tag">$200.000 COP</div>
+                    <span class="brand-name">CHANEL (MUJER)</span>
+                    <h3 class="product-title">CHANCE  EAU TENDRE</h3>
+                    <p class="product-specs">eau de parfum • 150 ml</p>
+                    <div class="price-tag">$650.000 COP</div>
 
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-19', -1)">−</button>
-                            <input type="number" id="qty-19" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-19', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-18', -1)">−</button>
+                            <input type="number" id="qty-18" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-18', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-cart" onclick="addToCart('DOLCE & GABBANA LIGHT BLUE EDT 100ML', 'qty-19', 200000)">
+                    <button type="button" class="btn-cart" onclick="addToCart('CHANCE  EAU TENDRE', 'qty-18', 650000)">
                         <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                         <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-             <!-- Card Producto 29 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-19">1</span> Unidad Disponible
                     </span>
-                    <img src="images/114901-2-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="YVES SAINT LAURENT 100ML EDP " class="product-img">
+                    <img src="images/114901-2-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="LIBRE YSL" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">YVES SAINT LAURENT (MUJER)</span>
-                    <h3 class="product-title">LIBRE </h3>
-                    <p class="product-specs"> eau deparfum• 100 ml</p>
+                    <h3 class="product-title">LIBRE</h3>
+                    <p class="product-specs">eau de parfum • 100 ml</p>
                     <div class="price-tag">$390.000 COP</div>
 
                     <div class="control-row">
@@ -1574,18 +1585,19 @@
                     </button>
                 </div>
             </article>
-            <!-- Card Producto 30 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-20">1</span> Unidad Disponible
                     </span>
-                    <img src="images/valentino-011305vl-1-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="VALENTINO UOMO " class="product-img">
+                    <img src="images/valentino-011305vl-1-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="VALENTINO UOMO" class="product-img">
                 </div>
                 <div class="product-body">
-                    <span class="brand-name"> VALENTINO (HOMBRE)</span>
-                    <h3 class="product-title">VALENTINO UOMO </h3>
-                    <p class="product-specs"> eau de toilette • 100 ml</p>
+                    <span class="brand-name">VALENTINO (HOMBRE)</span>
+                    <h3 class="product-title">VALENTINO UOMO</h3>
+                    <p class="product-specs">eau de toilette • 100 ml</p>
                     <div class="price-tag">$290.000 COP</div>
 
                     <div class="control-row">
@@ -1603,47 +1615,19 @@
                     </button>
                 </div>
             </article>
-              <!-- Card Producto 31 -->
-            <article class="product-card">
-                <div class="product-media">
-                    <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-20">1</span> Unidad Disponible
-                    </span>
-                    <img src="images/VALENTINO  CORAL FANTASY DM.png?auto=format&fit=crop&q=80&w=800" alt="VALENTINO BORN IN ROMA CORAL FANTASY DM " class="product-img">
-                </div>
-                <div class="product-body">
-                    <span class="brand-name"> VALENTINO (MUJER)</span>
-                    <h3 class="product-title">VALENTINO BORN IN ROMA CORAL FANTASY </h3>
-                    <p class="product-specs"> eau de parfum • 100 ml</p>
-                    <div class="price-tag">$370.000 COP</div>
 
-                    <div class="control-row">
-                        <label class="qty-label">Cantidad</label>
-                        <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-20', -1)">−</button>
-                            <input type="number" id="qty-20" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-20', 1)">+</button>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn-cart" onclick="addToCart('VALENTINO BORN IN ROMA CORAL FANTASY DM', 'qty-20', 370000)">
-                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                        <span>Añadir al carrito</span>
-                    </button>
-                </div>
-            </article>
-               <!-- Card Producto 32 -->
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-21">1</span> Unidad Disponible
                     </span>
-                    <img src="images/Perfume-Omnia-Crystalline-De-Bvlgari-Para-Mujer-eau-de-toilette-100-ml-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BVLGARI OMNIA CRYSTALLINE" class="product-img">
+                    <img src="images/Perfume-Omnia-Crystalline-De-Bvlgari-Para-Mujer-eau-de-toilette-100-ml-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="OMNIA CRYSTALLINE" class="product-img">
                 </div>
                 <div class="product-body">
-                    <span class="brand-name"> BVLGARI (MUJER)</span>
+                    <span class="brand-name">BVLGARI (MUJER)</span>
                     <h3 class="product-title">OMNIA CRYSTALLINE</h3>
-                    <p class="product-specs"> eau de toilette • 100 ml</p>
+                    <p class="product-specs">eau de toilette • 100 ml</p>
                     <div class="price-tag">$330.000 COP</div>
 
                     <div class="control-row">
@@ -1661,47 +1645,19 @@
                     </button>
                 </div>
             </article>
-              <!-- Card Producto 33 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-22">1</span> Unidad Disponible
-                    </span>
-                    <img src="images/MOMNAN_2__92660-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="BVLGARI OMNIA AMETHISTE 100ML" class="product-img">
-                </div>
-                <div class="product-body">
-                    <span class="brand-name"> BVLGARI (MUJER)</span>
-                    <h3 class="product-title">OMNIA AMETHYSTE</h3>
-                    <p class="product-specs"> eau de toilette • 100 ml</p>
-                    <div class="price-tag">$330.000 COP</div>
-
-                    <div class="control-row">
-                        <label class="qty-label">Cantidad</label>
-                        <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-22', -1)">−</button>
-                            <input type="number" id="qty-22" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-22', 1)">+</button>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn-cart" onclick="addToCart('OMNIA AMETHYSTE', 'qty-22', 330000)">
-                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                        <span>Añadir al carrito</span>
-                    </button>
-                </div>
-            </article>
-              <!-- Card Producto 34 -->
-            <article class="product-card">
-                <div class="product-media">
-                    <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-23">4</span> Unidades Disponibles
+                        <span class="pulse-dot"></span> <span id="stock-val-23">3</span> Unidades Disponibles
                     </span>
                     <img src="images/perfume-para-dama-la-vie-est-belle-by-lancome-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="LA VIE EST BELLE" class="product-img">
                 </div>
                 <div class="product-body">
-                    <span class="brand-name"> LAMCOME (MUJER)</span>
+                    <span class="brand-name">LANCOME (MUJER)</span>
                     <h3 class="product-title">LA VIE EST BELLE</h3>
-                    <p class="product-specs"> eau de parfum • 100 ml</p>
+                    <p class="product-specs">eau de parfum • 100 ml</p>
                     <div class="price-tag">$330.000 COP</div>
 
                     <div class="control-row">
@@ -1719,45 +1675,17 @@
                     </button>
                 </div>
             </article>
-               <!-- Card Producto 35 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-23">1</span> Unidade Disponible
-                    </span>
-                    <img src="images/MOSCHINO PEARL.png?auto=format&fit=crop&q=80&w=800" alt="MOSCHINO PEARL" class="product-img">
-                </div>
-                <div class="product-body">
-                    <span class="brand-name"> MOSCHINO (MUJER)</span>
-                    <h3 class="product-title">MOSCHINO PEARL</h3>
-                    <p class="product-specs"> eau de parfum • 100 ml</p>
-                    <div class="price-tag">$200.000 COP</div>
-
-                    <div class="control-row">
-                        <label class="qty-label">Cantidad</label>
-                        <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-23', -1)">−</button>
-                            <input type="number" id="qty-23" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-23', 1)">+</button>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn-cart" onclick="addToCart('MOSCHINO PEARL', 'qty-23', 200000)">
-                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                        <span>Añadir al carrito</span>
-                    </button>
-                </div>
-            </article>
-              <!-- Card Producto 36 -->
-            <article class="product-card">
-                <div class="product-media">
-                    <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-23">1</span> Unidade Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-23">1</span> Unidades Disponibles
                     </span>
                     <img src="images/BURBERRY-HERO-PARFUM.png?auto=format&fit=crop&q=80&w=800" alt="BURBERRY HERO" class="product-img">
                 </div>
                 <div class="product-body">
-                    <span class="brand-name"> BURBERRY (HOMBRE)</span>
+                    <span class="brand-name">BURBERRY (HOMBRE)</span>
                     <h3 class="product-title">BURBERRY HERO</h3>
                     <p class="product-specs">parfum • 100 ml</p>
                     <div class="price-tag">$350.000 COP</div>
@@ -1777,7 +1705,8 @@
                     </button>
                 </div>
             </article>
-              <!-- Card Producto 37 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1786,9 +1715,9 @@
                     <img src="images/perfume-dior-homme-intense-eau-de-parfum-100ml-hombre-6760790-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="DIOR HOMME INTENSE" class="product-img">
                 </div>
                 <div class="product-body">
-                    <span class="brand-name"> DIOR (HOMBRE)</span>
+                    <span class="brand-name">DIOR (HOMBRE)</span>
                     <h3 class="product-title">DIOR HOMME INTENSE</h3>
-                    <p class="product-specs"> eau de parfum • 100 ml</p>
+                    <p class="product-specs">eau de parfum • 100 ml</p>
                     <div class="price-tag">$450.000 COP</div>
 
                     <div class="control-row">
@@ -1806,7 +1735,8 @@
                     </button>
                 </div>
             </article>
-             <!-- Card Producto 38 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1815,9 +1745,9 @@
                     <img src="images/sauvage_elixir_de_100ml-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="SAUVAGE ELIXIR" class="product-img">
                 </div>
                 <div class="product-body">
-                    <span class="brand-name"> DIOR (HOMBRE)</span>
+                    <span class="brand-name">DIOR (HOMBRE)</span>
                     <h3 class="product-title">SAUVAGE ELIXIR</h3>
-                    <p class="product-specs"> elixir •100 ml</p>
+                    <p class="product-specs">elixir • 100 ml</p>
                     <div class="price-tag">$630.000 COP</div>
 
                     <div class="control-row">
@@ -1835,7 +1765,8 @@
                     </button>
                 </div>
             </article>
-             <!-- Card Producto 39 -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1844,9 +1775,9 @@
                     <img src="images/SAUVAGE EDP 100ML HM.png?auto=format&fit=crop&q=80&w=800" alt="SAUVAGE Eau de Parfum" class="product-img">
                 </div>
                 <div class="product-body">
-                    <span class="brand-name"> DIOR (HOMBRE)</span>
+                    <span class="brand-name">DIOR (HOMBRE)</span>
                     <h3 class="product-title">SAUVAGE</h3>
-                    <p class="product-specs"> eau de parfum •100 ml</p>
+                    <p class="product-specs">eau de parfum • 100 ml</p>
                     <div class="price-tag">$450.000 COP</div>
 
                     <div class="control-row">
@@ -1864,7 +1795,8 @@
                     </button>
                 </div>
             </article>
-             <!-- Card Producto 40 -->
+
+            <!-- Card Producto 41 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1873,9 +1805,9 @@
                     <img src="images/JADORE EDP DM.png?auto=format&fit=crop&q=80&w=800" alt="JADORE EDP" class="product-img">
                 </div>
                 <div class="product-body">
-                    <span class="brand-name"> DIOR (MUJER)</span>
+                    <span class="brand-name">DIOR (MUJER)</span>
                     <h3 class="product-title">JADORE</h3>
-                    <p class="product-specs"> eau de parfum •100 ml</p>
+                    <p class="product-specs">eau de parfum • 100 ml</p>
                     <div class="price-tag">$500.000 COP</div>
 
                     <div class="control-row">
@@ -1893,48 +1825,48 @@
                     </button>
                 </div>
             </article>
-            
-               <!-- Card Producto 41 -->
+             <!-- Card Producto 41 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-26">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-25">1</span> Unidad Disponible
                     </span>
-                    <img src="images/w_1500_h_1500_fit_cover-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="TESTER LA VIE EST BELLE" class="product-img">
+                    <img src="images/PRADA PARADOXE.png?auto=format&fit=crop&q=80&w=800" alt="PARADOXE" class="product-img">
                 </div>
                 <div class="product-body">
-                    <span class="brand-name"> LANCOME</span>
-                    <h3 class="product-title">TESTER LA VIE EST BELLE</h3>
-                    <p class="product-specs"> eau de parfum  • 30 ml</p>
-                    <div class="price-tag">$95.000 COP</div>
+                    <span class="brand-name">PRADA (MUJER)</span>
+                    <h3 class="product-title">PARADOXE</h3>
+                    <p class="product-specs">eau de parfum • 90 ml</p>
+                    <div class="price-tag">$500.000 COP</div>
 
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-26', -1)">−</button>
-                            <input type="number" id="qty-26" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-26', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-25', -1)">−</button>
+                            <input type="number" id="qty-25" value="1" min="1" max="3" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-25', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-cart" onclick="addToCart('TESTER LA VIE EST BELLE', 'qty-26', 95000)">
+                    <button type="button" class="btn-cart" onclick="addToCart('PARADOXE', 'qty-25', 500000)">
                         <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                         <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
-             <!-- Card Producto 42 -->
+
+            <!-- Card Producto 43 -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-27">1</span> Unidad Disponible
                     </span>
-                    <img src="images/w_800_h_800_fit_pad-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="TESTER GOOD GIRL SUPREME 50ML" class="product-img">
+                    <img src="images/w_800_h_800_fit_pad-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="TESTER GOOD GIRL SUPREME" class="product-img">
                 </div>
                 <div class="product-body">
-                    <span class="brand-name"> CAROLINA HERRERA</span>
+                    <span class="brand-name">CAROLINA HERRERA</span>
                     <h3 class="product-title">TESTER GOOD GIRL SUPREME</h3>
-                    <p class="product-specs"> eau de parfum  • 50 ml</p>
+                    <p class="product-specs">eau de parfum • 50 ml</p>
                     <div class="price-tag">$95.000 COP</div>
 
                     <div class="control-row">
@@ -1952,7 +1884,6 @@
                     </button>
                 </div>
             </article>
-
 
         </div>
     </section>
@@ -1982,7 +1913,7 @@
     <!-- Footer -->
     <footer class="site-footer" id="contacto">
         <div class="footer-brand">BRAMY PARFUMS</div>
-        <p class="footer-copy">&copy; 2026 BRAMY PARFUMS. Todos los derechos reservados.</p>
+        <p class="footer-copy">Especial Amor y Amistad &copy; 2026 BRAMY PARFUMS. Todos los derechos reservados.</p>
     </footer>
 
     <!-- Lógica de JavaScript -->
@@ -1990,18 +1921,47 @@
         const PHONE_NUMBER = "573122619908"; 
         let cart = [];
 
-        // Mensajes dinámicos aleatorios sofisticados y datos curiosos al refrescar la página
+        // Generador dinámico de corazones flotantes elegantes
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsContainer');
+            if (!container) return;
+
+            const heartSymbol = '❤';
+            const numberOfHearts = 22; // Cantidad visible constante
+
+            for (let i = 0; i < numberOfHearts; i++) {
+                const heart = document.createElement('span');
+                heart.className = 'floating-heart';
+                heart.innerHTML = heartSymbol;
+                
+                const randomLeft = Math.random() * 100; // Posición horizontal aleatoria (%)
+                const randomSize = Math.floor(Math.random() * 16) + 16; // Tamaño entre 16px y 32px
+                const randomDuration = Math.random() * 7 + 7; // Duración entre 7s y 14s
+                const randomDelay = Math.random() * 8; // Retardo variable
+                const randomDrift = (Math.random() - 0.5) * 100; // Movimiento lateral suave
+
+                heart.style.left = randomLeft + '%';
+                heart.style.setProperty('--size', randomSize + 'px');
+                heart.style.setProperty('--duration', randomDuration + 's');
+                heart.style.setProperty('--drift', randomDrift + 'px');
+                heart.style.animationDelay = randomDelay + 's';
+
+                container.appendChild(heart);
+            }
+        }
+
+        // Mensajes dinámicos aleatorios de Amor y Amistad conectados a la perfumería
         const heroMessages = [
-            "Fragancias exclusivas seleccionadas meticulosamente para dejar una huella imborrable.",
-            "¿Sabías que el sentido del olfato es el único conectado directamente con el sistema límbico, la zona del cerebro que procesa las emociones y la memoria?",
-            "El aceite esencial de jazmín es uno de los ingredientes más preciados en perfumería; se necesitan más de ocho millones de flores recolectadas a mano para extraer tan solo un kilogramo.",
-            "La palabra perfume proviene del latín 'per fumum', que significa 'a través del humo', evocando el uso ancestral de quemar maderas y resinas aromáticas.",
-            "Un perfume evoluciona en tu piel a través de tres fases distintas: notas de salida, notas de corazón y notas de fondo, revelando matices únicos con el paso de las horas.",
-            "En la antigua realeza egipcia, los ungüentos aromáticos y las fragancias se consideraban un puente directo hacia la divinidad y un símbolo supremo de distinción.",
-            "El punto de aplicación ideal para prolongar la estela de tu fragancia son las zonas de pulso, donde el calor corporal ayuda a difundir magistralmente los aceites esenciales."
+            "Sorprende a esa persona especial en Amor y Amistad con una fragancia que hable por tu corazón.",
+            "Un regalo inolvidable: el aroma perfecto para celebrar la complicidad y el amor verdadero.",
+            "Celebra el amor y la amistad obsequiando esencias exclusivas que dejan una huella imborrable.",
+            "Cada perfume guarda una emoción; encuentra el detalle ideal para regalar en esta fecha especial.",
+            "Fortalece los lazos de amistad y amor con los mejores aromas de alta perfumería."
         ];
 
         window.addEventListener('DOMContentLoaded', () => {
+            createFloatingHearts();
+
             const randomIndex = Math.floor(Math.random() * heroMessages.length);
             const descElement = document.getElementById('dynamicHeroDescription');
             if (descElement) {
@@ -2105,7 +2065,7 @@
             }
 
             let totalPrice = 0;
-            let message = `Hola BRAMY PARFUMS, deseo realizar el siguiente pedido:\n\n`;
+            let message = `Hola BRAMY PARFUMS, deseo hacer un regalo para esta temporada de Amor y Amistad con el siguiente pedido:\n\n`;
 
             cart.forEach((item, index) => {
                 const subtotal = item.qty * item.price;
@@ -2119,7 +2079,7 @@
                 maximumFractionDigits: 0
             }).format(totalPrice);
 
-            message += `\n• *Total General:* ${formattedTotal}\n\nQuedo atento para confirmar disponibilidad y envío.`;
+            message += `\n• *Total General:* ${formattedTotal}\n\nQuedo atento para coordinar el detalle de Amor y Amistad y el envío.`;
 
             const url = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
