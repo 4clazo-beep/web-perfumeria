@@ -731,6 +731,49 @@
             <h2 class="section-title">CATÁLOGO DE AMOR Y AMISTAD</h2>
             <div class="divider"></div>
         </header>
+        <!-- CÓDIGO DISCLAIMER AMOR Y AMISTAD -->
+<div class="amor-amistad-banner">
+    <div class="banner-content">
+        <span class="banner-icon"></span>
+        <p><strong>Especial Amor y Amistad:</strong> ¡Llevando 4 productos o más obtienes un <strong>5% de descuento adicional</strong> sobre el total de tu pedido!</p>
+    </div>
+</div>
+
+<style>
+    .amor-amistad-banner {
+        background: linear-gradient(135deg, rgba(201, 160, 99, 0.15) 0%, rgba(18, 18, 18, 0.95) 100%);
+        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem 1.5rem;
+        text-align: center;
+        position: relative;
+        z-index: 3;
+        margin-top: -3rem; /* Lo acerca sutilmente al título del catálogo */
+        margin-bottom: 3rem;
+    }
+
+    .banner-content {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        font-size: 0.95rem;
+        color: var(--text-primary);
+        letter-spacing: 0.03em;
+    }
+
+    .banner-content strong {
+        color: var(--accent-gold);
+    }
+
+    .banner-icon {
+        font-size: 1.2rem;
+        filter: drop-shadow(0 0 5px rgba(255, 253, 253, 0.6));
+    }
+</style>
+<!-- FIN CÓDIGO DISCLAIMER -->
 
         <!-- Search Bar -->
         <div class="search-container">
@@ -767,7 +810,7 @@
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-2', -1)">−</button>
-                            <input type="number" id="qty-2" value="1" min="1" max="3" readonly class="qty-input">
+                            <input type="number" id="qty-2" value="1" min="1" max="2" readonly class="qty-input">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-2', 1)">+</button>
                         </div>
                     </div>
@@ -783,7 +826,7 @@
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-3">4</span> Unidades Disponibles
+                        <span class="pulse-dot"></span> <span id="stock-val-4">4</span> Unidades Disponibles
                     </span>
                     <img src="images/perfume-para-dama-good-girl-carolina-herrera-80-ml-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="GOOD GIRL" class="product-img">
                 </div>
@@ -869,36 +912,6 @@
                 </div>
             </article>
 
-            <!-- Card Producto 5 -->
-            <article class="product-card">
-                <div class="product-media">
-                    <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-6">1</span> Unidades Disponibles
-                    </span>
-                    <img src="images/212-CAROLINA-HERRERA-NYC-HM-200ML-EDT-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="212 NYC 200ML" class="product-img">
-                </div>
-                <div class="product-body">
-                    <span class="brand-name">CAROLINA HERRERA (HOMBRE)</span>
-                    <h3 class="product-title">212 NYC</h3>
-                    <p class="product-specs">Eau de Toilette • 200 ml</p>
-                    <div class="price-tag">$350.000 COP</div>
-
-                    <div class="control-row">
-                        <label class="qty-label">Cantidad</label>
-                        <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-6', -1)">−</button>
-                            <input type="number" id="qty-6" value="1" min="1" max="2" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-6', 1)">+</button>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn-cart" onclick="addToCart('212 NYC DE 200ML', 'qty-6', 350000)">
-                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                        <span>Añadir al carrito</span>
-                    </button>
-                </div>
-            </article>
-
             <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
@@ -917,7 +930,7 @@
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-7', -1)">−</button>
-                            <input type="number" id="qty-7" value="1" min="1" max="3" readonly class="qty-input">
+                            <input type="number" id="qty-7" value="1" min="1" max="2" readonly class="qty-input">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-7', 1)">+</button>
                         </div>
                     </div>
@@ -947,7 +960,7 @@
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-8', -1)">−</button>
-                            <input type="number" id="qty-8" value="1" min="1" max="1" readonly class="qty-input">
+                            <input type="number" id="qty-8" value="1" min="1" max="2" readonly class="qty-input">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-8', 1)">+</button>
                         </div>
                     </div>
@@ -1127,7 +1140,7 @@
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-11', -1)">−</button>
-                            <input type="number" id="qty-11" value="1" min="1" max="3" readonly class="qty-input">
+                            <input type="number" id="qty-11" value="1" min="1" max="1" readonly class="qty-input">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-11', 1)">+</button>
                         </div>
                     </div>
@@ -1277,7 +1290,7 @@
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-12', -1)">−</button>
-                            <input type="number" id="qty-12" value="1" min="1" max="3" readonly class="qty-input">
+                            <input type="number" id="qty-12" value="1" min="1" max="1" readonly class="qty-input">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-12', 1)">+</button>
                         </div>
                     </div>
@@ -1395,7 +1408,7 @@
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-16', -1)">−</button>
-                            <input type="number" id="qty-16" value="1" min="1" max="3" readonly class="qty-input">
+                            <input type="number" id="qty-16" value="1" min="1" max="1" readonly class="qty-input">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-16', 1)">+</button>
                         </div>
                     </div>
@@ -1485,7 +1498,7 @@
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-17', -1)">−</button>
-                            <input type="number" id="qty-17" value="1" min="1" max="3" readonly class="qty-input">
+                            <input type="number" id="qty-17" value="1" min="1" max="1" readonly class="qty-input">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-17', 1)">+</button>
                         </div>
                     </div>
@@ -1515,7 +1528,7 @@
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-18', -1)">−</button>
-                            <input type="number" id="qty-18" value="1" min="1" max="3" readonly class="qty-input">
+                            <input type="number" id="qty-18" value="1" min="1" max="1" readonly class="qty-input">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-18', 1)">+</button>
                         </div>
                     </div>
@@ -1530,7 +1543,7 @@
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-18">2</span> Unidades Disponibles
+                        <span class="pulse-dot"></span> <span id="stock-val-20">2</span> Unidades Disponibles
                     </span>
                     <img src="images/chanel tendre 150ml.png?auto=format&fit=crop&q=80&w=800" alt="CHANEL CHANCE  EAU TENDRE" class="product-img">
                 </div>
@@ -1543,13 +1556,13 @@
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-18', -1)">−</button>
-                            <input type="number" id="qty-18" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-18', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-20', -1)">−</button>
+                            <input type="number" id="qty-20" value="1" min="1" max="2" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-20', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-cart" onclick="addToCart('CHANCE  EAU TENDRE', 'qty-18', 650000)">
+                    <button type="button" class="btn-cart" onclick="addToCart('CHANCE  EAU TENDRE', 'qty-20', 650000)">
                         <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                         <span>Añadir al carrito</span>
                     </button>
@@ -1574,7 +1587,7 @@
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-19', -1)">−</button>
-                            <input type="number" id="qty-19" value="1" min="1" max="3" readonly class="qty-input">
+                            <input type="number" id="qty-19" value="1" min="1" max="1" readonly class="qty-input">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-19', 1)">+</button>
                         </div>
                     </div>
@@ -1620,13 +1633,43 @@
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-21">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-21">2</span> Unidad Disponible
                     </span>
                     <img src="images/Perfume-Omnia-Crystalline-De-Bvlgari-Para-Mujer-eau-de-toilette-100-ml-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="OMNIA CRYSTALLINE" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">BVLGARI (MUJER)</span>
                     <h3 class="product-title">OMNIA CRYSTALLINE</h3>
+                    <p class="product-specs">eau de toilette • 100 ml</p>
+                    <div class="price-tag">$330.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-21', -1)">−</button>
+                            <input type="number" id="qty-21" value="1" min="1" max="2" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-21', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-cart" onclick="addToCart('OMNIA CRYSTALLINE', 'qty-21', 330000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card Producto  -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-21">1</span> Unidad Disponible
+                    </span>
+                    <img src="images/OMNIA AMETHYSTE.png?auto=format&fit=crop&q=80&w=800" alt="OMNIA AMETHYSTE" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">BVLGARI (MUJER)</span>
+                    <h3 class="product-title">OMNIA AMETHYSTE</h3>
                     <p class="product-specs">eau de toilette • 100 ml</p>
                     <div class="price-tag">$330.000 COP</div>
 
@@ -1700,7 +1743,7 @@
                     </div>
 
                     <button type="button" class="btn-cart" onclick="addToCart('BURBERRY HERO', 'qty-23', 350000)">
-                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                         <span>Añadir al carrito</span>
                     </button>
                 </div>
@@ -1724,13 +1767,13 @@
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-24', -1)">−</button>
-                            <input type="number" id="qty-24" value="1" min="1" max="3" readonly class="qty-input">
+                            <input type="number" id="qty-24" value="1" min="1" max="1" readonly class="qty-input">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-24', 1)">+</button>
                         </div>
                     </div>
 
                     <button type="button" class="btn-cart" onclick="addToCart('DIOR HOMME INTENSE', 'qty-24', 450000)">
-                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                         <span>Añadir al carrito</span>
                     </button>
                 </div>
@@ -1754,13 +1797,13 @@
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-25', -1)">−</button>
-                            <input type="number" id="qty-25" value="1" min="1" max="3" readonly class="qty-input">
+                            <input type="number" id="qty-25" value="1" min="1" max="1" readonly class="qty-input">
                             <button type="button" class="qty-btn" onclick="updateQty('qty-25', 1)">+</button>
                         </div>
                     </div>
 
                     <button type="button" class="btn-cart" onclick="addToCart('SAUVAGE ELIXIR', 'qty-25', 500000)">
-                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                         <span>Añadir al carrito</span>
                     </button>
                 </div>
@@ -1796,7 +1839,7 @@
                 </div>
             </article>
 
-            <!-- Card Producto 41 -->
+            <!-- Card Producto -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1825,7 +1868,7 @@
                     </button>
                 </div>
             </article>
-             <!-- Card Producto 41 -->
+             <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1854,36 +1897,66 @@
                     </button>
                 </div>
             </article>
-
-            <!-- Card Producto 43 -->
+              <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
-                        <span class="pulse-dot"></span> <span id="stock-val-27">1</span> Unidad Disponible
+                        <span class="pulse-dot"></span> <span id="stock-val-31">12</span> Unidades Disponibles
                     </span>
-                    <img src="images/w_800_h_800_fit_pad-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="TESTER GOOD GIRL SUPREME" class="product-img">
+                    <img src="images/9PM AFNAN.png?auto=format&fit=crop&q=80&w=800" alt="9PM" class="product-img">
                 </div>
                 <div class="product-body">
-                    <span class="brand-name">CAROLINA HERRERA</span>
-                    <h3 class="product-title">TESTER GOOD GIRL SUPREME</h3>
-                    <p class="product-specs">eau de parfum • 50 ml</p>
-                    <div class="price-tag">$95.000 COP</div>
+                    <span class="brand-name">AFNAN (HOMBRE)</span>
+                    <h3 class="product-title">9PM</h3>
+                    <p class="product-specs">eau de parfum • 100 ml</p>
+                    <div class="price-tag">$110.000 COP</div>
 
                     <div class="control-row">
                         <label class="qty-label">Cantidad</label>
                         <div class="qty-control">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-27', -1)">−</button>
-                            <input type="number" id="qty-27" value="1" min="1" max="3" readonly class="qty-input">
-                            <button type="button" class="qty-btn" onclick="updateQty('qty-27', 1)">+</button>
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-31', -1)">−</button>
+                            <input type="number" id="qty-31" value="1" min="1" max="12" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-31', 1)">+</button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn-cart" onclick="addToCart('TESTER GOOD GIRL SUPREME', 'qty-27', 95000)">
+                    <button type="button" class="btn-cart" onclick="addToCart('AFNAN 9PM', 'qty-31', 110000)">
                         <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                         <span>Añadir al carrito</span>
                     </button>
                 </div>
             </article>
+ <!-- Card Producto  -->
+            <article class="product-card">
+                <div class="product-media">
+                    <span class="stock-badge">
+                        <span class="pulse-dot"></span> <span id="stock-val-30">12</span> Unidades Disponibles
+                    </span>
+                    <img src="images/HAWAS FIRE.png?auto=format&fit=crop&q=80&w=800" alt="HAWAS FIRE" class="product-img">
+                </div>
+                <div class="product-body">
+                    <span class="brand-name">RASASSI (HOMBRE)</span>
+                    <h3 class="product-title">HAWAS FIRE</h3>
+                    <p class="product-specs">eau de parfum • 100 ml</p>
+                    <div class="price-tag">$180.000 COP</div>
+
+                    <div class="control-row">
+                        <label class="qty-label">Cantidad</label>
+                        <div class="qty-control">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-30', -1)">−</button>
+                            <input type="number" id="qty-30" value="1" min="1" max="12" readonly class="qty-input">
+                            <button type="button" class="qty-btn" onclick="updateQty('qty-30', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-cart" onclick="addToCart('HAWAS FIRE', 'qty-25', 180000)">
+                        <svg class="cart-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span>Añadir al carrito</span>
+                    </button>
+                </div>
+            </article>
+
+           
 
         </div>
     </section>
@@ -2109,6 +2182,7 @@
                 noResults.style.display = 'none';
             }
         }
+        
     </script>
 </body>
 </html>
