@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRAMY PARFUMS — Amor y Amistad</title>
+    <title>BRAMY PARFUMS — Alta Perfumería</title>
     <!-- Tipografías de lujo desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,46 +43,6 @@
             line-height: 1.6;
             position: relative;
             overflow-x: hidden;
-        }
-
-        /* --- EFECTO DE CORAZONES FLOTANTES ELEGANTE --- */
-        .floating-hearts-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 2; /* Por encima del fondo pero sin bloquear clics */
-            overflow: hidden;
-        }
-
-        .floating-heart {
-            position: absolute;
-            bottom: -10vh;
-            color: rgba(230, 57, 70, 0.75); /* Rojo elegante más visible */
-            font-size: var(--size, 22px);
-            animation: floatUp var(--duration, 10s) linear infinite;
-            opacity: 0;
-            user-select: none;
-            filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.5));
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) translateX(0) scale(0.5) rotate(0deg);
-                opacity: 0;
-            }
-            15% {
-                opacity: 0.9;
-            }
-            85% {
-                opacity: 0.9;
-            }
-            100% {
-                transform: translateY(-110vh) translateX(var(--drift, 50px)) scale(1.3) rotate(360deg);
-                opacity: 0;
-            }
         }
 
         /* Header / Navbar */
@@ -696,15 +656,12 @@
 </head>
 <body>
 
-    <!-- Contenedor para corazones flotantes animados -->
-    <div class="floating-hearts-container" id="heartsContainer"></div>
-
     <!-- Navigation Header -->
     <header class="site-header">
         <div class="header-inner">
             <a href="#" class="brand-logo">BRAMY PARFUMS</a>
             <nav class="main-nav">
-                <a href="#catalogo">Especial Amor y Amistad</a>
+                <a href="#catalogo">Catálogo Exclusivo</a>
                 <button type="button" class="cart-btn-nav" onclick="toggleCart()">
                     <svg style="width:16px;height:16px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                     Carrito (<span id="cartCount">0</span>)
@@ -717,10 +674,10 @@
     <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="hero-subtitle">ESPECIAL DE AMOR Y AMISTAD</span>
-            <h1 class="hero-title">El Regalo Perfecto para Esa Persona Especial</h1>
-            <p class="hero-description" id="dynamicHeroDescription">Sorprende a quien amas con una fragancia inolvidable que hable por tu corazón en este mes de Amor y Amistad.</p>
-            <a href="#catalogo" class="btn-hero">Explorar Colección de Amor</a>
+            <span class="hero-subtitle">ALTA PERFUMERÍA</span>
+            <h1 class="hero-title">Fragancias Exclusivas e Inolvidables</h1>
+            <p class="hero-description" id="dynamicHeroDescription">Encuentra tu esencia distintiva entre nuestra selecta colección de perfumes originales de las marcas más prestigiosas.</p>
+            <a href="#catalogo" class="btn-hero">Explorar Catálogo</a>
         </div>
     </section>
 
@@ -728,52 +685,9 @@
     <section class="catalog-container" id="catalogo">
         <header class="section-header">
             <span class="section-tagline">Colección Exclusiva</span>
-            <h2 class="section-title">CATÁLOGO DE AMOR Y AMISTAD</h2>
+            <h2 class="section-title">NUESTROS PERFUMES</h2>
             <div class="divider"></div>
         </header>
-        <!-- CÓDIGO DISCLAIMER AMOR Y AMISTAD -->
-<div class="amor-amistad-banner">
-    <div class="banner-content">
-        <span class="banner-icon"></span>
-        <p><strong>Especial Amor y Amistad:</strong> ¡Llevando 4 productos o más obtienes un <strong>5% de descuento adicional</strong> sobre el total de tu pedido!</p>
-    </div>
-</div>
-
-<style>
-    .amor-amistad-banner {
-        background: linear-gradient(135deg, rgba(201, 160, 99, 0.15) 0%, rgba(18, 18, 18, 0.95) 100%);
-        border-top: 1px solid var(--border-color);
-        border-bottom: 1px solid var(--border-color);
-        padding: 1rem 1.5rem;
-        text-align: center;
-        position: relative;
-        z-index: 3;
-        margin-top: -3rem; /* Lo acerca sutilmente al título del catálogo */
-        margin-bottom: 3rem;
-    }
-
-    .banner-content {
-        max-width: 800px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.8rem;
-        font-size: 0.95rem;
-        color: var(--text-primary);
-        letter-spacing: 0.03em;
-    }
-
-    .banner-content strong {
-        color: var(--accent-gold);
-    }
-
-    .banner-icon {
-        font-size: 1.2rem;
-        filter: drop-shadow(0 0 5px rgba(255, 253, 253, 0.6));
-    }
-</style>
-<!-- FIN CÓDIGO DISCLAIMER -->
 
         <!-- Search Bar -->
         <div class="search-container">
@@ -1366,7 +1280,7 @@
                     <span class="stock-badge">
                         <span class="pulse-dot"></span> <span id="stock-val-12">1</span> Unidad Disponible
                     </span>
-                    <img src="images/Versace-Yellow-Diamond-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt=">VERSACE YELLOW DIAMOND" class="product-img">
+                    <img src="images/Versace-Yellow-Diamond-removebg-preview.png?auto=format&fit=crop&q=80&w=800" alt="VERSACE YELLOW DIAMOND" class="product-img">
                 </div>
                 <div class="product-body">
                     <span class="brand-name">VERSACE (MUJER)</span>
@@ -1390,7 +1304,7 @@
                 </div>
             </article>
 
-                      <!-- Card Producto  -->
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1479,7 +1393,8 @@
                     </button>
                 </div>
             </article>
-             <!-- Card Producto  -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1719,8 +1634,7 @@
                 </div>
             </article>
 
-          
-                    <!-- Card Producto -->
+            <!-- Card Producto -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1749,7 +1663,8 @@
                     </button>
                 </div>
             </article>
-             <!-- Card Producto  -->
+
+            <!-- Card Producto  -->
             <article class="product-card">
                 <div class="product-media">
                     <span class="stock-badge">
@@ -1778,233 +1693,164 @@
                     </button>
                 </div>
             </article>
-         
-          
-       </div>
+
+        </div>
     </section>
 
-    <!-- Carrito Panel Lateral / Modal -->
+    <!-- Modal Carrito Sidebar -->
     <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-    <div class="cart-modal" id="cartModal">
+    <aside class="cart-modal" id="cartModal">
         <div class="cart-modal-header">
-            <h3 class="cart-modal-title">Tu Carrito de Compras</h3>
-            <button type="button" class="cart-close-btn" onclick="toggleCart()">&times;</button>
+            <h3 class="cart-modal-title">Tu Carrito</h3>
+            <button class="cart-close-btn" onclick="toggleCart()">&times;</button>
         </div>
-        <div class="cart-modal-body" id="cartItemsContainer">
-            <p style="color: var(--text-muted); text-align: center; margin-top: 2rem;">Tu carrito está vacío.</p>
+        <div class="cart-modal-body" id="cartItems">
+            <!-- Ítems del carrito insertados vía JS -->
         </div>
         <div class="cart-modal-footer">
             <div class="cart-total">
                 <span>Total:</span>
-                <span id="cartTotalPrice">$0 COP</span>
+                <span id="cartTotal">$0 COP</span>
             </div>
-            <button type="button" class="btn-whatsapp-checkout" onclick="checkoutCartWhatsApp()">
-                <svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.237a9.96 9.96 0 0 0 4.779 1.217h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.038-5.176-2.925-7.062A9.92 9.92 0 0 0 12.012 2zm.003 18.257h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.741.83-3.057-.197-.314a8.28 8.28 0 0 1-1.272-4.306c.001-4.577 3.725-8.3 8.303-8.3 2.217 0 4.301.864 5.867 2.43 1.566 1.567 2.428 3.652 2.427 5.871-.001 4.578-3.725 8.302-8.301 8.302z"/></svg>
-                <span>Pedir todo por WhatsApp</span>
+            <button class="btn-whatsapp-checkout" onclick="checkoutWhatsApp()">
+                Finalizar Pedido vía WhatsApp
             </button>
         </div>
-    </div>
+    </aside>
 
     <!-- Footer -->
-    <footer class="site-footer" id="contacto">
+    <footer class="site-footer">
         <div class="footer-brand">BRAMY PARFUMS</div>
-        <p class="footer-copy">Especial Amor y Amistad &copy; 2026 BRAMY PARFUMS. Todos los derechos reservados.</p>
+        <p class="footer-copy">&copy; 2026 BRAMY PARFUMS. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Lógica de JavaScript -->
     <script>
-        const PHONE_NUMBER = "573122619908"; 
         let cart = [];
-
-        // Generador dinámico de corazones flotantes elegantes
-        function createFloatingHearts() {
-            const container = document.getElementById('heartsContainer');
-            if (!container) return;
-
-            const heartSymbol = '❤';
-            const numberOfHearts = 22; // Cantidad visible constante
-
-            for (let i = 0; i < numberOfHearts; i++) {
-                const heart = document.createElement('span');
-                heart.className = 'floating-heart';
-                heart.innerHTML = heartSymbol;
-                
-                const randomLeft = Math.random() * 100; // Posición horizontal aleatoria (%)
-                const randomSize = Math.floor(Math.random() * 16) + 16; // Tamaño entre 16px y 32px
-                const randomDuration = Math.random() * 7 + 7; // Duración entre 7s y 14s
-                const randomDelay = Math.random() * 8; // Retardo variable
-                const randomDrift = (Math.random() - 0.5) * 100; // Movimiento lateral suave
-
-                heart.style.left = randomLeft + '%';
-                heart.style.setProperty('--size', randomSize + 'px');
-                heart.style.setProperty('--duration', randomDuration + 's');
-                heart.style.setProperty('--drift', randomDrift + 'px');
-                heart.style.animationDelay = randomDelay + 's';
-
-                container.appendChild(heart);
-            }
-        }
-
-        // Mensajes dinámicos aleatorios de Amor y Amistad conectados a la perfumería
-        const heroMessages = [
-            "Sorprende a esa persona especial en Amor y Amistad con una fragancia que hable por tu corazón.",
-            "Un regalo inolvidable: el aroma perfecto para celebrar la complicidad y el amor verdadero.",
-            "Celebra el amor y la amistad obsequiando esencias exclusivas que dejan una huella imborrable.",
-            "Cada perfume guarda una emoción; encuentra el detalle ideal para regalar en esta fecha especial.",
-            "Fortalece los lazos de amistad y amor con los mejores aromas de alta perfumería."
-        ];
-
-        window.addEventListener('DOMContentLoaded', () => {
-            createFloatingHearts();
-
-            const randomIndex = Math.floor(Math.random() * heroMessages.length);
-            const descElement = document.getElementById('dynamicHeroDescription');
-            if (descElement) {
-                descElement.textContent = heroMessages[randomIndex];
-            }
-        });
 
         function updateQty(inputId, change) {
             const input = document.getElementById(inputId);
-            if (!input) return;
-            
-            let val = parseInt(input.value) || 1;
-            let min = parseInt(input.min) || 1;
-            let max = parseInt(input.max) || 99;
+            let currentVal = parseInt(input.value) || 1;
+            const min = parseInt(input.min) || 1;
+            const max = parseInt(input.max) || 99;
 
-            val += change;
-            if (val < min) val = min;
-            if (val > max) val = max;
-
-            input.value = val;
+            currentVal += change;
+            if (currentVal >= min && currentVal <= max) {
+                input.value = currentVal;
+            }
         }
 
-        function toggleCart() {
-            const modal = document.getElementById('cartModal');
-            const overlay = document.getElementById('cartOverlay');
-            modal.classList.toggle('open');
-            overlay.classList.toggle('open');
-        }
-
-        function addToCart(productName, qtyInputId, unitPrice) {
-            const input = document.getElementById(qtyInputId);
-            const qty = input ? parseInt(input.value) || 1 : 1;
+        function addToCart(productName, qtyInputId, price) {
+            const qtyInput = document.getElementById(qtyInputId);
+            const qty = parseInt(qtyInput.value) || 1;
 
             const existingIndex = cart.findIndex(item => item.name === productName);
             if (existingIndex > -1) {
                 cart[existingIndex].qty += qty;
             } else {
-                cart.push({ name: productName, qty: qty, price: unitPrice });
+                cart.push({ name: productName, price: price, qty: qty });
             }
 
-            updateCartUI();
-            toggleCart();
+            qtyInput.value = 1;
+            renderCart();
+            toggleCart(true);
         }
 
         function removeFromCart(index) {
             cart.splice(index, 1);
-            updateCartUI();
+            renderCart();
         }
 
-        function updateCartUI() {
-            const container = document.getElementById('cartItemsContainer');
-            const countBadge = document.getElementById('cartCount');
-            const totalElement = document.getElementById('cartTotalPrice');
+        function renderCart() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
 
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
             let totalCount = 0;
-            let totalPrice = 0;
 
             if (cart.length === 0) {
-                container.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin-top: 2rem;">Tu carrito está vacío.</p>';
-                countBadge.textContent = '0';
-                totalElement.textContent = '$0 COP';
-                return;
-            }
+                cartItemsContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin-top: 2rem;">El carrito está vacío.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    total += item.price * item.qty;
+                    totalCount += item.qty;
 
-            container.innerHTML = '';
-            cart.forEach((item, index) => {
-                totalCount += item.qty;
-                totalPrice += item.qty * item.price;
-
-                const formattedItemTotal = new Intl.NumberFormat('es-CO', {
-                    style: 'currency',
-                    currency: 'COP',
-                    maximumFractionDigits: 0
-                }).format(item.qty * item.price);
-
-                container.innerHTML += `
-                    <div class="cart-item">
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'cart-item';
+                    itemEl.innerHTML = `
                         <div class="cart-item-info">
                             <h4>${item.name}</h4>
-                            <p>Cant: ${item.qty} x $${item.price.toLocaleString('es-CO')} = ${formattedItemTotal}</p>
+                            <p>${item.qty} x $${item.price.toLocaleString('es-CO')} COP</p>
                         </div>
                         <div class="cart-item-actions">
-                            <button type="button" class="cart-item-remove" onclick="removeFromCart(${index})">Eliminar</button>
+                            <span style="font-weight: 600; color: var(--accent-gold);">$${(item.price * item.qty).toLocaleString('es-CO')}</span>
+                            <button class="cart-item-remove" onclick="removeFromCart(${index})">Eliminar</button>
                         </div>
-                    </div>
-                `;
-            });
-
-            countBadge.textContent = totalCount;
-            totalElement.textContent = new Intl.NumberFormat('es-CO', {
-                style: 'currency',
-                currency: 'COP',
-                maximumFractionDigits: 0
-            }).format(totalPrice);
-        }
-
-        function checkoutCartWhatsApp() {
-            if (cart.length === 0) {
-                alert('Tu carrito está vacío.');
-                return;
+                    `;
+                    cartItemsContainer.appendChild(itemEl);
+                });
             }
 
-            let totalPrice = 0;
-            let message = `Hola BRAMY PARFUMS, deseo hacer un regalo para esta temporada de Amor y Amistad con el siguiente pedido:\n\n`;
+            cartCount.textContent = totalCount;
+            cartTotal.textContent = `$${total.toLocaleString('es-CO')} COP`;
+        }
 
-            cart.forEach((item, index) => {
-                const subtotal = item.qty * item.price;
-                totalPrice += subtotal;
-                message += `${index + 1}. *${item.name}* (Cant: ${item.qty}) - $${subtotal.toLocaleString('es-CO')} COP\n`;
-            });
-
-            const formattedTotal = new Intl.NumberFormat('es-CO', {
-                style: 'currency',
-                currency: 'COP',
-                maximumFractionDigits: 0
-            }).format(totalPrice);
-
-            message += `\n• *Total General:* ${formattedTotal}\n\nQuedo atento para coordinar el detalle de Amor y Amistad y el envío.`;
-
-            const url = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
+        function toggleCart(forceOpen = false) {
+            const modal = document.getElementById('cartModal');
+            const overlay = document.getElementById('cartOverlay');
+            if (forceOpen) {
+                modal.classList.add('open');
+                overlay.classList.add('open');
+            } else {
+                modal.classList.toggle('open');
+                overlay.classList.toggle('open');
+            }
         }
 
         function filterProducts() {
-            const query = document.getElementById('productSearch').value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.product-card');
-            const noResults = document.getElementById('noResults');
-            let visibleCount = 0;
+            const input = document.getElementById('productSearch');
+            const filter = input.value.toUpperCase();
+            const grid = document.getElementById('productGrid');
+            const cards = grid.getElementsByClassName('product-card');
+            let hasResults = false;
 
-            cards.forEach(card => {
-                const title = card.querySelector('.product-title').textContent.toLowerCase();
-                const brand = card.querySelector('.brand-name').textContent.toLowerCase();
+            for (let i = 0; i < cards.length; i++) {
+                const title = cards[i].querySelector('.product-title');
+                const brand = cards[i].querySelector('.brand-name');
+                const txtValue = (title ? title.textContent : '') + ' ' + (brand ? brand.textContent : '');
 
-                if (title.includes(query) || brand.includes(query)) {
-                    card.classList.remove('hidden');
-                    visibleCount++;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    cards[i].classList.remove('hidden');
+                    hasResults = true;
                 } else {
-                    card.classList.add('hidden');
+                    cards[i].classList.add('hidden');
                 }
+            }
+
+            document.getElementById('noResults').style.display = hasResults ? 'none' : 'block';
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío');
+                return;
+            }
+
+            let text = '¡Hola! Quisiera realizar el siguiente pedido en BRAMY PARFUMS:\n\n';
+            let total = 0;
+
+            cart.forEach(item => {
+                const subtotal = item.price * item.qty;
+                total += subtotal;
+                text += `• *${item.name}* (x${item.qty}) - $${subtotal.toLocaleString('es-CO')} COP\n`;
             });
 
-            if (visibleCount === 0) {
-                noResults.style.display = 'block';
-            } else {
-                noResults.style.display = 'none';
-            }
+            text += `\n*Total a pagar:* $${total.toLocaleString('es-CO')} COP\n\n¿Me indican por favor los pasos a seguir para completar la compra?`;
+
+            const encodedText = encodeURIComponent(text);
+            window.open(`https://wa.me/?text=${encodedText}`, '_blank');
         }
-        
     </script>
 </body>
 </html>
